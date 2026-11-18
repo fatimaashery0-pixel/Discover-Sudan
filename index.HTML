@@ -11,31 +11,31 @@
 <style>
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('fonts/Lyon Arabic Display Light.ttf') format('truetype');
+  src: url('Fonts/Lyon_Arabic_Display_Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('fonts/Lyon Arabic Display Regular.ttf') format('truetype');
+  src: url('Fonts/Lyon_Arabic_Display_Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('fonts/Lyon Arabic Display Medium.ttf') format('truetype');
+  src: url('Fonts/Lyon_Arabic_Display_Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('fonts/Lyon Arabic Display Bold.ttf') format('truetype');
+  src: url('Fonts/Lyon_Arabic_Display_Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('fonts/Lyon Arabic Display Black.ttf') format('truetype');
+  src: url('Fonts/Lyon_Arabic_Display_Black.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
 }
@@ -1063,7 +1063,7 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
         <article class="h-card" data-category="customs">
           <div class="h-img-box">
             <span class="h-badge">العادات والتقاليد</span>
-            <img src="Images/Kham_ramad.jpeg" alt="خم الرماد السوداني" onerror="this.src='Images/kham_ramad.jpg'">
+            <img src="Images/Kham_ramad.jpeg" alt="خم الرماد السوداني" onerror="this.src='Images/Kham_ramad.jpeg'">
           </div>
           <div class="h-body">
             <h3>خَمّ الرَّمَاد (Kham Al-Ramad)</h3>
@@ -1128,7 +1128,7 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
         <article class="h-card" data-category="products">
           <div class="h-img-box">
             <span class="h-badge">المنتجات السودانية</span>
-            <img src="Images/laloap.jpeg" alt="ثمار اللالوب" onerror="if(!this.dataset.t){this.dataset.t='1';this.src='Images/laloap.jpeg';}else if(this.dataset.t==='1'){this.dataset.t='2';this.src='Images/Laloap.jpeg';}else if(this.dataset.t==='2'){this.dataset.t='3';this.src='Images/Laloap.jpeg';}">
+            <img src="Images/laloap.jpeg" alt="ثمار اللالوب" onerror="if(!this.dataset.t){this.dataset.t='1';this.src='Images/laloap.jpeg';}else if(this.dataset.t==='1'){this.dataset.t='2';this.src='Images/laloap.jpeg';}else if(this.dataset.t==='2'){this.dataset.t='3';this.src='Images/laloap.jpeg';}">
           </div>
           <div class="h-body">
             <h3>اللاَّلُوب (بلح الصحراء)</h3>
@@ -1200,7 +1200,7 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
       </div>
     </div>
     <div class="vote-qr-mini" id="openVoteModalBtn2" title="اضغط لعرض الباركود بالحجم الكامل">
-      <img src="Images/vote for sudan.jpeg" alt="باركود التصويت" onerror="this.src='vote for sudan.jpeg'">
+      <img src="Images/vote_for_sudan.jpeg" alt="باركود التصويت" onerror="this.src='Images/vote_for_sudan.jpeg'">
     </div>
   </div>
 
@@ -1250,7 +1250,7 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
   <h2 style="color:var(--burgundy); margin-top:0;">تصويت الجمهور — أفضل جناح ثقافي</h2>
   <p class="empty">امسح الرمز بكاميرا الهاتف أو استخدم الرابط أدناه للتصويت لجناح السودان.</p>
   <div class="qrbox">
-    <img src="Images/vote for sudan.jpeg" alt="باركود التصويت للسودان" style="width:220px; height:220px; display:block;" onerror="this.src='vote for sudan.jpeg'">
+    <img src="Images/vote_for_sudan.jpeg" alt="باركود التصويت للسودان" style="width:220px; height:220px; display:block;" onerror="this.src='Images/vote_for_sudan.jpeg'">
   </div>
   <div style="margin-top:14px; text-align:center;">
     <a class="btn primary" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="text-decoration:none; display:inline-block;">🔗 فتح رابط التصويت المباشر</a>
@@ -1307,111 +1307,111 @@ const STATES={
 
 const DEFAULT_MEDIA = {
   "sd-no": {
-    bg: "Images/States/Northern state wallper.jpeg",
+    bg: "Images/States/Northern_state_1.jpeg",
     photos: [
       { src: "Images/States/Northern_state_Jabal_albarkal.jpeg", cap: "جبل البركل التاريخي ومعبد آمون في كريمة" },
-      { src: "Images/States/Northen state aldafofa.jpeg", cap: "الدفوفة الغربية — آثار حضارة كرمة العريقة" },
-      { src: "Images/States/Northern state al kasenger islands .jpeg", cap: "جزر الكاسنجر النيلية والطبيعة الخلابة" },
-      { src: "Images/States/Northern state fourth water fal.jpeg", cap: "منطقة الشلال الرابع على مجرى نهر النيل" },
-      { src: "Images/States/Northern state wallper.jpeg", cap: "بساتين النخيل وضفاف النيل في الولاية الشمالية" },
-      { src: "Images/States/Northern state.jpeg", cap: "مشهد طبيعي لنهر النيل في الشمالية" }
+      { src: "Images/States/Northen_state_aldafofa.jpeg", cap: "الدفوفة الغربية — آثار حضارة كرمة العريقة" },
+      { src: "Images/States/Northern_state_al_kasenger_islands.jpeg", cap: "جزر الكاسنجر النيلية والطبيعة الخلابة" },
+      { src: "Images/States/Northern_state_fourth_waterfal.jpeg", cap: "منطقة الشلال الرابع على مجرى نهر النيل" },
+      { src: "Images/States/Northern_state_1.jpeg", cap: "بساتين النخيل وضفاف النيل في الولاية الشمالية" },
+      { src: "Images/States/Northern_state_2.jpeg", cap: "مشهد طبيعي لنهر النيل في الشمالية" }
     ]
   },
   "sd-rn": {
-    bg: "Images/States/Northern state al bajrawya .jpeg",
+    bg: "Images/States/Northern_state_al_bajrawya.jpeg",
     photos: [
-      { src: "Images/States/Northern state al bajrawya .jpeg", cap: "أهرامات البجراوية الملكية — عاصمة مملكة مروي" },
-      { src: "Images/States/Al bajrawya desert.jpg", cap: "صحراء البجراوية وأهرامات مروي التاريخية" },
-      { src: "Images/States/Albajrawya door.jpg", cap: "تفاصيل المعماريات والنقوش في البجراوية" },
-      { src: "Images/States/Atbara Nile.webp", cap: "ملتقى نهر عطبرة بنهر النيل" },
-      { src: "Images/States/River Nile state.jpeg", cap: "ضفاف النيل والطبيعة في ولاية نهر النيل" }
+      { src: "Images/States/Northern_state_al_bajrawya.jpeg", cap: "أهرامات البجراوية الملكية — عاصمة مملكة مروي" },
+      { src: "Images/States/Al_bajrawya_desert.jpg", cap: "صحراء البجراوية وأهرامات مروي التاريخية" },
+      { src: "Images/States/Albajrawya_door.jpg", cap: "تفاصيل المعماريات والنقوش في البجراوية" },
+      { src: "Images/States/Atbara_Nile.webp", cap: "ملتقى نهر عطبرة بنهر النيل" },
+      { src: "Images/States/RiverNile_state.jpeg", cap: "ضفاف النيل والطبيعة في ولاية نهر النيل" }
     ]
   },
   "sd-rs": {
-    bg: "Images/States/Sudan, Sanganeb Coral Island sd.jpg",
+    bg: "Images/States/Sudan_Sanganeb_Coral_Island.jpg",
     photos: [
-      { src: "Images/States/Sudan, Sanganeb Coral Island.jpg", cap: "منارة وشعاب جزيرة سنقنيب المرجانية بالبحر الأحمر" },
-      { src: "Images/States/Sanganeeb Island.webp", cap: "محمية جزيرة سنقنيب البحرية" },
-      { src: "Images/States/Port sudan port.webp", cap: "ميناء بورتسودان — البوابة البحرية الرئيسية للسودان" },
+      { src: "Images/States/Sudan_Sanganeb_Coral_Island.jpg", cap: "منارة وشعاب جزيرة سنقنيب المرجانية بالبحر الأحمر" },
+      { src: "Images/States/Sanganeeb_Island.webp", cap: "محمية جزيرة سنقنيب البحرية" },
+      { src: "Images/States/Port_sudan_port.webp", cap: "ميناء بورتسودان — البوابة البحرية الرئيسية للسودان" },
       { src: "Images/States/Portsudan.webp", cap: "إطلالة ساحلية على مدينة بورتسودان" }
     ]
   },
   "sd-ka": {
-    bg: "Images/States/Totel Mountains.webp",
+    bg: "Images/States/Totel_Mountains.webp",
     photos: [
-      { src: "Images/States/Totel Mountains.webp", cap: "سلسلة جبال التاكا وتوتيل في كسلا" },
-      { src: "Images/States/Totel Mountain.webp", cap: "جبل توتيل الشامخ وبساتين كسلا" },
+      { src: "Images/States/Totel_Mountains.webp", cap: "سلسلة جبال التاكا وتوتيل في كسلا" },
+      { src: "Images/States/Totel_Mountain.webp", cap: "جبل توتيل الشامخ وبساتين كسلا" },
       { src: "Images/States/Kassla_Mosque_and_Taka_Mountains.jpg", cap: "مسجد الختمية التاريخي عند سفح جبال التاكا" }
     ]
   },
   "sd-gd": {
-    bg: "Images/States/Al gadaref.webp",
+    bg: "Images/States/Al_gadaref.webp",
     photos: [
-      { src: "Images/States/Al gadaref.webp", cap: "غروب الشمس فوق سهول ولاية القضارف" },
-      { src: "Images/States/Al gadaref city.webp", cap: "إطلالة على مدينة القضارف" },
-      { src: "Images/States/Al gadaref state.webp", cap: "الطبيعة والسهول الزراعية في القضارف" }
+      { src: "Images/States/Al_gadaref.webp", cap: "غروب الشمس فوق سهول ولاية القضارف" },
+      { src: "Images/States/Al_gadaref_city.webp", cap: "إطلالة على مدينة القضارف" },
+      { src: "Images/States/Al_gadaref_state.webp", cap: "الطبيعة والسهول الزراعية في القضارف" }
     ]
   },
   "sd-kh": {
-    bg: "Images/States/Khartoum, Sudan.jpg",
+    bg: "Images/States/Khartoum_Sudan.jpg",
     photos: [
-      { src: "Images/States/Khartoum, Sudan.jpg", cap: "المقرن — ملتقى النيلين الأبيض والأزرق في الخرطوم" },
+      { src: "Images/States/Khartoum_Sudan.jpg", cap: "المقرن — ملتقى النيلين الأبيض والأزرق في الخرطوم" },
       { src: "Images/States/Khartoum.jpg", cap: "إطلالة جوية على العاصمة الخرطوم وضفاف النيل" },
-      { src: "Images/States/Khartoum state  jabal awilya.jpg", cap: "خزان جبل أولياء على النيل الأبيض جنوب الخرطوم" },
-      { src: "Images/States/Khartoum state south jabal awilya.jpg", cap: "ضفاف النيل جنوب جبل أولياء" },
-      { src: "Images/States/market Khartoum.jpg", cap: "الأسواق التراثية والحرف اليدوية في الخرطوم وأم درمان" },
-      { src: "Images/States/Golden Sun, Khartoum.jpg", cap: "غروب الشمس الذهبي على نيل الخرطوم" },
-      { src: "Images/States/Khhartoum University.jpg", cap: "جامعة الخرطوم العريقة — منارة التعليم" }
+      { src: "Images/States/Khartoum_state_jabal_awilya.jpg", cap: "خزان جبل أولياء على النيل الأبيض جنوب الخرطوم" },
+      { src: "Images/States/Khartoum_state_south_jabal_awilya.jpg", cap: "ضفاف النيل جنوب جبل أولياء" },
+      { src: "Images/States/market_Khartoum.jpg", cap: "الأسواق التراثية والحرف اليدوية في الخرطوم وأم درمان" },
+      { src: "Images/States/Golden_Sun_Khartoum.jpg", cap: "غروب الشمس الذهبي على نيل الخرطوم" },
+      { src: "Images/States/Khhartoum_University.jpg", cap: "جامعة الخرطوم العريقة — منارة التعليم" }
     ]
   },
   "sd-gz": {
-    bg: "Images/States/AL jazira Scheme.webp",
+    bg: "Images/States/AL_jazira_Scheme.webp",
     photos: [
-      { src: "Images/States/AL jazira Scheme.webp", cap: "قنوات الري والحقول الخضراء في مشروع الجزيرة" },
-      { src: "Images/States/Um sannad village aljazira state.jpg", cap: "قرية أم سناد الريفية في ولاية الجزيرة" }
+      { src: "Images/States/AL_jazira_Scheme.webp", cap: "قنوات الري والحقول الخضراء في مشروع الجزيرة" },
+      { src: "Images/States/Um_sannad_village_aljazira_state.jpg", cap: "قرية أم سناد الريفية في ولاية الجزيرة" }
     ]
   },
   "sd-si": {
-    bg: "Images/States/Sennar Dam.webp",
+    bg: "Images/States/Sennar_Dam.webp",
     photos: [
-      { src: "Images/States/Sennar Dam.webp", cap: "خزان سنار التاريخي على مجرى النيل الأزرق" },
-      { src: "Images/States/sennar dam.jpg", cap: "الطبيعة الخضراء حول خزان سنار" },
-      { src: "Images/States/shabasha White Nile state.jpeg", cap: "منطقة سنار والضفاف النيلية" },
-      { src: "Images/States/mahmeyat al dinder.webp", cap: "طيور البجع واللقالق تحلق وتسبح عند غروب الشمس في محمية حظيرة الدندر" },
-      { src: "Images/States/mahmiyat al dinder.webp", cap: "قطعان الغزلان والحيوانات البرية على ضفاف المياه في محمية حظيرة الدندر" }
+      { src: "Images/States/Sennar_Dam.webp", cap: "خزان سنار التاريخي على مجرى النيل الأزرق" },
+      { src: "Images/States/Sennar_Dam.webp", cap: "الطبيعة الخضراء حول خزان سنار" },
+      { src: "Images/States/shabasha_White_Nile_state.jpeg", cap: "منطقة سنار والضفاف النيلية" },
+      { src: "Images/States/mahmeyat_al_dinder.webp", cap: "طيور البجع واللقالق تحلق وتسبح عند غروب الشمس في محمية حظيرة الدندر" },
+      { src: "Images/States/mahmiyat_al_dinder.webp", cap: "قطعان الغزلان والحيوانات البرية على ضفاف المياه في محمية حظيرة الدندر" }
     ]
   },
   "sd-bn": {
-    bg: "Images/States/sad al rosers.webp",
+    bg: "Images/States/sad_al_rosers.webp",
     photos: [
-      { src: "Images/States/sad al rosers.webp", cap: "خزان الروصيرص في الدمازين — ولاية النيل الأزرق" },
-      { src: "Images/States/Blue Nile state Baw River.jpg", cap: "نهر باو والطبيعة الاستوائية في النيل الأزرق" },
-      { src: "Images/States/Blue Nile.jpg", cap: "ملامح من الطبيعة الجبلية في ولاية النيل الأزرق" }
+      { src: "Images/States/sad_al_rosers.webp", cap: "خزان الروصيرص في الدمازين — ولاية النيل الأزرق" },
+      { src: "Images/States/Blue_Nile_state_Baw_River.jpg", cap: "نهر باو والطبيعة الاستوائية في النيل الأزرق" },
+      { src: "Images/States/Blue_Nile.jpg", cap: "ملامح من الطبيعة الجبلية في ولاية النيل الأزرق" }
     ]
   },
   "sd-wn": {
-    bg: "Images/States/White Nile State Sunset.jpg",
+    bg: "Images/States/White_Nile_State_Sunset.jpg",
     photos: [
-      { src: "Images/States/White Nile State Sunset.jpg", cap: "غروب الشمس الساحر على ضفاف النيل الأبيض" },
+      { src: "Images/States/White_Nile_State_Sunset.jpg", cap: "غروب الشمس الساحر على ضفاف النيل الأبيض" },
       { src: "Images/States/Kosti.webp", cap: "معالم مدينة كوستي بولاية النيل الأبيض" },
-      { src: "Images/States/White_Nile,_Koste_01.jpg", cap: "إطلالة على مدينة كوستي والنيل الأبيض" }
+      { src: "Images/States/White_Nile_Koste_01.jpg", cap: "إطلالة على مدينة كوستي والنيل الأبيض" }
     ]
   },
   "sd-kn": {
-    bg: "Images/States/North kordfan.jpg",
+    bg: "Images/States/North_kordfan.jpg",
     photos: [
-      { src: "Images/States/North kordfan.jpg", cap: "طبيعة السافانا والرمال في ولاية شمال كردفان" },
-      { src: "Images/States/North Kordfan Dair_Mountain_1.jpg", cap: "جبل الداير الشامخ في كردفان" }
+      { src: "Images/States/North_kordfan.jpg", cap: "طبيعة السافانا والرمال في ولاية شمال كردفان" },
+      { src: "Images/States/North_Kordfan_Dair_Mountain_1.jpg", cap: "جبل الداير الشامخ في كردفان" }
     ]
   },
   "sd-wk": {
-    bg: "Images/States/West kordfan.webp",
+    bg: "Images/States/West_kordfan.webp",
     photos: [
-      { src: "Images/States/Al fola city.webp", cap: "مدينة الفولة — حاضرة ولاية غرب كردفان" },
-      { src: "Images/States/West kordfan.webp", cap: "سهول ومراعي ولاية غرب كردفان" },
-      { src: "Images/States/Natural at West Kordfan.webp", cap: "الطبيعة الخضراء في غرب كردفان" },
-      { src: "Images/States/West kordfan Sheeps in al nakhawi.jpg", cap: "الثروة الحيوانية والمراعي في غرب كردفان" },
-      { src: "Images/States/West Kordfan al baobao tree.jpg", cap: "أشجار التبلدي في غرب كردفان" }
+      { src: "Images/States/Al_fola_city.webp", cap: "مدينة الفولة — حاضرة ولاية غرب كردفان" },
+      { src: "Images/States/West_kordfan.webp", cap: "سهول ومراعي ولاية غرب كردفان" },
+      { src: "Images/States/Natural_at_West_Kordfan.webp", cap: "الطبيعة الخضراء في غرب كردفان" },
+      { src: "Images/States/West_kordfan_Sheeps_in_al_nakhawi.jpg", cap: "الثروة الحيوانية والمراعي في غرب كردفان" },
+      { src: "Images/States/West_Kordfan_al_baobao_tree.jpg", cap: "أشجار التبلدي في غرب كردفان" }
     ]
   },
   "sd-ks": {
@@ -1421,38 +1421,38 @@ const DEFAULT_MEDIA = {
     ]
   },
   "sd-nd": {
-    bg: "Images/States/North Darfur state Alfashir.jpeg",
+    bg: "Images/States/North_Darfur_state_Alfashir.jpeg",
     photos: [
-      { src: "Images/States/North Darfur state Alfashir.jpeg", cap: "مدينة الفاشر — حاضرة ولاية شمال دارفور" }
+      { src: "Images/States/North_Darfur_state_Alfashir.jpeg", cap: "مدينة الفاشر — حاضرة ولاية شمال دارفور" }
     ]
   },
   "sd-wd": {
-    bg: "Images/States/West Darfur state.webp",
+    bg: "Images/States/West_Darfur_state.webp",
     photos: [
-      { src: "Images/States/West Darfur state.webp", cap: "الطبيعة والوديان في ولاية غرب دارفور" },
-      { src: "Images/States/West Darfur.webp", cap: "مناظر من ولاية غرب دارفور" }
+      { src: "Images/States/West_Darfur_state.webp", cap: "الطبيعة والوديان في ولاية غرب دارفور" },
+      { src: "Images/States/West_Darfur.webp", cap: "مناظر من ولاية غرب دارفور" }
     ]
   },
   "sd-7281": {
-    bg: "Images/States/Jabal marrah waterfall .jpeg",
+    bg: "Images/States/Jabal_marrah_waterfall.jpeg",
     photos: [
-      { src: "Images/States/Jabal marrah waterfall .jpeg", cap: "شلالات جبل مرة العذبة في ولاية وسط دارفور" },
-      { src: "Images/States/Bohyrat Doryba ALborkanya.webp", cap: "بحيرة دريبة البركانية فوق قمة جبل مرة" },
-      { src: "Images/States/Galol Waterfall Mid Darfur.webp", cap: "شلالات قلول الساحرة في وسط دارفور" }
+      { src: "Images/States/Jabal_marrah_waterfall.jpeg", cap: "شلالات جبل مرة العذبة في ولاية وسط دارفور" },
+      { src: "Images/States/Bohyrat_Doryba_ALborkanya.webp", cap: "بحيرة دريبة البركانية فوق قمة جبل مرة" },
+      { src: "Images/States/Galol_Waterfall_Mid_Darfur.webp", cap: "شلالات قلول الساحرة في وسط دارفور" }
     ]
   },
   "sd-711": {
-    bg: "Images/States/Nyala city.webp",
+    bg: "Images/States/Nyala_city.webp",
     photos: [
-      { src: "Images/States/South Darfour state Nyala.jpeg", cap: "الطبيعة والوديان الخضراء في جنوب دارفور" },
-      { src: "Images/States/Mahmyat al radoum south darfur.webp", cap: "محمية حظيرة الردوم القومية في جنوب دارفور" },
+      { src: "Images/States/South_Darfour_state_Nyala.jpeg", cap: "الطبيعة والوديان الخضراء في جنوب دارفور" },
+      { src: "Images/States/Mahmyat_al_radoum_south_darfur.webp", cap: "محمية حظيرة الردوم القومية في جنوب دارفور" },
       { src: "Images/States/Nyala.jpg", cap: "معالم مدينة نيالا" }
     ]
   },
   "sd-sd": {
-    bg: "Images/States/East Darfur.webp",
+    bg: "Images/States/East_Darfur.webp",
     photos: [
-      { src: "Images/States/East Darfur.webp", cap: "مشهد من ولاية شرق دارفور" }
+      { src: "Images/States/East_Darfur.webp", cap: "مشهد من ولاية شرق دارفور" }
     ]
   }
 };
