@@ -11,35 +11,31 @@
 <style>
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('Fonts/Lyon_Arabic_Display_Light.ttf') format('truetype');
+  src: url('fonts/Lyon Arabic Display Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('Fonts/Lyon_Arabic_Display_Regular.ttf') format('truetype');
+  src: url('fonts/Lyon Arabic Display Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('Fonts/Lyon_Arabic_Display_Medium.ttf') format('truetype');
+  src: url('fonts/Lyon Arabic Display Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('Fonts/Lyon_Arabic_Display_Bold.ttf') format('truetype');
+  src: url('fonts/Lyon Arabic Display Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'CustomSudanFont';
-  src: url('Fonts/Lyon_Arabic_Display_Black.ttf') format('truetype');
+  src: url('fonts/Lyon Arabic Display Black.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
 }
@@ -660,7 +656,6 @@ ul.res li::before {
   padding: 4px 12px;
   border-radius: 999px;
 }
-[dir="ltr"] .h-badge { right: auto; left: 12px; }
 .h-body { padding: 22px 26px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
 .h-body h3 { margin: 0 0 4px; font-size: 1.38rem; font-weight: 800; color: var(--burgundy); }
 .h-sub { font-size: .88rem; color: var(--terracotta); font-weight: 700; margin-bottom: 12px; }
@@ -706,7 +701,7 @@ ul.res li::before {
   background: rgba(232, 210, 174, 0.14);
   color: var(--sand);
   border: 1px solid var(--gold);
-  border-inline-start: 4px solid var(--gold);
+  border-right: 4px solid var(--gold);
   padding: 18px 22px;
   border-radius: 16px;
   font-size: 1.12rem;
@@ -870,7 +865,7 @@ ul.res li::before {
 .react-btn:hover { border-color: var(--burgundy); }
 .react-btn.voted-like { background: var(--burgundy); border-color: var(--gold); color: var(--ivory); }
 .react-btn.voted-dislike { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
-.lens-card .del { position: absolute; top: 8px; inset-inline-end: 8px; border: 0; border-radius: 999px; width: 26px; height: 26px; background: rgba(118,45,50,.85); color: var(--ivory); cursor: pointer; }
+.lens-card .del { position: absolute; top: 8px; left: 8px; border: 0; border-radius: 999px; width: 26px; height: 26px; background: rgba(118,45,50,.85); color: var(--ivory); cursor: pointer; }
 
 footer.royal-footer {
   margin-top: 54px;
@@ -900,7 +895,6 @@ dialog.lb p { margin: 10px 4px 0; text-align: center; font-weight: 700; color: v
 .qrurl { width: 100%; border: 1px solid var(--border-gold); background: #fff; color: var(--ink); border-radius: 10px; padding: 8px 12px; direction: ltr; font-size: .85rem; }
 .row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 14px; }
 dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; cursor: pointer; line-height: 1; color: var(--burgundy); }
-[dir="ltr"] dialog .x { float: right; }
 [hidden] { display: none !important; }
 
 @media (max-width:860px){
@@ -968,10 +962,10 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
     <div class="tools">
       <input id="q" type="search" placeholder="ابحث عن ولاية، حضارة، أو معلم…" autocomplete="off">
       <button class="btn" id="langBtn" type="button">EN</button>
-      <a class="btn primary" id="topVoteBtn" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="background:var(--gold); color:var(--ink); text-decoration:none;">⭐ تصويت للسودان</a>
+      <a class="btn primary" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="background:var(--gold); color:var(--ink); text-decoration:none;">⭐ تصويت للسودان</a>
       <button class="btn primary" id="qrBtn" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"></path></svg>
-        <span id="qrBtnText">رمز QR</span>
+        رمز QR
       </button>
     </div>
   </div>
@@ -981,7 +975,7 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
   <!-- 2. الخريطة الجغرافية -->
   <div class="sec-heading">
     <span class="sec-kicker">INTERACTIVE CARTOGRAPHY • الخريطة الجغرافية</span>
-    <h2 id="mapSecTitle">خريطة ولايات السودان التفاعلية</h2>
+    <h2>خريطة ولايات السودان التفاعلية</h2>
   </div>
 
   <div class="layout">
@@ -1017,20 +1011,152 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
     <button class="heritage-toggle-bar" type="button" id="heritageToggle" aria-expanded="false">
       <div>
         <span class="sec-kicker" style="margin-bottom:2px;">SUDANESE HERITAGE • التراث السوداني</span>
-        <h2 id="herTitle">العادات والتقاليد والمنتجات السودانية الأصيلة</h2>
-        <p id="herSub">اضغط لفتح واستعراض الموروث الاجتماعي والطقوس الملكية والخيرات الطبيعية السودانية.</p>
+        <h2>العادات والتقاليد والمنتجات السودانية الأصيلة</h2>
+        <p>اضغط لفتح واستعراض الموروث الاجتماعي والطقوس الملكية والخيرات الطبيعية السودانية.</p>
       </div>
       <span class="toggle-arrow" aria-hidden="true">▼</span>
     </button>
 
     <div class="heritage-body">
       <div class="cat-tabs" id="catTabs">
-        <button class="cat-tab active" type="button" data-cat="all" id="tabAll">الكل (٨)</button>
-        <button class="cat-tab" type="button" data-cat="customs" id="tabCustoms">العادات والتقاليد</button>
-        <button class="cat-tab" type="button" data-cat="products" id="tabProducts">المنتجات السودانية</button>
+        <button class="cat-tab active" type="button" data-cat="all">الكل (٨)</button>
+        <button class="cat-tab" type="button" data-cat="customs">العادات والتقاليد</button>
+        <button class="cat-tab" type="button" data-cat="products">المنتجات السودانية</button>
       </div>
 
-      <div class="heritage-list" id="heritageList"></div>
+      <div class="heritage-list" id="heritageList">
+
+        <!-- 1. الحلو مر -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/abre.jpg" alt="الحلو مر السوداني والآبري">
+          </div>
+          <div class="h-body">
+            <h3>الحلو مُر (الآبْرِي) — أيقونة رمضان في السودان</h3>
+            <div class="h-sub">علاقة وطيدة بشهر الصيام وطقوس الاستقبال</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>علاقته الوطيدة برمضان:</b> يرتبط «الحلو مر» ارتباطاً روحياً واجتماعياً وثيقاً بشهر رمضان المبارك؛ إذ تبدأ الأسر السودانية في إعداده قبل رمضان بأسابيع في أجواء احتفالية تتعاون فيها نساء الحي («العواسة»)، ويُعد وجوده على مائدة الإفطار ركناً أساسياً لا غنى عنه، كما يُرسل كهدايا للأهل والمغتربين في الخارج ليشعروا بروح الوطن في الشهر الفضيل.</div>
+              <div class="h-item"><b>طريقة الصنع والفوائد:</b> يُصنع بإنبات الذرة وتجفيفها وطحنها وعجنها بمستخلصات التوابل (القرفة، الزنجبيل، الهيل، الكركدي، والتمر الهندي) وخبزها كرقائق رقيقة تُنقع في الماء البارد. يروي العطش لساعات طويلة، يمد الجسم بطاقة فورية، ويريح المعدة بعد الصيام.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. طقس الجرتق -->
+        <article class="h-card" data-category="customs">
+          <div class="h-img-box">
+            <span class="h-badge">العادات والتقاليد</span>
+            <img src="Images/jirtiq.jpg" alt="طقس الجرتق السوداني">
+          </div>
+          <div class="h-body">
+            <h3>طقس الجِرْتِق (The Jirtiq Ritual)</h3>
+            <div class="h-sub">مراسم الزواج الملكية الممتدة من حضارة كوش</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>تفاصيل الطقس:</b> جلسة احتفالية مقدسة يجلس فيها العروسان بالزي القرمزي التقليدي على سرير «العنقريب» المفروش بالحرير الأحمر. يُزيّن العروسان بالسوار الأحمر والخرزة الزرقاء و«الفريرة»، وسط عبق بخور الصندل، ويؤديان طقس «بخ اللبن» تيمناً بحياة زوجية نقية وبيضاء يسودها الصفاء.</div>
+              <div class="h-item"><b>الدلالة التاريخية:</b> يُعد الجرتق إرثاً حياً من طقوس تتويج الملوك في مملكة كوش ومروي القديمة، وحافظت عليه الأسر السودانية كرمز للفرح والبركة والحماية.</div>
+            </div>
+            <span class="h-source">المصدر: د. يوسف فضل حسن (دراسات في تاريخ وإثنوغرافيا السودان) / د. أحمد المعتصم الشيخ.</span>
+          </div>
+        </article>
+
+        <!-- 3. خم الرماد -->
+        <article class="h-card" data-category="customs">
+          <div class="h-img-box">
+            <span class="h-badge">العادات والتقاليد</span>
+            <img src="Images/Kham_ramad.jpeg" alt="خم الرماد السوداني" onerror="this.src='Images/kham_ramad.jpg'">
+          </div>
+          <div class="h-body">
+            <h3>خَمّ الرَّمَاد (Kham Al-Ramad)</h3>
+            <div class="h-sub">تصفية القلوب والولائم الجماعية قبيل الصيام</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>طبيعة العادة:</b> تقليد اجتماعي مبهج يُقام في الأيام الأخيرة من شهر شعبان؛ تجتمع فيه الصديقات والعائلات والجيران حول «صينية» الطعام في نزهات ولقاءات دافئة لتناول الأكلات المفضلة وتبادل العفو والتهاني بقدوم الشهر الفضيل.</div>
+              <div class="h-item"><b>المعنى الرمزي:</b> يُسمى «خم الرماد» كناية عن كنس وإزالة رماد المواقد القديمة وتصفية النفوس من أي خلافات، استعداداً لاستقبال رمضان بقلوب صافية وبيوت عامرة.</div>
+            </div>
+            <span class="h-source">المصدر: د. عون الشريف قاسم (قاموس اللهجة والعاميات السودانية).</span>
+          </div>
+        </article>
+
+        <!-- 4. الكركدي -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/Karkady.jpeg" alt="الكركدي السوداني">
+          </div>
+          <div class="h-body">
+            <h3>الكَرْكَدَيْ (Hibiscus)</h3>
+            <div class="h-sub">شجيرة الكركديه (Hibiscus sabdariffa) — كردفان ودارفور</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والاستخدام:</b> تُحصد السبلات الزهرية العنابية وتجفف تحت أشعة الشمس الجافة طبيعياً. يُعد السودان المصدر الأول لأجود أنواعه عالمياً، ويُقدم بارداً كمشروب ضيافة منعش أو ساخناً.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> يخفض ضغط الدم المرتفع عند شربه بارداً، غني بفيتامين C ومضادات الأكسدة، ويعزز صحة القلب والمناعة.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. القونقليز (التبلدي) -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/Tabaldey.jpeg" alt="القونقليز والتبلدي">
+          </div>
+          <div class="h-body">
+            <h3>القَوْنْقَلِيز (ثمار شجرة التِّبِلْدِي)</h3>
+            <div class="h-sub">شجرة الباوباب المعمرة (Adansonia digitata) — حزام السافانا</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والاستخدام والتصنيع:</b> تُكسر ثمار التبلدي الخشبية لاستخراج لبّها الأبيض الغني؛ حيث يُذاب كعصير فاخر، أو يُسحق ويُخلط بالسكر والعصائر لإنتاج **حلويات ومعجنات تقليدية محبوبة جداً للصغار والكبار**.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> غذاء خارق (Superfood) يحتوي أضعاف فيتامين C في البرتقال، غني بالكالسيوم، وفعال لعلاج النزلات المعوية.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. الدوم -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/Doam.jpeg" alt="ثمار الدوم">
+          </div>
+          <div class="h-body">
+            <h3>الدَّوْم (Doum Fruit)</h3>
+            <div class="h-sub">نخيل الدوم النوبي (Hyphaene thebaica) — الشرق والشمال</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والتصنيع:</b> تُجمع ثماره الصلبة وتُسحق قشرتها الإسفنجية لعمل المشروب العريق، كما يتم طحنها وخلطها بالعسل أو السكر لتشكيل **حلويات شعبية صلبة وطازجة يعشقها الأطفال والكبار**.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> منظم دقيق لضغط الدم، غني بالألياف ومضادات الأكسدة، ومفيد لصحة القلب والذاكرة.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. اللالوب -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/laloap.jpeg" alt="ثمار اللالوب" onerror="if(!this.dataset.t){this.dataset.t='1';this.src='Images/laloap.jpeg';}else if(this.dataset.t==='1'){this.dataset.t='2';this.src='Images/Laloap.jpeg';}else if(this.dataset.t==='2'){this.dataset.t='3';this.src='Images/Laloap.jpeg';}">
+          </div>
+          <div class="h-body">
+            <h3>اللاَّلُوب (بلح الصحراء)</h3>
+            <div class="h-sub">شجرة الهِجْلِيج الشوكية (Balanites aegyptiaca) — أواسط وغرب السودان</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والاستخدام:</b> ثمار برية تشبه التمر تُجنى من أشجار الهجليج وتؤكل بمص قشرتها ذات الطعم الحلو والمر معاً، وتشتهر كمسليات شعبية وصيدلية طبيعية.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> مطهر معوي طبيعي، يساعد في تنظيم السكر، ويُستخرج من نواته زيت علاجي للمفاصل.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. الصمغ العربي -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/Arabic_gum.jpg" alt="الصمغ العربي">
+          </div>
+          <div class="h-body">
+            <h3>الصمغ العربي (Gum Arabic)</h3>
+            <div class="h-sub">شجرة الهَشَاب (Acacia senegal) — حزام الصمغ (كردفان ودارفور)</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والاستخدام:</b> يُجمع عبر «طق» لحاء الشجرة لتفرز بلورات راتنجية ذهبية؛ ينتج السودان أكثر من 70% من إنتاج العالم ويدخل في الصناعات الدوائية والغذائية.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> أغنى مصدر طبيعي للألياف الذائبة والبريبيوتيك، يدعم وظائف الكلى الحيوية وصحة الجهاز الهضمي.</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 
@@ -1066,15 +1192,15 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
   <!-- بطاقة تصويت الجمهور -->
   <div class="vote-banner-card">
     <div class="vote-banner-info">
-      <h3 id="voteTitle">⭐ تصويت الجمهور — أفضل جناح ثقافي (Best Booth)</h3>
-      <p id="voteDesc">صوتوا لجناح السودان ليحصد لقب الأفضل! اضغطوا على زر التصويت للانتقال الفوري.</p>
+      <h3>⭐ تصويت الجمهور — أفضل جناح ثقافي (Best Booth)</h3>
+      <p>صوتوا لجناح السودان ليحصد لقب الأفضل! اضغطوا على زر التصويت للانتقال الفوري.</p>
       <div class="vote-banner-actions">
-        <a class="btn primary" id="voteDirectLink" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="text-decoration:none;">🔗 اضغط هنا للتصويت المباشر</a>
+        <a class="btn primary" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="text-decoration:none;">🔗 اضغط هنا للتصويت المباشر</a>
         <button class="btn burgundy-outline" type="button" id="copyVoteLinkBtn">📋 نسخ رابط التصويت</button>
       </div>
     </div>
     <div class="vote-qr-mini" id="openVoteModalBtn2" title="اضغط لعرض الباركود بالحجم الكامل">
-      <img src="images/vote_for_sudan.jpeg" alt="باركود التصويت" onerror="this.src='vote_for_sudan.jpeg'">
+      <img src="Images/vote for sudan.jpeg" alt="باركود التصويت" onerror="this.src='vote for sudan.jpeg'">
     </div>
   </div>
 
@@ -1085,7 +1211,7 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
     <div class="lens-head">
       <span class="sec-kicker">PHOTOGRAPHY EXHIBITION • المعرض الفوتوغرافي</span>
       <h2 id="lensTitle">Capture the Culture | وثّق الثقافة بعدستك</h2>
-      <p id="lensQuote" style="font-size: 1.05rem; font-weight: 700; color: var(--terracotta); margin: 6px 0 10px; font-style: italic;">«بعدستكم تصبح الحكاية أبدية؛ التقطوا نبض التراث، وشاركوا معنا لحظات لا تُنسى من قلب المعرض.»</p>
+      <p style="font-size: 1.05rem; font-weight: 700; color: var(--terracotta); margin: 6px 0 10px; font-style: italic;">«بعدستكم تصبح الحكاية أبدية؛ التقطوا نبض التراث، وشاركوا معنا لحظات لا تُنسى من قلب المعرض.»</p>
       <p id="lensSub">وثّقوا لحظاتكم معنا! شاركونا لقطاتكم من تصويركم للبوث والعروض في اليوم الثقافي.</p>
     </div>
 
@@ -1099,16 +1225,16 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
   </section>
 
   <footer class="royal-footer">
-    <p id="footTitle"><strong>Sudan Eco</strong> — العرض الثقافي «أرض النيلين | Land of Two Niles»</p>
-    <p id="footNote" style="font-size:0.8rem; margin-top:4px;">المعلومات عامة ومبسطة لأغراض التعريف الثقافي، والحدود الإدارية تقريبية.</p>
+    <p><strong>Sudan Eco</strong> — العرض الثقافي «أرض النيلين | Land of Two Niles»</p>
+    <p style="font-size:0.8rem; margin-top:4px;">المعلومات عامة ومبسطة لأغراض التعريف الثقافي، والحدود الإدارية تقريبية.</p>
   </footer>
 </div>
 
 <!-- حوار QR عام -->
 <dialog id="qrDlg">
   <button class="x" type="button" data-close aria-label="إغلاق">×</button>
-  <h2 id="qrDlgTitle" style="color:var(--burgundy); margin-top:0;">شارك موقع أرض النيلين</h2>
-  <p id="qrDlgSub" class="empty">امسح الرمز بكاميرا الهاتف لفتح الخريطة والمشاركة.</p>
+  <h2 style="color:var(--burgundy); margin-top:0;">شارك موقع  أرض النيلين</h2>
+  <p class="empty">امسح الرمز بكاميرا الهاتف لفتح الخريطة والمشاركة.</p>
   <div class="qrbox" id="qr"></div>
   <input class="qrurl" id="qrUrl" type="url" readonly>
   <div class="row">
@@ -1121,13 +1247,13 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
 <!-- حوار QR التصويت -->
 <dialog id="voteDlg">
   <button class="x" type="button" data-close aria-label="إغلاق">×</button>
-  <h2 id="voteDlgTitle" style="color:var(--burgundy); margin-top:0;">تصويت الجمهور — أفضل جناح ثقافي</h2>
-  <p id="voteDlgSub" class="empty">امسح الرمز بكاميرا الهاتف أو استخدم الرابط أدناه للتصويت لجناح السودان.</p>
+  <h2 style="color:var(--burgundy); margin-top:0;">تصويت الجمهور — أفضل جناح ثقافي</h2>
+  <p class="empty">امسح الرمز بكاميرا الهاتف أو استخدم الرابط أدناه للتصويت لجناح السودان.</p>
   <div class="qrbox">
-    <img src="images/vote_for_sudan.jpeg" alt="باركود التصويت للسودان" style="width:220px; height:220px; display:block;" onerror="this.src='vote_for_sudan.jpeg'">
+    <img src="Images/vote for sudan.jpeg" alt="باركود التصويت للسودان" style="width:220px; height:220px; display:block;" onerror="this.src='vote for sudan.jpeg'">
   </div>
   <div style="margin-top:14px; text-align:center;">
-    <a class="btn primary" id="voteDlgLink" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="text-decoration:none; display:inline-block;">🔗 فتح رابط التصويت المباشر</a>
+    <a class="btn primary" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="text-decoration:none; display:inline-block;">🔗 فتح رابط التصويت المباشر</a>
   </div>
 </dialog>
 
@@ -1158,560 +1284,178 @@ try {
   db = getFirestore(app);
 } catch (e) { console.error("Firebase init error:", e); }
 
-function shrink(file, maxW = 800, quality = 0.68) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = ev => {
-      const img = new Image();
-      img.onload = () => {
-        let w = img.width, h = img.height;
-        if (w > maxW) { h = Math.round(h * maxW / w); w = maxW; }
-        const c = document.createElement('canvas');
-        c.width = w; c.height = h;
-        c.getContext('2d').drawImage(img, 0, 0, w, h);
-        resolve(c.toDataURL('image/jpeg', quality));
-      };
-      img.onerror = reject;
-      img.src = ev.target.result;
-    };
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
-
 const STATES={
-  "sd-no": {
-    "n": "الشمالية", "n_en": "Northern",
-    "cap": "دنقلا", "cap_en": "Dongola",
-    "t": "agri",
-    "d": "موطن الحضارة النوبية ومملكة كوش ونبتة؛ تمتد على ضفتي النيل بين الصحراء الكبرى وصحراء بيوضة، وتحتضن جبل البركل وأهرامات نوري وسد مروي.",
-    "d_en": "Homeland of the Nubian civilization and the Kingdoms of Kush and Napata; stretching along both banks of the Nile between the Sahara and Bayuda Deserts, home to Jebel Barkal, Nuri Pyramids, and Merowe Dam.",
-    "r": ["التمور (البركاوي والقنديلة)", "القمح والفول المصري", "الذهب – التعدين الأهلي", "الكهرباء من سد مروي", "السياحة الأثرية النوبية"],
-    "r_en": ["Dates (Barakawi & Gondaila)", "Wheat & Fava Beans", "Gold – Artisanal Mining", "Hydropower from Merowe Dam", "Nubian Archaeological Tourism"],
-    "tr": ["النوبيون: الدناقلة والمحس والسكوت والحلفاويون", "الشايقية", "البديرية الدهمشية", "الكبابيش"],
-    "tr_en": ["Nubians: Danagla, Mahas, Sukkot & Halfawi", "Shaigiya", "Bideiriya Dahmashiya", "Kababish"],
-    "l": ["جبل البركل ومعبد آمون", "آثار كرمة والدفوفة", "سد مروي", "أهرامات نوري والكرو"],
-    "l_en": ["Jebel Barkal & Temple of Amun", "Kerma & Western Deffufa Ruins", "Merowe Dam", "Nuri & El-Kurru Pyramids"],
-    "p": "M630.9,12.8L616.3,203.3L616.8,204.3L641.1,217.0L640.9,243.1L647.5,259.6L648.8,267.5L642.7,279.8L601.4,342.5L599.1,343.0L586.7,351.1L575.1,347.9L554.6,350.2L342.9,345.5L341.6,141.2L197.2,140.6L196.0,140.1L197.7,17.8L557.4,15.2L566.0,0.8L571.1,5.3L568.2,14.8L630.9,12.8Z", "c": [451, 165]
-  },
-  "sd-rn": {
-    "n": "نهر النيل", "n_en": "River Nile",
-    "cap": "الدامر", "cap_en": "Ed Damer",
-    "t": "mine",
-    "d": "أرض مملكة مروي الملكية وأهرامات البجراوية، وفيها مدينة عطبرة عاصمة السكة حديد وأكبر مصانع الأسمنت في البلاد.",
-    "d_en": "Land of the Royal Kingdom of Meroe and the Bagrawiyah Pyramids; home to Atbara, Sudan's railway capital and hub of the country's largest cement factories.",
-    "r": ["الأسمنت (عطبرة وبربر)", "الذهب", "البصل والموالح والقمح", "الحجر الجيري", "السياحة الأثرية"],
-    "r_en": ["Cement (Atbara & Berber)", "Gold Mining", "Onions, Citrus & Wheat", "Limestone", "Archaeological Tourism"],
-    "tr": ["الجعليون", "الرباطاب", "الميرفاب", "المناصير", "البشاريون والعبابدة"],
-    "tr_en": ["Ja'alin", "Rubatab", "Mirafab", "Manasir", "Bisharin & Ababda"],
-    "l": ["أهرامات البجراوية (مروي)", "النقعة والمصورات الصفراء", "ملتقى نهر عطبرة بالنيل", "مدينة عطبرة"],
-    "l_en": ["Bagrawiyah Pyramids (Meroe)", "Naqa & Musawwarat es-Sufra", "Atbara River Confluence", "City of Atbara"],
-    "p": "M630.9,12.8L661.6,11.6L667.5,11.4L691.0,28.0L675.2,41.9L678.7,45.6L679.8,56.7L677.1,61.9L676.6,76.0L685.7,85.0L693.1,88.4L700.0,100.8L701.9,113.5L699.2,125.6L699.8,133.8L702.9,143.1L704.4,156.0L701.9,166.5L732.4,232.4L753.8,240.2L767.8,247.7L778.6,258.1L787.0,272.8L796.6,284.9L826.8,303.3L828.7,323.5L826.1,337.2L813.8,347.6L804.6,350.2L763.9,351.8L758.9,353.3L742.4,378.7L733.6,380.4L723.8,384.9L713.4,385.9L700.7,380.7L670.9,373.7L648.8,362.9L617.4,358.7L611.6,355.3L603.5,346.9L601.4,342.5L642.7,279.8L648.8,267.5L647.5,259.6L640.9,243.1L641.1,217.0L616.8,204.3L616.3,203.3L630.9,12.8Z", "c": [693, 238]
-  },
-  "sd-rs": {
-    "n": "البحر الأحمر", "n_en": "Red Sea",
-    "cap": "بورتسودان", "cap_en": "Port Sudan",
-    "t": "trade",
-    "d": "بوابة السودان البحرية. فيها الميناء الرئيسي للبلاد وسواكن التاريخية، وجبال البحر الأحمر الغنية بالمعادن.",
-    "d_en": "Sudan's maritime gateway, featuring the country's main seaport, historic Suakin Island, and the mineral-rich Red Sea Hills.",
-    "r": ["الموانئ والتجارة الخارجية", "الذهب (منطقة أرياب)", "الثروة السمكية", "الملح", "السياحة البحرية والغوص"],
-    "r_en": ["Seaports & Foreign Trade", "Gold (Ariab Area)", "Marine Fisheries", "Sea Salt", "Marine Tourism & Scuba Diving"],
-    "tr": ["البجا: الهدندوة والبشاريون والأمرأر والأرتيقة", "البني عامر", "العبابدة", "الرشايدة"],
-    "tr_en": ["Beja: Hadendoa, Bisharin, Amarar & Arteiga", "Beni Amer", "Ababda", "Rashaida"],
-    "l": ["ميناء بورتسودان", "جزيرة سواكن التاريخية", "شعاب سنقنيب المرجانية", "جبال أركويت"],
-    "l_en": ["Port Sudan Harbour", "Historic Suakin Island", "Sanganeb Coral Reefs", "Erkowit Mountains"],
-    "p": "M667.5,11.4L882.7,0.0L884.3,21.5L890.6,32.6L898.9,43.8L911.0,55.8L908.6,57.4L905.6,51.9L899.6,47.1L898.2,57.6L902.2,64.6L904.3,76.7L908.5,87.7L906.2,101.4L910.0,115.5L908.8,124.3L913.2,134.0L912.6,144.3L916.0,155.4L920.1,174.8L921.8,176.8L927.2,193.1L934.7,202.1L941.8,199.7L950.6,207.1L957.4,208.6L964.6,215.9L969.8,218.6L967.3,222.9L972.2,228.7L977.8,228.7L996.0,235.4L1000.0,242.3L991.9,250.0L985.9,265.1L978.4,273.9L975.3,271.9L970.6,277.1L966.6,273.5L958.4,280.4L953.9,278.2L949.6,284.2L937.0,289.0L937.1,296.8L931.8,307.4L926.1,306.1L915.7,309.0L905.9,306.7L851.4,313.9L826.8,303.3L796.6,284.9L787.0,272.8L778.6,258.1L767.8,247.7L753.8,240.2L732.4,232.4L701.9,166.5L704.4,156.0L702.9,143.1L699.8,133.8L699.2,125.6L701.9,113.5L700.0,100.8L693.1,88.4L685.7,85.0L676.6,76.0L677.1,61.9L679.8,56.7L678.7,45.6L675.2,41.9L691.0,28.0L667.5,11.4Z", "c": [823, 152]
-  },
-  "sd-ka": {
-    "n": "كسلا", "n_en": "Kassala",
-    "cap": "كسلا", "cap_en": "Kassala",
-    "t": "agri",
-    "d": "ولاية الجبال والبساتين على الحدود مع إريتريا. يغذيها نهر القاش الموسمي ونهر عطبرة، ومنها مشروع حلفا الجديدة.",
-    "d_en": "State of mountains and lush orchards bordering Eritrea, nourished by the seasonal Gash River and Atbara River, and home to the New Halfa Scheme.",
-    "r": ["الفواكه: الموز والجوافة والبرتقال", "مشروع دلتا القاش", "قصب السكر والقطن (حلفا الجديدة)", "الثروة الحيوانية", "التجارة الحدودية"],
-    "r_en": ["Fruits: Bananas, Guava & Oranges", "Gash Delta Agricultural Scheme", "Sugarcane & Cotton (New Halfa)", "Livestock", "Cross-Border Trade"],
-    "tr": ["الهدندوة", "البني عامر", "الحلنقة", "الرشايدة", "الشكرية", "النوبيون في حلفا الجديدة"],
-    "tr_en": ["Hadendoa", "Beni Amer", "Halanga", "Rashaida", "Shukriya", "Nubians of New Halfa"],
-    "l": ["جبال التاكا", "توتيل ومنابعها", "ضريح السيد الحسن الميرغني", "سواقي كسلا"],
-    "l_en": ["Taka Mountains", "Totil Mountain & Springs", "Sayyid Al-Hassan Al-Mirghani Shrine", "Kassala Sawagi Orchards"],
-    "p": "M905.9,306.7L907.3,311.8L907.6,325.2L902.9,332.3L901.8,340.3L905.5,346.9L906.6,357.2L903.4,361.7L896.8,383.6L891.8,391.0L889.1,403.0L890.0,408.4L887.0,411.8L884.3,420.9L878.6,429.7L881.8,449.4L857.2,450.4L852.4,451.6L824.6,462.9L815.4,461.5L801.1,446.7L792.2,426.9L782.4,416.5L769.2,409.7L753.3,405.6L744.5,387.7L742.4,378.7L758.9,353.3L763.9,351.8L804.6,350.2L813.8,347.6L826.1,337.2L828.7,323.5L826.8,303.3L851.4,313.9L905.9,306.7Z", "c": [835, 383]
-  },
-  "sd-gd": {
-    "n": "القضارف", "n_en": "Gedaref",
-    "cap": "القضارف", "cap_en": "Gedaref",
-    "t": "agri",
-    "d": "سلة غذاء السودان. أكبر منطقة للزراعة المطرية الآلية في البلاد، وسوقها من أكبر أسواق المحاصيل.",
-    "d_en": "Sudan's breadbasket; the largest mechanized rain-fed farming region in the country with one of Africa's biggest crop markets.",
-    "r": ["الذرة الرفيعة", "السمسم", "زهرة الشمس والقطن المطري", "الصمغ العربي", "الثروة الحيوانية"],
-    "r_en": ["Sorghum", "Sesame", "Sunflowers & Rain-fed Cotton", "Gum Arabic", "Livestock"],
-    "tr": ["الشكرية", "الضبانية", "اللحويون", "الهوسا والفلاتة", "البني عامر"],
-    "tr_en": ["Shukriya", "Dabaniya", "Lahawiyin", "Hausa & Fallata", "Beni Amer"],
-    "l": ["سوق المحاصيل بالقضارف", "حظيرة الدندر", "مشاريع الزراعة الآلية"],
-    "l_en": ["Gedaref Crop Market", "Dinder National Park Border", "Mechanized Farming Plains"],
-    "p": "M881.8,449.4L887.0,482.2L882.3,499.4L884.1,510.0L880.0,525.6L871.4,539.0L865.2,565.9L867.2,572.2L864.8,580.7L860.5,579.5L840.6,583.4L820.0,579.5L811.7,575.9L807.2,571.9L794.0,564.8L782.3,553.6L773.4,550.0L761.5,542.8L751.2,527.7L753.5,520.1L743.5,518.5L733.5,502.5L728.8,494.1L748.3,456.4L747.6,452.7L738.6,440.6L733.7,431.5L723.7,426.6L712.0,423.1L704.5,416.2L712.3,402.8L719.1,398.8L732.6,403.0L753.3,405.6L769.2,409.7L782.4,416.5L792.2,426.9L801.1,446.7L815.4,461.5L824.6,462.9L852.4,451.6L857.2,450.4L881.8,449.4Z", "c": [805, 495]
-  },
-  "sd-kh": {
-    "n": "الخرطوم", "n_en": "Khartoum",
-    "cap": "الخرطوم", "cap_en": "Khartoum",
-    "t": "trade",
-    "d": "العاصمة القومية عند المقرن حيث يلتقي النيلان الأبيض والأزرق، وتضم مدنها الثلاث: الخرطوم وأم درمان والخرطوم بحري.",
-    "d_en": "The national capital at Al-Mogran where the White and Blue Niles meet, uniting the tri-cities of Khartoum, Omdurman, and Khartoum North.",
-    "r": ["الصناعة والتجارة", "مصفاة الجيلي للنفط", "الخدمات والجامعات", "الخضر والألبان"],
-    "r_en": ["Industry & Commerce", "Al-Jaili Oil Refinery", "Services & Universities", "Vegetables & Dairy"],
-    "tr": ["تسكنها كل قبائل السودان", "الجموعية", "العبدلاب", "المحس", "الجعليون"],
-    "tr_en": ["Home to all Sudanese tribes", "Jumu'iya", "Abdallab", "Mahas", "Ja'alin"],
-    "l": ["المقرن – ملتقى النيلين", "جزيرة توتي", "بيت الخليفة وقبة المهدي", "المتحف القومي"],
-    "l_en": ["Al-Mogran – Confluence of Two Niles", "Tuti Island", "Khalifa House & Mahdi Tomb", "Sudan National Museum"],
-    "p": "M704.5,416.2L685.3,419.1L678.6,424.0L664.0,425.3L651.2,429.4L649.2,432.5L636.2,433.8L630.8,432.0L625.3,417.8L611.8,396.0L602.3,384.1L586.7,351.1L599.1,343.0L601.4,342.5L603.5,346.9L611.6,355.3L617.4,358.7L648.8,362.9L670.9,373.7L700.7,380.7L713.4,385.9L723.8,384.9L733.6,380.4L742.4,378.7L744.5,387.7L753.3,405.6L732.6,403.0L719.1,398.8L712.3,402.8L704.5,416.2Z", "c": [659, 392]
-  },
-  "sd-gz": {
-    "n": "الجزيرة", "n_en": "Al Jazirah",
-    "cap": "ود مدني", "cap_en": "Wad Madani",
-    "t": "agri",
-    "d": "الأرض بين النيلين الأزرق والأبيض، وفيها مشروع الجزيرة أحد أكبر مشاريع الري في العالم تحت إدارة واحدة.",
-    "d_en": "The fertile land between the Blue and White Niles, home to the Gezira Scheme—one of the world's largest single-management irrigation projects.",
-    "r": ["مشروع الجزيرة", "القطن", "القمح والذرة", "الفول السوداني", "سكر الجنيد"],
-    "r_en": ["The Gezira Irrigation Scheme", "Cotton", "Wheat & Sorghum", "Peanuts", "Guneid Sugar"],
-    "tr": ["رفاعة", "الكواهلة", "الحلاويون", "المسلمية", "العركيون", "الشكرية"],
-    "tr_en": ["Rufa'a", "Kawahla", "Halawiyin", "Musallamiya", "Arakiyin", "Shukriya"],
-    "l": ["مشروع الجزيرة وقنواته", "مدينة ود مدني", "قنطرة أبو عشر"],
-    "l_en": ["Gezira Scheme Canals", "City of Wad Madani", "Abu Ushar Bridge"],
-    "p": "M649.2,432.5L651.2,429.4L664.0,425.3L678.6,424.0L685.3,419.1L704.5,416.2L712.0,423.1L723.7,426.6L733.7,431.5L738.6,440.6L747.6,452.7L748.3,456.4L728.8,494.1L733.5,502.5L720.0,501.3L715.1,498.6L708.9,500.6L697.1,510.2L690.4,503.4L683.0,502.6L679.1,505.8L673.7,519.6L670.6,521.3L664.9,518.9L662.9,528.1L657.5,534.3L653.2,532.5L652.3,517.4L641.1,498.0L639.0,490.1L646.0,473.9L652.5,466.2L653.5,462.0L652.1,448.9L646.7,446.5L645.3,442.3L650.9,441.0L649.2,432.5Z", "c": [690, 467]
-  },
-  "sd-si": {
-    "n": "سنار", "n_en": "Sennar",
-    "cap": "سنجة", "cap_en": "Singa",
-    "t": "agri",
-    "d": "أرض السلطنة الزرقاء (مملكة الفونج) التي حكمت من سنار قرونًا. يمر بها النيل الأزرق وفيها خزان سنار.",
-    "d_en": "Heartland of the Blue Sultanate (Funj Kingdom) that ruled from Sennar for centuries; crossed by the Blue Nile and home to Sennar Dam and Dinder Park.",
-    "r": ["قصب السكر", "الفواكه والخضر", "الذرة والسمسم", "الثروة الحيوانية والسمكية", "الصمغ العربي"],
-    "r_en": ["Sugarcane", "Fruits & Vegetables", "Sorghum & Sesame", "Livestock & Fisheries", "Gum Arabic"],
-    "tr": ["الفونج", "رفاعة", "كنانة", "الهوسا والفلاتة", "الجعليون"],
-    "tr_en": ["Funj", "Rufa'a", "Kinana", "Hausa & Fallata", "Ja'alin"],
-    "l": ["خزان سنار", "آثار سنار القديمة", "حظيرة الدندر القومية"],
-    "l_en": ["Sennar Dam", "Ancient Sennar Ruins", "Dinder National Park"],
-    "p": "M840.6,583.4L835.6,589.2L820.4,616.4L818.3,624.1L812.4,632.1L808.4,633.8L805.4,628.3L792.5,617.5L784.8,608.8L770.7,588.1L765.5,583.3L758.9,581.9L751.2,585.6L707.8,614.1L698.0,612.9L689.6,615.9L680.8,588.1L681.3,572.1L670.1,554.9L666.7,532.4L662.9,528.1L664.9,518.9L670.6,521.3L673.7,519.6L679.1,505.8L683.0,502.6L690.4,503.4L697.1,510.2L708.9,500.6L715.1,498.6L720.0,501.3L733.5,502.5L743.5,518.5L753.5,520.1L751.2,527.7L761.5,542.8L773.4,550.0L782.3,553.6L794.0,564.8L807.2,571.9L811.7,575.9L820.0,579.5L840.6,583.4Z", "c": [738, 564]
-  },
-  "sd-bn": {
-    "n": "النيل الأزرق", "n_en": "Blue Nile",
-    "cap": "الدمازين", "cap_en": "Ad-Damazin",
-    "t": "mine",
-    "d": "ولاية جبلية خضراء على الحدود مع إثيوبيا وجنوب السودان. فيها خزان الروصيرص، أكبر مصدر للكهرباء المائية في البلاد بعد مروي.",
-    "d_en": "A lush mountainous state bordering Ethiopia and South Sudan, home to Roseires Dam—Sudan's second-largest hydropower source after Merowe.",
-    "r": ["الكهرباء من خزان الروصيرص", "الذهب والكروم", "الصمغ العربي والغابات", "الذرة والسمسم"],
-    "r_en": ["Hydropower from Roseires Dam", "Gold & Chromium", "Gum Arabic & Forestry", "Sorghum & Sesame"],
-    "tr": ["الفونج", "الأنقسنا", "البرتا", "الهمج", "الكدالو", "رفاعة"],
-    "tr_en": ["Funj", "Ingessana", "Berta", "Hamaj", "Kadalu", "Rufa'a"],
-    "l": ["خزان الروصيرص", "جبال الأنقسنا", "غابات النيل الأزرق"],
-    "l_en": ["Roseires Dam", "Ingessana Hills", "Blue Nile Forests"],
-    "p": "M808.4,633.8L802.4,640.2L804.3,653.9L797.1,671.2L799.4,678.5L795.6,690.5L798.0,696.3L791.3,705.2L786.3,708.1L785.9,704.4L775.7,696.2L766.6,701.7L757.3,716.1L760.6,734.5L759.4,744.1L754.6,749.7L747.4,771.2L746.0,785.3L735.6,785.3L734.0,779.9L735.5,769.6L739.3,761.6L738.9,748.7L734.7,739.8L707.7,718.6L701.6,712.1L687.4,706.9L689.8,700.5L682.8,654.7L685.6,648.4L686.1,633.0L689.6,615.9L698.0,612.9L707.8,614.1L751.2,585.6L758.9,581.9L765.5,583.3L770.7,588.1L784.8,608.8L792.5,617.5L805.4,628.3L808.4,633.8Z", "c": [743, 665]
-  },
-  "sd-wn": {
-    "n": "النيل الأبيض", "n_en": "White Nile",
-    "cap": "ربك", "cap_en": "Rabak",
-    "t": "agri",
-    "d": "ولاية السكر على ضفاف النيل الأبيض. تضم أكبر مصانع السكر في السودان، وتمر بها خطوط التجارة نحو الجنوب.",
-    "d_en": "Sudan's sugar capital along the White Nile banks, housing the nation's largest sugar factories and vital southern trade routes.",
-    "r": ["السكر: كنانة وعسلاية والنيل الأبيض", "الثروة السمكية", "الثروة الحيوانية", "الصمغ العربي"],
-    "r_en": ["Sugar: Kenana, Assalaya & White Nile", "River Fisheries", "Livestock", "Gum Arabic"],
-    "tr": ["الحسانية", "الأحامدة", "السليم", "كنانة", "الجموعية", "الشلك"],
-    "tr_en": ["Hassaniya", "Ahamda", "Salim", "Kinana", "Jumu'iya", "Shilluk"],
-    "l": ["مصنع سكر كنانة", "مدينة كوستي وجسرها", "جبل أولياء والخزان"],
-    "l_en": ["Kenana Sugar Factory", "Kosti City & Bridge", "Jebel Aulia Dam"],
-    "p": "M649.2,432.5L650.9,441.0L645.3,442.3L646.7,446.5L652.1,448.9L653.5,462.0L652.5,466.2L646.0,473.9L639.0,490.1L641.1,498.0L652.3,517.4L653.2,532.5L657.5,534.3L662.9,528.1L666.7,532.4L670.1,554.9L681.3,572.1L680.8,588.1L689.6,615.9L660.6,616.2L661.8,629.4L621.4,630.3L611.8,620.1L601.1,617.0L597.0,594.2L593.6,571.3L601.1,563.7L617.9,551.5L617.6,537.6L611.0,535.0L605.5,529.6L596.7,513.5L589.2,508.8L585.8,500.3L584.5,486.5L586.8,474.0L597.2,465.3L603.3,451.2L610.5,445.7L611.8,440.6L630.8,432.0L636.2,433.8L649.2,432.5Z", "c": [632, 541]
-  },
-  "sd-kn": {
-    "n": "شمال كردفان", "n_en": "North Kordofan",
-    "cap": "الأبيض", "cap_en": "El Obeid",
-    "t": "gum",
-    "d": "عروس الرمال وعاصمة الصمغ العربي. سهول رملية تشتهر بالضأن الحمري وبسوق الأبيض الكبير.",
-    "d_en": "'Bride of the Sands' and capital of Gum Arabic; sandy plains famous for Hamari sheep and the bustling El Obeid market.",
-    "r": ["الصمغ العربي الهشاب", "الضأن الحمري والإبل", "الفول السوداني", "الكركدي وحب البطيخ"],
-    "r_en": ["Hashab Gum Arabic", "Hamari Sheep & Camels", "Peanuts", "Hibiscus & Watermelon Seeds"],
-    "tr": ["الكبابيش", "الجوامعة", "البديرية", "الهواوير", "الشنابلة", "دار حامد"],
-    "tr_en": ["Kababish", "Jawama'a", "Bideiriya", "Hawawir", "Shanabla", "Dar Hamid"],
-    "l": ["بورصة الصمغ العربي بالأبيض", "شيكان – موقع المعركة", "جبل كردفان"],
-    "l_en": ["El Obeid Gum Arabic Exchange", "Shaykan Historic Battlefield", "Jebel Kordofan"],
-    "p": "M342.9,345.5L554.6,350.2L575.1,347.9L586.7,351.1L602.3,384.1L611.8,396.0L625.3,417.8L630.8,432.0L611.8,440.6L610.5,445.7L603.3,451.2L597.2,465.3L586.8,474.0L584.5,486.5L585.8,500.3L589.2,508.8L596.7,513.5L605.5,529.6L611.0,535.0L617.6,537.6L617.9,551.5L601.1,563.7L593.6,571.3L597.0,594.2L585.0,588.0L580.2,588.1L573.4,592.4L562.2,593.5L555.9,602.5L545.9,608.6L539.2,614.7L532.4,613.7L522.9,602.9L515.4,600.6L499.7,601.4L495.7,598.4L493.5,587.9L485.1,587.5L480.7,590.1L464.7,615.2L449.2,614.3L432.9,602.8L427.2,603.4L415.9,615.8L411.8,630.4L412.1,634.3L385.0,610.0L355.0,595.0L322.2,574.6L335.3,556.3L335.7,550.9L344.0,539.6L345.0,534.4L340.1,524.1L342.6,510.1L333.5,484.8L327.1,464.3L321.3,456.4L308.6,347.5L309.8,345.9L342.9,345.5Z", "c": [472, 475]
-  },
-  "sd-wk": {
-    "n": "غرب كردفان", "n_en": "West Kordofan",
-    "cap": "الفولة", "cap_en": "Al-Fulah",
-    "t": "oil",
-    "d": "أرض البترول والمراعي الخصبة، تضم حقول النفط الكبرى في هجليج وبليلة، وموطن قبائل المسيرية والحمر.",
-    "d_en": "Land of oil and lush pastures, housing major oilfields in Heglig and Baleela, and homeland of the Misseriya and Hamar tribes.",
-    "r": ["النفط (هجليج وبليلة)", "الأبقار والإبل", "الصمغ العربي", "الفول السوداني والذرة"],
-    "r_en": ["Oil (Heglig & Baleela)", "Cattle & Camels", "Gum Arabic", "Peanuts & Sorghum"],
-    "tr": ["المسيرية", "الحمر", "النوبة", "الداجو", "الفلاتة"],
-    "tr_en": ["Misseriya", "Hamar", "Nuba", "Daju", "Fallata"],
-    "l": ["حقل هجليج النفطي", "مدينة الفولة", "المجلد وبابنوسة", "بحيرة كيلك"],
-    "l_en": ["Heglig Oilfield", "Al-Fulah City", "Al-Muglad & Babanusa", "Lake Keilak"],
-    "p": "M322.2,574.6L355.0,595.0L385.0,610.0L412.1,634.3L411.8,630.4L415.9,615.8L427.2,603.4L432.9,602.8L449.2,614.3L464.7,615.2L476.0,665.0L472.9,751.9L472.8,760.7L465.0,770.1L450.9,773.4L436.1,780.1L425.2,791.0L426.1,797.3L377.3,797.1L368.1,780.9L354.7,752.3L353.5,747.3L332.1,694.7L328.2,678.5L327.2,668.7L327.1,653.8L325.2,643.8L316.9,626.8L314.8,607.4L320.1,595.0L320.3,579.2L322.2,574.6Z", "c": [392, 690]
-  },
-  "sd-ks": {
-    "n": "جنوب كردفان", "n_en": "South Kordofan",
-    "cap": "كادقلي", "cap_en": "Kadugli",
-    "t": "mine",
-    "d": "أرض جبال النوبة الشامخة ذات التنوع الثقافي واللغوي الفريد، والسهول الخصبة الغنية بالذهب والمحاصيل.",
-    "d_en": "Land of the majestic Nuba Mountains with unique cultural and linguistic diversity, alongside fertile plains rich in gold and crops.",
-    "r": ["الذهب والمعادن", "القطن والذرة المطرية", "الصمغ العربي", "الأبقار والثمار"],
-    "r_en": ["Gold & Minerals", "Cotton & Rain-fed Sorghum", "Gum Arabic", "Cattle & Orchards"],
-    "tr": ["النوبة بمجموعاتهم المتعددة", "الحوازمة", "كنانة", "الفلاتة"],
-    "tr_en": ["Diverse Nuba Communities", "Hawazma", "Kinana", "Fallata"],
-    "l": ["سلسلة جبال النوبة", "مدينة كادقلي", "جبال الدلنج"],
-    "l_en": ["Nuba Mountains Range", "Kadugli City", "Dilling Mountains"],
-    "p": "M597.0,594.2L601.1,617.0L611.8,620.1L621.4,630.3L637.7,648.0L638.1,666.4L639.4,676.9L643.9,685.1L642.7,688.5L614.4,713.4L609.8,724.8L597.8,740.8L571.9,767.2L567.6,769.0L542.2,771.1L525.9,756.7L497.0,738.6L472.9,751.9L476.0,665.0L464.7,615.2L480.7,590.1L485.1,587.5L493.5,587.9L495.7,598.4L499.7,601.4L515.4,600.6L522.9,602.9L532.4,613.7L539.2,614.7L545.9,608.6L555.9,602.5L562.2,593.5L573.4,592.4L580.2,588.1L585.0,588.0L597.0,594.2Z", "c": [542, 682]
-  },
-  "sd-nd": {
-    "n": "شمال دارفور", "n_en": "North Darfur",
-    "cap": "الفاشر", "cap_en": "El Fasher",
-    "t": "live",
-    "d": "أكبر ولايات دارفور مساحة، تمتد شمالًا حتى الصحراء الكبرى. الفاشر كانت عاصمة سلطنة دارفور التاريخية.",
-    "d_en": "The largest state in Darfur by area, extending north into the Sahara; El Fasher served as the historic capital of the Darfur Sultanate.",
-    "r": ["الإبل والضأن", "الذهب (جبل عامر)", "الصمغ العربي", "التبغ والذرة", "التجارة الصحراوية"],
-    "r_en": ["Camels & Sheep", "Gold (Jebel Amer)", "Gum Arabic", "Tobacco & Sorghum", "Trans-Saharan Trade"],
-    "tr": ["الفور", "الزغاوة", "البرتي", "الميدوب", "التنجر", "الرزيقات الأبالة"],
-    "tr_en": ["Fur", "Zaghawa", "Berti", "Meidob", "Tunjur", "Northern Rizeigat"],
-    "l": ["قصر السلطان علي دينار بالفاشر", "وادي هور", "جبل الميدوب"],
-    "l_en": ["Sultan Ali Dinar Palace (El Fasher)", "Wadi Howar", "Meidob Hills"],
-    "p": "M207.7,567.4L188.2,567.7L169.9,564.9L158.8,564.1L154.2,560.8L156.3,555.3L164.7,547.4L168.6,541.6L167.4,537.6L157.2,536.8L147.4,540.5L137.8,545.8L130.7,546.6L119.8,542.4L111.1,536.6L104.3,535.9L102.3,533.5L104.5,524.5L108.8,516.9L128.5,496.0L141.4,474.9L142.9,470.5L141.8,459.9L138.4,452.5L131.9,444.3L130.7,425.0L134.7,404.5L133.8,403.0L138.0,140.0L195.3,140.9L196.0,140.1L197.2,140.6L341.6,141.2L342.9,345.5L309.8,345.9L308.6,347.5L321.3,456.4L327.1,464.3L333.5,484.8L342.6,510.1L340.1,524.1L345.0,534.4L344.0,539.6L335.7,550.9L335.3,556.3L322.2,574.6L320.3,579.2L320.1,595.0L314.8,607.4L316.9,626.8L325.2,643.8L316.6,642.1L292.9,642.5L287.8,640.6L278.8,633.2L266.7,632.0L261.4,628.1L255.4,618.7L244.2,607.0L254.0,601.1L252.2,597.6L239.1,586.8L228.0,580.6L216.7,570.1L207.7,567.4Z", "c": [237, 367]
-  },
-  "sd-wd": {
-    "n": "غرب دارفور", "n_en": "West Darfur",
-    "cap": "الجنينة", "cap_en": "El Geneina",
-    "t": "agri",
-    "d": "ولاية حدودية مع تشاد، أرض سلطنة دار مساليت، تتخللها الوديان الخصبة وبساتين الفواكه.",
-    "d_en": "A border state with Chad, historic homeland of the Dar Masalit Sultanate, crisscrossed by fertile valleys and fruit orchards.",
-    "r": ["المانجو والخضر", "الذرة والدخن", "الثروة الحيوانية", "التجارة الحدودية"],
-    "r_en": ["Mangoes & Vegetables", "Sorghum & Millet", "Livestock", "Cross-Border Trade"],
-    "tr": ["المساليت", "القمر", "التاما", "الأرنقا", "الفور", "الرزيقات"],
-    "tr_en": ["Masalit", "Gimir", "Tama", "Erenga", "Fur", "Rizeigat"],
-    "l": ["مدينة الجنينة", "وادي كجا", "حدود دار مساليت"],
-    "l_en": ["El Geneina City", "Wadi Kaja", "Dar Masalit Historic Lands"],
-    "p": "M104.3,535.9L97.2,543.5L85.5,546.2L66.3,573.5L49.3,592.0L52.3,614.2L47.8,626.5L38.4,629.0L40.0,620.0L33.7,602.3L38.3,593.2L23.9,584.8L14.9,591.2L7.5,590.9L0.0,581.2L7.9,565.0L12.9,560.1L20.5,557.0L28.4,548.4L24.3,533.2L20.6,529.5L17.2,521.3L27.6,508.8L45.2,500.1L45.3,494.1L39.9,492.2L39.2,478.5L35.6,474.0L41.8,468.8L53.9,465.8L53.2,457.5L58.6,447.6L68.8,439.5L72.5,432.7L72.8,421.6L69.3,416.9L70.5,411.8L80.7,403.3L94.2,405.0L110.5,401.1L124.6,402.4L131.5,404.9L133.8,403.0L134.7,404.5L130.7,425.0L131.9,444.3L138.4,452.5L141.8,459.9L142.9,470.5L141.4,474.9L128.5,496.0L108.8,516.9L104.5,524.5L102.3,533.5L104.3,535.9Z", "c": [76, 499]
-  },
-  "sd-7281": {
-    "n": "وسط دارفور", "n_en": "Central Darfur",
-    "cap": "زالنجي", "cap_en": "Zalingei",
-    "t": "agri",
-    "d": "ولاية جبل مرة، أعلى قمة في السودان. مناخ معتدل نادر يسمح بزراعة فواكه لا تنمو في غيرها.",
-    "d_en": "Home to Jebel Marra, Sudan's highest peak, featuring a rare temperate microclimate ideal for orchards of oranges, apples, and strawberries.",
-    "r": ["البرتقال والتفاح والفراولة", "الثوم والبطاطس", "الذرة والدخن", "المياه العذبة والينابيع"],
-    "r_en": ["Oranges, Apples & Strawberries", "Garlic & Potatoes", "Sorghum & Millet", "Freshwater Springs & Waterfalls"],
-    "tr": ["الفور", "المساليت", "الزغاوة", "السلامات"],
-    "tr_en": ["Fur", "Masalit", "Zaghawa", "Salamat"],
-    "l": ["جبل مرة وقمة دريبة", "شلالات قلول", "بحيرة دريبة البركانية"],
-    "l_en": ["Jebel Marra & Deriba Peak", "Galol Waterfalls", "Deriba Volcanic Crater Lake"],
-    "p": "M169.9,564.9L137.8,596.1L132.9,605.0L130.0,627.6L117.3,668.3L88.6,686.6L70.5,712.4L62.0,699.5L67.9,680.1L65.6,668.6L57.5,668.3L55.2,664.1L48.3,661.3L42.9,650.7L47.8,626.5L52.3,614.2L49.3,592.0L66.3,573.5L85.5,546.2L97.2,543.5L104.3,535.9L111.1,536.6L119.8,542.4L130.7,546.6L137.8,545.8L147.4,540.5L157.2,536.8L167.4,537.6L168.6,541.6L164.7,547.4L156.3,555.3L154.2,560.8L158.8,564.1L169.9,564.9Z", "c": [98, 610]
-  },
-  "sd-711": {
-    "n": "جنوب دارفور", "n_en": "South Darfur",
-    "cap": "نيالا", "cap_en": "Nyala",
-    "t": "live",
-    "d": "ثاني أكبر مدن السودان في عاصمتها نيالا. سهول السافانا الغنية بالمراعي ومركز التجارة الغربي.",
-    "d_en": "Home to Nyala, Sudan's second-largest city; rich savanna grazing plains and the primary commercial hub of western Sudan.",
-    "r": ["الأبقار والضأن", "الصمغ العربي", "الفول السوداني والكركدي", "المانجو", "التجارة"],
-    "r_en": ["Cattle & Sheep", "Gum Arabic", "Peanuts & Hibiscus", "Mangoes", "Regional Commerce"],
-    "tr": ["الهبانية", "البني هلبة", "التعايشة", "الفلاتة", "الفور", "الداجو والبرقد"],
-    "tr_en": ["Habbaniya", "Beni Halba", "Ta'aisha", "Fallata", "Fur", "Daju & Birgid"],
-    "l": ["سوق نيالا", "وادي برلي", "حظيرة الردوم"],
-    "l_en": ["Nyala Grand Market", "Wadi Barli", "Radom National Park"],
-    "p": "M242.9,730.1L221.0,734.7L196.9,737.7L192.7,745.4L193.5,749.3L190.2,757.7L178.9,768.0L178.3,786.5L171.9,794.1L170.7,805.9L164.7,816.1L164.2,824.1L153.4,826.5L137.0,836.4L125.3,834.4L112.9,835.0L106.4,833.1L99.7,834.4L98.3,829.9L102.8,823.8L103.2,816.8L99.9,818.9L95.7,815.3L98.1,806.0L102.7,805.2L107.8,799.5L108.8,790.9L106.4,783.5L110.6,774.1L107.6,760.7L87.7,727.7L76.8,716.9L70.5,712.4L88.6,686.6L117.3,668.3L130.0,627.6L132.9,605.0L137.8,596.1L169.9,564.9L188.2,567.7L207.7,567.4L211.0,591.1L209.8,608.0L203.6,616.4L203.9,658.2L218.8,674.7L228.8,683.3L237.7,706.5L243.2,723.5L242.9,730.1Z", "c": [157, 702]
-  },
-  "sd-sd": {
-    "n": "شرق دارفور", "n_en": "East Darfur",
-    "cap": "الضعين", "cap_en": "Ed Daein",
-    "t": "live",
-    "d": "ولاية الرعاة الكبار في سهول السافانا، وفيها حقول نفط في الجنوب.",
-    "d_en": "Land of major pastoralist communities across lush savanna plains, with productive oilfields in the south.",
-    "r": ["الأبقار", "النفط", "الصمغ العربي", "الفول السوداني والذرة"],
-    "r_en": ["Cattle Herding", "Oil Production", "Gum Arabic", "Peanuts & Sorghum"],
-    "tr": ["الرزيقات البقارة", "المعاليا", "البرقد", "الزغاوة"],
-    "tr_en": ["Baggara Rizeigat", "Ma'aliya", "Birgid", "Zaghawa"],
-    "l": ["مدينة الضعين", "أسواق الماشية", "بحر العرب جنوبًا"],
-    "l_en": ["Ed Daein City", "Livestock Markets", "Bahr el-Arab River"],
-    "p": "M327.2,668.7L328.2,678.5L332.1,694.7L353.5,747.3L354.7,752.3L368.1,780.9L334.2,779.9L318.4,780.3L294.8,788.2L286.5,785.5L263.5,758.5L258.8,756.8L253.6,748.9L246.6,744.2L246.3,734.7L242.9,730.1L243.2,723.5L237.7,706.5L228.8,683.3L218.8,674.7L203.9,658.2L203.6,616.4L209.8,608.0L211.0,591.1L207.7,567.4L216.7,570.1L228.0,580.6L239.1,586.8L252.2,597.6L254.0,601.1L244.2,607.0L255.4,618.7L261.4,628.1L266.7,632.0L278.8,633.2L287.8,640.6L292.9,642.5L316.6,642.1L325.2,643.8L327.1,653.8L327.2,668.7Z", "c": [278, 692]
-  }
+  "sd-no": {"n": "الشمالية", "cap": "دنقلا", "t": "agri", "d": "موطن الحضارة النوبية ومملكة كوش ونبتة؛ تمتد على ضفتي النيل بين الصحراء الكبرى وصحراء بيوضة، وتحتضن جبل البركل وأهرامات نوري وسد مروي.", "r": ["التمور (البركاوي والقنديلة)", "القمح والفول المصري", "الذهب – التعدين الأهلي", "الكهرباء من سد مروي", "السياحة الأثرية النوبية"], "tr": ["النوبيون: الدناقلة والمحس والسكوت والحلفاويون", "الشايقية", "البديرية الدهمشية", "الكبابيش"], "l": ["جبل البركل ومعبد آمون", "آثار كرمة والدفوفة", "سد مروي", "أهرامات نوري والكرو"], "p": "M630.9,12.8L616.3,203.3L616.8,204.3L641.1,217.0L640.9,243.1L647.5,259.6L648.8,267.5L642.7,279.8L601.4,342.5L599.1,343.0L586.7,351.1L575.1,347.9L554.6,350.2L342.9,345.5L341.6,141.2L197.2,140.6L196.0,140.1L197.7,17.8L557.4,15.2L566.0,0.8L571.1,5.3L568.2,14.8L630.9,12.8Z", "c": [451, 165]},
+  "sd-rn": {"n": "نهر النيل", "cap": "الدامر", "t": "mine", "d": "أرض مملكة مروي الملكية وأهرامات البجراوية، وفيها مدينة عطبرة عاصمة السكة حديد وأكبر مصانع الأسمنت في البلاد.", "r": ["الأسمنت (عطبرة وبربر)", "الذهب", "البصل والموالح والقمح", "الحجر الجيري", "السياحة الأثرية"], "tr": ["الجعليون", "الرباطاب", "الميرفاب", "المناصير", "البشاريون والعبابدة"], "l": ["أهرامات البجراوية (مروي)", "النقعة والمصورات الصفراء", "ملتقى نهر عطبرة بالنيل", "مدينة عطبرة"], "p": "M630.9,12.8L661.6,11.6L667.5,11.4L691.0,28.0L675.2,41.9L678.7,45.6L679.8,56.7L677.1,61.9L676.6,76.0L685.7,85.0L693.1,88.4L700.0,100.8L701.9,113.5L699.2,125.6L699.8,133.8L702.9,143.1L704.4,156.0L701.9,166.5L732.4,232.4L753.8,240.2L767.8,247.7L778.6,258.1L787.0,272.8L796.6,284.9L826.8,303.3L828.7,323.5L826.1,337.2L813.8,347.6L804.6,350.2L763.9,351.8L758.9,353.3L742.4,378.7L733.6,380.4L723.8,384.9L713.4,385.9L700.7,380.7L670.9,373.7L648.8,362.9L617.4,358.7L611.6,355.3L603.5,346.9L601.4,342.5L642.7,279.8L648.8,267.5L647.5,259.6L640.9,243.1L641.1,217.0L616.8,204.3L616.3,203.3L630.9,12.8Z", "c": [693, 238]},
+  "sd-rs": {"n": "البحر الأحمر", "cap": "بورتسودان", "t": "trade", "d": "بوابة السودان البحرية. فيها الميناء الرئيسي للبلاد وسواكن التاريخية، وجبال البحر الأحمر الغنية بالمعادن.", "r": ["الموانئ والتجارة الخارجية", "الذهب (منطقة أرياب)", "الثروة السمكية", "الملح", "السياحة البحرية والغوص"], "tr": ["البجا: الهدندوة والبشاريون والأمرأر والأرتيقة", "البني عامر", "العبابدة", "الرشايدة"], "l": ["ميناء بورتسودان", "جزيرة سواكن التاريخية", "شعاب سنقنيب المرجانية", "جبال أركويت"], "p": "M667.5,11.4L882.7,0.0L884.3,21.5L890.6,32.6L898.9,43.8L911.0,55.8L908.6,57.4L905.6,51.9L899.6,47.1L898.2,57.6L902.2,64.6L904.3,76.7L908.5,87.7L906.2,101.4L910.0,115.5L908.8,124.3L913.2,134.0L912.6,144.3L916.0,155.4L920.1,174.8L921.8,176.8L927.2,193.1L934.7,202.1L941.8,199.7L950.6,207.1L957.4,208.6L964.6,215.9L969.8,218.6L967.3,222.9L972.2,228.7L977.8,228.7L996.0,235.4L1000.0,242.3L991.9,250.0L985.9,265.1L978.4,273.9L975.3,271.9L970.6,277.1L966.6,273.5L958.4,280.4L953.9,278.2L949.6,284.2L937.0,289.0L937.1,296.8L931.8,307.4L926.1,306.1L915.7,309.0L905.9,306.7L851.4,313.9L826.8,303.3L796.6,284.9L787.0,272.8L778.6,258.1L767.8,247.7L753.8,240.2L732.4,232.4L701.9,166.5L704.4,156.0L702.9,143.1L699.8,133.8L699.2,125.6L701.9,113.5L700.0,100.8L693.1,88.4L685.7,85.0L676.6,76.0L677.1,61.9L679.8,56.7L678.7,45.6L675.2,41.9L691.0,28.0L667.5,11.4Z", "c": [823, 152]},
+  "sd-ka": {"n": "كسلا", "cap": "كسلا", "t": "agri", "d": "ولاية الجبال والبساتين على الحدود مع إريتريا. يغذيها نهر القاش الموسمي ونهر عطبرة، ومنها مشروع حلفا الجديدة.", "r": ["الفواكه: الموز والجوافة والبرتقال", "مشروع دلتا القاش", "قصب السكر والقطن (حلفا الجديدة)", "الثروة الحيوانية", "التجارة الحدودية"], "tr": ["الهدندوة", "البني عامر", "الحلنقة", "الرشايدة", "الشكرية", "النوبيون في حلفا الجديدة"], "l": ["جبال التاكا", "توتيل ومنابعها", "ضريح السيد الحسن الميرغني", "سواقي كسلا"], "p": "M905.9,306.7L907.3,311.8L907.6,325.2L902.9,332.3L901.8,340.3L905.5,346.9L906.6,357.2L903.4,361.7L896.8,383.6L891.8,391.0L889.1,403.0L890.0,408.4L887.0,411.8L884.3,420.9L878.6,429.7L881.8,449.4L857.2,450.4L852.4,451.6L824.6,462.9L815.4,461.5L801.1,446.7L792.2,426.9L782.4,416.5L769.2,409.7L753.3,405.6L744.5,387.7L742.4,378.7L758.9,353.3L763.9,351.8L804.6,350.2L813.8,347.6L826.1,337.2L828.7,323.5L826.8,303.3L851.4,313.9L905.9,306.7Z", "c": [835, 383]},
+  "sd-gd": {"n": "القضارف", "cap": "القضارف", "t": "agri", "d": "سلة غذاء السودان. أكبر منطقة للزراعة المطرية الآلية في البلاد، وسوقها من أكبر أسواق المحاصيل.", "r": ["الذرة الرفيعة", "السمسم", "زهرة الشمس والقطن المطري", "الصمغ العربي", "الثروة الحيوانية"], "tr": ["الشكرية", "الضبانية", "اللحويون", "الهوسا والفلاتة", "البني عامر"], "l": ["سوق المحاصيل بالقضارف", "حظيرة الدندر", "مشاريع الزراعة الآلية"], "p": "M881.8,449.4L887.0,482.2L882.3,499.4L884.1,510.0L880.0,525.6L871.4,539.0L865.2,565.9L867.2,572.2L864.8,580.7L860.5,579.5L840.6,583.4L820.0,579.5L811.7,575.9L807.2,571.9L794.0,564.8L782.3,553.6L773.4,550.0L761.5,542.8L751.2,527.7L753.5,520.1L743.5,518.5L733.5,502.5L728.8,494.1L748.3,456.4L747.6,452.7L738.6,440.6L733.7,431.5L723.7,426.6L712.0,423.1L704.5,416.2L712.3,402.8L719.1,398.8L732.6,403.0L753.3,405.6L769.2,409.7L782.4,416.5L792.2,426.9L801.1,446.7L815.4,461.5L824.6,462.9L852.4,451.6L857.2,450.4L881.8,449.4Z", "c": [805, 495]},
+  "sd-kh": {"n": "الخرطوم", "cap": "الخرطوم", "t": "trade", "d": "العاصمة القومية عند المقرن حيث يلتقي النيلان الأبيض والأزرق، وتضم مدنها الثلاث: الخرطوم وأم درمان والخرطوم بحري.", "r": ["الصناعة والتجارة", "مصفاة الجيلي للنفط", "الخدمات والجامعات", "الخضر والألبان"], "tr": ["تسكنها كل قبائل السودان", "الجموعية", "العبدلاب", "المحس", "الجعليون"], "l": ["المقرن – ملتقى النيلين", "جزيرة توتي", "بيت الخليفة وقبة المهدي", "المتحف القومي"], "p": "M704.5,416.2L685.3,419.1L678.6,424.0L664.0,425.3L651.2,429.4L649.2,432.5L636.2,433.8L630.8,432.0L625.3,417.8L611.8,396.0L602.3,384.1L586.7,351.1L599.1,343.0L601.4,342.5L603.5,346.9L611.6,355.3L617.4,358.7L648.8,362.9L670.9,373.7L700.7,380.7L713.4,385.9L723.8,384.9L733.6,380.4L742.4,378.7L744.5,387.7L753.3,405.6L732.6,403.0L719.1,398.8L712.3,402.8L704.5,416.2Z", "c": [659, 392]},
+  "sd-gz": {"n": "الجزيرة", "cap": "ود مدني", "t": "agri", "d": "الأرض بين النيلين الأزرق والأبيض، وفيها مشروع الجزيرة أحد أكبر مشاريع الري في العالم تحت إدارة واحدة.", "r": ["مشروع الجزيرة", "القطن", "القمح والذرة", "الفول السوداني", "سكر الجنيد"], "tr": ["رفاعة", "الكواهلة", "الحلاويون", "المسلمية", "العركيون", "الشكرية"], "l": ["مشروع الجزيرة وقنواته", "مدينة ود مدني", "قنطرة أبو عشر"], "p": "M649.2,432.5L651.2,429.4L664.0,425.3L678.6,424.0L685.3,419.1L704.5,416.2L712.0,423.1L723.7,426.6L733.7,431.5L738.6,440.6L747.6,452.7L748.3,456.4L728.8,494.1L733.5,502.5L720.0,501.3L715.1,498.6L708.9,500.6L697.1,510.2L690.4,503.4L683.0,502.6L679.1,505.8L673.7,519.6L670.6,521.3L664.9,518.9L662.9,528.1L657.5,534.3L653.2,532.5L652.3,517.4L641.1,498.0L639.0,490.1L646.0,473.9L652.5,466.2L653.5,462.0L652.1,448.9L646.7,446.5L645.3,442.3L650.9,441.0L649.2,432.5Z", "c": [690, 467]},
+  "sd-si": {"n": "سنار", "cap": "سنجة", "t": "agri", "d": "أرض السلطنة الزرقاء (مملكة الفونج) التي حكمت من سنار قرونًا. يمر بها النيل الأزرق وفيها خزان سنار.", "r": ["قصب السكر", "الفواكه والخضر", "الذرة والسمسم", "الثروة الحيوانية والسمكية", "الصمغ العربي"], "tr": ["الفونج", "رفاعة", "كنانة", "الهوسا والفلاتة", "الجعليون"], "l": ["خزان سنار", "آثار سنار القديمة", "حظيرة الدندر القومية"], "p": "M840.6,583.4L835.6,589.2L820.4,616.4L818.3,624.1L812.4,632.1L808.4,633.8L805.4,628.3L792.5,617.5L784.8,608.8L770.7,588.1L765.5,583.3L758.9,581.9L751.2,585.6L707.8,614.1L698.0,612.9L689.6,615.9L680.8,588.1L681.3,572.1L670.1,554.9L666.7,532.4L662.9,528.1L664.9,518.9L670.6,521.3L673.7,519.6L679.1,505.8L683.0,502.6L690.4,503.4L697.1,510.2L708.9,500.6L715.1,498.6L720.0,501.3L733.5,502.5L743.5,518.5L753.5,520.1L751.2,527.7L761.5,542.8L773.4,550.0L782.3,553.6L794.0,564.8L807.2,571.9L811.7,575.9L820.0,579.5L840.6,583.4Z", "c": [738, 564]},
+  "sd-bn": {"n": "النيل الأزرق", "cap": "الدمازين", "t": "mine", "d": "ولاية جبلية خضراء على الحدود مع إثيوبيا وجنوب السودان. فيها خزان الروصيرص، أكبر مصدر للكهرباء المائية في البلاد بعد مروي.", "r": ["الكهرباء من خزان الروصيرص", "الذهب والكروم", "الصمغ العربي والغابات", "الذرة والسمسم"], "tr": ["الفونج", "الأنقسنا", "البرتا", "الهمج", "الكدالو", "رفاعة"], "l": ["خزان الروصيرص", "جبال الأنقسنا", "غابات النيل الأزرق"], "p": "M808.4,633.8L802.4,640.2L804.3,653.9L797.1,671.2L799.4,678.5L795.6,690.5L798.0,696.3L791.3,705.2L786.3,708.1L785.9,704.4L775.7,696.2L766.6,701.7L757.3,716.1L760.6,734.5L759.4,744.1L754.6,749.7L747.4,771.2L746.0,785.3L735.6,785.3L734.0,779.9L735.5,769.6L739.3,761.6L738.9,748.7L734.7,739.8L707.7,718.6L701.6,712.1L687.4,706.9L689.8,700.5L682.8,654.7L685.6,648.4L686.1,633.0L689.6,615.9L698.0,612.9L707.8,614.1L751.2,585.6L758.9,581.9L765.5,583.3L770.7,588.1L784.8,608.8L792.5,617.5L805.4,628.3L808.4,633.8Z", "c": [743, 665]},
+  "sd-wn": {"n": "النيل الأبيض", "cap": "ربك", "t": "agri", "d": "ولاية السكر على ضفاف النيل الأبيض. تضم أكبر مصانع السكر في السودان، وتمر بها خطوط التجارة نحو الجنوب.", "r": ["السكر: كنانة وعسلاية والنيل الأبيض", "الثروة السمكية", "الثروة الحيوانية", "الصمغ العربي"], "tr": ["الحسانية", "الأحامدة", "السليم", "كنانة", "الجموعية", "الشلك"], "l": ["مصنع سكر كنانة", "مدينة كوستي وجسرها", "جبل أولياء والخزان"], "p": "M649.2,432.5L650.9,441.0L645.3,442.3L646.7,446.5L652.1,448.9L653.5,462.0L652.5,466.2L646.0,473.9L639.0,490.1L641.1,498.0L652.3,517.4L653.2,532.5L657.5,534.3L662.9,528.1L666.7,532.4L670.1,554.9L681.3,572.1L680.8,588.1L689.6,615.9L660.6,616.2L661.8,629.4L621.4,630.3L611.8,620.1L601.1,617.0L597.0,594.2L593.6,571.3L601.1,563.7L617.9,551.5L617.6,537.6L611.0,535.0L605.5,529.6L596.7,513.5L589.2,508.8L585.8,500.3L584.5,486.5L586.8,474.0L597.2,465.3L603.3,451.2L610.5,445.7L611.8,440.6L630.8,432.0L636.2,433.8L649.2,432.5Z", "c": [632, 541]},
+  "sd-kn": {"n": "شمال كردفان", "cap": "الأبيض", "t": "gum", "d": "عروس الرمال وعاصمة الصمغ العربي. سهول رملية تشتهر بالضأن الحمري وبسوق الأبيض الكبير.", "r": ["الصمغ العربي الهشاب", "الضأن الحمري والإبل", "الفول السوداني", "الكركدي وحب البطيخ"], "tr": ["الكبابيش", "الجوامعة", "البديرية", "الهواوير", "الشنابلة", "دار حامد"], "l": ["بورصة الصمغ العربي بالأبيض", "شيكان – موقع المعركة", "جبل كردفان"], "p": "M342.9,345.5L554.6,350.2L575.1,347.9L586.7,351.1L602.3,384.1L611.8,396.0L625.3,417.8L630.8,432.0L611.8,440.6L610.5,445.7L603.3,451.2L597.2,465.3L586.8,474.0L584.5,486.5L585.8,500.3L589.2,508.8L596.7,513.5L605.5,529.6L611.0,535.0L617.6,537.6L617.9,551.5L601.1,563.7L593.6,571.3L597.0,594.2L585.0,588.0L580.2,588.1L573.4,592.4L562.2,593.5L555.9,602.5L545.9,608.6L539.2,614.7L532.4,613.7L522.9,602.9L515.4,600.6L499.7,601.4L495.7,598.4L493.5,587.9L485.1,587.5L480.7,590.1L464.7,615.2L449.2,614.3L432.9,602.8L427.2,603.4L415.9,615.8L411.8,630.4L412.1,634.3L385.0,610.0L355.0,595.0L322.2,574.6L335.3,556.3L335.7,550.9L344.0,539.6L345.0,534.4L340.1,524.1L342.6,510.1L333.5,484.8L327.1,464.3L321.3,456.4L308.6,347.5L309.8,345.9L342.9,345.5Z", "c": [472, 475]},
+  "sd-wk": {"n": "غرب كردفان", "cap": "الفولة", "t": "oil", "d": "أرض البترول والمراعي الخصبة، تضم حقول النفط الكبرى في هجليج وبليلة، وموطن قبائل المسيرية والحمر.", "r": ["النفط (هجليج وبليلة)", "الأبقار والإبل", "الصمغ العربي", "الفول السوداني والذرة"], "tr": ["المسيرية", "الحمر", "النوبة", "الداجو", "الفلاتة"], "l": ["حقل هجليج النفطي", "مدينة الفولة", "المجلد وبابنوسة", "بحيرة كيلك"], "p": "M322.2,574.6L355.0,595.0L385.0,610.0L412.1,634.3L411.8,630.4L415.9,615.8L427.2,603.4L432.9,602.8L449.2,614.3L464.7,615.2L476.0,665.0L472.9,751.9L472.8,760.7L465.0,770.1L450.9,773.4L436.1,780.1L425.2,791.0L426.1,797.3L377.3,797.1L368.1,780.9L354.7,752.3L353.5,747.3L332.1,694.7L328.2,678.5L327.2,668.7L327.1,653.8L325.2,643.8L316.9,626.8L314.8,607.4L320.1,595.0L320.3,579.2L322.2,574.6Z", "c": [392, 690]},
+  "sd-ks": {"n": "جنوب كردفان", "cap": "كادقلي", "t": "mine", "d": "أرض جبال النوبة الشامخة ذات التنوع الثقافي واللغوي الفريد، والسهول الخصبة الغنية بالذهب والمحاصيل.", "r": ["الذهب والمعادن", "القطن والذرة المطرية", "الصمغ العربي", "الأبقار والثمار"], "tr": ["النوبة بمجموعاتهم المتعددة", "الحوازمة", "كنانة", "الفلاتة"], "l": ["سلسلة جبال النوبة", "مدينة كادقلي", "جبال الدلنج"], "p": "M597.0,594.2L601.1,617.0L611.8,620.1L621.4,630.3L637.7,648.0L638.1,666.4L639.4,676.9L643.9,685.1L642.7,688.5L614.4,713.4L609.8,724.8L597.8,740.8L571.9,767.2L567.6,769.0L542.2,771.1L525.9,756.7L497.0,738.6L472.9,751.9L476.0,665.0L464.7,615.2L480.7,590.1L485.1,587.5L493.5,587.9L495.7,598.4L499.7,601.4L515.4,600.6L522.9,602.9L532.4,613.7L539.2,614.7L545.9,608.6L555.9,602.5L562.2,593.5L573.4,592.4L580.2,588.1L585.0,588.0L597.0,594.2Z", "c": [542, 682]},
+  "sd-nd": {"n": "شمال دارفور", "cap": "الفاشر", "t": "live", "d": "أكبر ولايات دارفور مساحة، تمتد شمالًا حتى الصحراء الكبرى. الفاشر كانت عاصمة سلطنة دارفور التاريخية.", "r": ["الإبل والضأن", "الذهب (جبل عامر)", "الصمغ العربي", "التبغ والذرة", "التجارة الصحراوية"], "tr": ["الفور", "الزغاوة", "البرتي", "الميدوب", "التنجر", "الرزيقات الأبالة"], "l": ["قصر السلطان علي دينار بالفاشر", "وادي هور", "جبل الميدوب"], "p": "M207.7,567.4L188.2,567.7L169.9,564.9L158.8,564.1L154.2,560.8L156.3,555.3L164.7,547.4L168.6,541.6L167.4,537.6L157.2,536.8L147.4,540.5L137.8,545.8L130.7,546.6L119.8,542.4L111.1,536.6L104.3,535.9L102.3,533.5L104.5,524.5L108.8,516.9L128.5,496.0L141.4,474.9L142.9,470.5L141.8,459.9L138.4,452.5L131.9,444.3L130.7,425.0L134.7,404.5L133.8,403.0L138.0,140.0L195.3,140.9L196.0,140.1L197.2,140.6L341.6,141.2L342.9,345.5L309.8,345.9L308.6,347.5L321.3,456.4L327.1,464.3L333.5,484.8L342.6,510.1L340.1,524.1L345.0,534.4L344.0,539.6L335.7,550.9L335.3,556.3L322.2,574.6L320.3,579.2L320.1,595.0L314.8,607.4L316.9,626.8L325.2,643.8L316.6,642.1L292.9,642.5L287.8,640.6L278.8,633.2L266.7,632.0L261.4,628.1L255.4,618.7L244.2,607.0L254.0,601.1L252.2,597.6L239.1,586.8L228.0,580.6L216.7,570.1L207.7,567.4Z", "c": [237, 367]},
+  "sd-wd": {"n": "غرب دارفور", "cap": "الجنينة", "t": "agri", "d": "ولاية حدودية مع تشاد، أرض سلطنة دار مساليت، تتخللها الوديان الخصبة وبساتين الفواكه.", "r": ["المانجو والخضر", "الذرة والدخن", "الثروة الحيوانية", "التجارة الحدودية"], "tr": ["المساليت", "القمر", "التاما", "الأرنقا", "الفور", "الرزيقات"], "l": ["مدينة الجنينة", "وادي كجا", "حدود دار مساليت"], "p": "M104.3,535.9L97.2,543.5L85.5,546.2L66.3,573.5L49.3,592.0L52.3,614.2L47.8,626.5L38.4,629.0L40.0,620.0L33.7,602.3L38.3,593.2L23.9,584.8L14.9,591.2L7.5,590.9L0.0,581.2L7.9,565.0L12.9,560.1L20.5,557.0L28.4,548.4L24.3,533.2L20.6,529.5L17.2,521.3L27.6,508.8L45.2,500.1L45.3,494.1L39.9,492.2L39.2,478.5L35.6,474.0L41.8,468.8L53.9,465.8L53.2,457.5L58.6,447.6L68.8,439.5L72.5,432.7L72.8,421.6L69.3,416.9L70.5,411.8L80.7,403.3L94.2,405.0L110.5,401.1L124.6,402.4L131.5,404.9L133.8,403.0L134.7,404.5L130.7,425.0L131.9,444.3L138.4,452.5L141.8,459.9L142.9,470.5L141.4,474.9L128.5,496.0L108.8,516.9L104.5,524.5L102.3,533.5L104.3,535.9Z", "c": [76, 499]},
+  "sd-7281": {"n": "وسط دارفور", "cap": "زالنجي", "t": "agri", "d": "ولاية جبل مرة، أعلى قمة في السودان. مناخ معتدل نادر يسمح بزراعة فواكه لا تنمو في غيرها.", "r": ["البرتقال والتفاح والفراولة", "الثوم والبطاطس", "الذرة والدخن", "المياه العذبة والينابيع"], "tr": ["الفور", "المساليت", "الزغاوة", "السلامات"], "l": ["جبل مرة وقمة دريبة", "شلالات قلول", "بحيرة دريبة البركانية"], "p": "M169.9,564.9L137.8,596.1L132.9,605.0L130.0,627.6L117.3,668.3L88.6,686.6L70.5,712.4L62.0,699.5L67.9,680.1L65.6,668.6L57.5,668.3L55.2,664.1L48.3,661.3L42.9,650.7L47.8,626.5L52.3,614.2L49.3,592.0L66.3,573.5L85.5,546.2L97.2,543.5L104.3,535.9L111.1,536.6L119.8,542.4L130.7,546.6L137.8,545.8L147.4,540.5L157.2,536.8L167.4,537.6L168.6,541.6L164.7,547.4L156.3,555.3L154.2,560.8L158.8,564.1L169.9,564.9Z", "c": [98, 610]},
+  "sd-711": {"n": "جنوب دارفور", "cap": "نيالا", "t": "live", "d": "ثاني أكبر مدن السودان في عاصمتها نيالا. سهول السافانا الغنية بالمراعي ومركز التجارة الغربي.", "r": ["الأبقار والضأن", "الصمغ العربي", "الفول السوداني والكركدي", "المانجو", "التجارة"], "tr": ["الهبانية", "البني هلبة", "التعايشة", "الفلاتة", "الفور", "الداجو والبرقد"], "l": ["سوق نيالا", "وادي برلي", "حظيرة الردوم"], "p": "M242.9,730.1L221.0,734.7L196.9,737.7L192.7,745.4L193.5,749.3L190.2,757.7L178.9,768.0L178.3,786.5L171.9,794.1L170.7,805.9L164.7,816.1L164.2,824.1L153.4,826.5L137.0,836.4L125.3,834.4L112.9,835.0L106.4,833.1L99.7,834.4L98.3,829.9L102.8,823.8L103.2,816.8L99.9,818.9L95.7,815.3L98.1,806.0L102.7,805.2L107.8,799.5L108.8,790.9L106.4,783.5L110.6,774.1L107.6,760.7L87.7,727.7L76.8,716.9L70.5,712.4L88.6,686.6L117.3,668.3L130.0,627.6L132.9,605.0L137.8,596.1L169.9,564.9L188.2,567.7L207.7,567.4L211.0,591.1L209.8,608.0L203.6,616.4L203.9,658.2L218.8,674.7L228.8,683.3L237.7,706.5L243.2,723.5L242.9,730.1Z", "c": [157, 702]},
+  "sd-sd": {"n": "شرق دارفور", "cap": "الضعين", "t": "live", "d": "ولاية الرعاة الكبار في سهول السافانا، وفيها حقول نفط في الجنوب.", "r": ["الأبقار", "النفط", "الصمغ العربي", "الفول السوداني والذرة"], "tr": ["الرزيقات البقارة", "المعاليا", "البرقد", "الزغاوة"], "l": ["مدينة الضعين", "أسواق الماشية", "بحر العرب جنوبًا"], "p": "M327.2,668.7L328.2,678.5L332.1,694.7L353.5,747.3L354.7,752.3L368.1,780.9L334.2,779.9L318.4,780.3L294.8,788.2L286.5,785.5L263.5,758.5L258.8,756.8L253.6,748.9L246.6,744.2L246.3,734.7L242.9,730.1L243.2,723.5L237.7,706.5L228.8,683.3L218.8,674.7L203.9,658.2L203.6,616.4L209.8,608.0L211.0,591.1L207.7,567.4L216.7,570.1L228.0,580.6L239.1,586.8L252.2,597.6L254.0,601.1L244.2,607.0L255.4,618.7L261.4,628.1L266.7,632.0L278.8,633.2L287.8,640.6L292.9,642.5L316.6,642.1L325.2,643.8L327.1,653.8L327.2,668.7Z", "c": [278, 692]}
 };
 
 const DEFAULT_MEDIA = {
   "sd-no": {
-    bg: "images/States/Northern_state_wallper.jpeg",
+    bg: "Images/States/Northern state wallper.jpeg",
     photos: [
-      { src: "images/States/Northern_state_Jabal_albarkal.jpeg", cap: "جبل البركل التاريخي ومعبد آمون في كريمة", cap_en: "Historic Jebel Barkal & Temple of Amun in Karima" },
-      { src: "images/States/Northen_state_aldafofa.jpeg", cap: "الدفوفة الغربية — آثار حضارة كرمة العريقة", cap_en: "Western Deffufa — Ruins of Ancient Kerma Civilization" },
-      { src: "images/States/Northern_state_al_kasenger_islands.jpeg", cap: "جزر الكاسنجر النيلية والطبيعة الخلابة", cap_en: "Kassinger Nile Islands & Scenic Landscapes" },
-      { src: "images/States/Northern_state_fourth_water_fal.jpeg", cap: "منطقة الشلال الرابع على مجرى نهر النيل", cap_en: "Fourth Cataract Region along the Nile River" },
-      { src: "images/States/Northern_state_wallper.jpeg", cap: "بساتين النخيل وضفاف النيل في الولاية الشمالية", cap_en: "Date Palm Groves & Nile Banks in Northern State" },
-      { src: "images/States/Northern_state.jpeg", cap: "مشهد طبيعي لنهر النيل في الشمالية", cap_en: "Scenic View of the Nile in Northern State" }
+      { src: "Images/States/Northern_state_Jabal_albarkal.jpeg", cap: "جبل البركل التاريخي ومعبد آمون في كريمة" },
+      { src: "Images/States/Northen state aldafofa.jpeg", cap: "الدفوفة الغربية — آثار حضارة كرمة العريقة" },
+      { src: "Images/States/Northern state al kasenger islands .jpeg", cap: "جزر الكاسنجر النيلية والطبيعة الخلابة" },
+      { src: "Images/States/Northern state fourth water fal.jpeg", cap: "منطقة الشلال الرابع على مجرى نهر النيل" },
+      { src: "Images/States/Northern state wallper.jpeg", cap: "بساتين النخيل وضفاف النيل في الولاية الشمالية" },
+      { src: "Images/States/Northern state.jpeg", cap: "مشهد طبيعي لنهر النيل في الشمالية" }
     ]
   },
   "sd-rn": {
-    bg: "images/States/Northern_state_al_bajrawya.jpeg",
+    bg: "Images/States/Northern state al bajrawya .jpeg",
     photos: [
-      { src: "images/States/Northern_state_al_bajrawya.jpeg", cap: "أهرامات البجراوية الملكية — عاصمة مملكة مروي", cap_en: "Royal Pyramids of Bagrawiyah — Capital of Meroe" },
-      { src: "images/States/Al_bajrawya_desert.jpg", cap: "صحراء البجراوية وأهرامات مروي التاريخية", cap_en: "Bagrawiyah Desert & Historic Meroe Pyramids" },
-      { src: "images/States/Albajrawya_door.jpg", cap: "تفاصيل المعماريات والنقوش في البجراوية", cap_en: "Architectural Details & Carvings at Bagrawiyah" },
-      { src: "images/States/Atbara_Nile.webp", cap: "ملتقى نهر عطبرة بنهر النيل", cap_en: "Confluence of Atbara River & the Nile" },
-      { src: "images/States/River_Nile_state.jpeg", cap: "ضفاف النيل والطبيعة في ولاية نهر النيل", cap_en: "Nile Riverbanks & Nature in River Nile State" }
+      { src: "Images/States/Northern state al bajrawya .jpeg", cap: "أهرامات البجراوية الملكية — عاصمة مملكة مروي" },
+      { src: "Images/States/Al bajrawya desert.jpg", cap: "صحراء البجراوية وأهرامات مروي التاريخية" },
+      { src: "Images/States/Albajrawya door.jpg", cap: "تفاصيل المعماريات والنقوش في البجراوية" },
+      { src: "Images/States/Atbara Nile.webp", cap: "ملتقى نهر عطبرة بنهر النيل" },
+      { src: "Images/States/River Nile state.jpeg", cap: "ضفاف النيل والطبيعة في ولاية نهر النيل" }
     ]
   },
   "sd-rs": {
-    bg: "images/States/Sudan_Sanganeb_Coral_Island_sd.jpg",
+    bg: "Images/States/Sudan, Sanganeb Coral Island sd.jpg",
     photos: [
-      { src: "images/States/Sudan_Sanganeb_Coral_Island.jpg", cap: "منارة وشعاب جزيرة سنقنيب المرجانية بالبحر الأحمر", cap_en: "Sanganeb Coral Island Lighthouse & Reefs in the Red Sea" },
-      { src: "images/States/Sanganeeb_Island.webp", cap: "محمية جزيرة سنقنيب البحرية", cap_en: "Sanganeb Marine National Park" },
-      { src: "images/States/Port_sudan_port.webp", cap: "ميناء بورتسودان — البوابة البحرية الرئيسية للسودان", cap_en: "Port Sudan Harbour — Sudan's Main Maritime Gateway" },
-      { src: "images/States/Portsudan.webp", cap: "إطلالة ساحلية على مدينة بورتسودان", cap_en: "Coastal View of Port Sudan City" }
+      { src: "Images/States/Sudan, Sanganeb Coral Island.jpg", cap: "منارة وشعاب جزيرة سنقنيب المرجانية بالبحر الأحمر" },
+      { src: "Images/States/Sanganeeb Island.webp", cap: "محمية جزيرة سنقنيب البحرية" },
+      { src: "Images/States/Port sudan port.webp", cap: "ميناء بورتسودان — البوابة البحرية الرئيسية للسودان" },
+      { src: "Images/States/Portsudan.webp", cap: "إطلالة ساحلية على مدينة بورتسودان" }
     ]
   },
   "sd-ka": {
-    bg: "images/States/Totel_Mountains.webp",
+    bg: "Images/States/Totel Mountains.webp",
     photos: [
-      { src: "images/States/Totel_Mountains.webp", cap: "سلسلة جبال التاكا وتوتيل في كسلا", cap_en: "Taka & Totil Mountain Range in Kassala" },
-      { src: "images/States/Totel_Mountain.webp", cap: "جبل توتيل الشامخ وبساتين كسلا", cap_en: "Majestic Totil Mountain & Kassala Orchards" },
-      { src: "images/States/Kassla_Mosque_and_Taka_Mountains.jpg", cap: "مسجد الختمية التاريخي عند سفح جبال التاكا", cap_en: "Historic Khatmiyah Mosque at the Foot of Taka Mountains" }
+      { src: "Images/States/Totel Mountains.webp", cap: "سلسلة جبال التاكا وتوتيل في كسلا" },
+      { src: "Images/States/Totel Mountain.webp", cap: "جبل توتيل الشامخ وبساتين كسلا" },
+      { src: "Images/States/Kassla_Mosque_and_Taka_Mountains.jpg", cap: "مسجد الختمية التاريخي عند سفح جبال التاكا" }
     ]
   },
   "sd-gd": {
-    bg: "images/States/Al_gadaref.webp",
+    bg: "Images/States/Al gadaref.webp",
     photos: [
-      { src: "images/States/Al_gadaref.webp", cap: "غروب الشمس فوق سهول ولاية القضارف", cap_en: "Sunset over the Plains of Gedaref State" },
-      { src: "images/States/Al_gadaref_city.webp", cap: "إطلالة على مدينة القضارف", cap_en: "View of Gedaref City" },
-      { src: "images/States/Al_gadaref_state.webp", cap: "الطبيعة والسهول الزراعية في القضارف", cap_en: "Nature & Agricultural Plains in Gedaref" }
+      { src: "Images/States/Al gadaref.webp", cap: "غروب الشمس فوق سهول ولاية القضارف" },
+      { src: "Images/States/Al gadaref city.webp", cap: "إطلالة على مدينة القضارف" },
+      { src: "Images/States/Al gadaref state.webp", cap: "الطبيعة والسهول الزراعية في القضارف" }
     ]
   },
   "sd-kh": {
-    bg: "images/States/Khartoum_Sudan.jpg",
+    bg: "Images/States/Khartoum, Sudan.jpg",
     photos: [
-      { src: "images/States/Khartoum_Sudan.jpg", cap: "المقرن — ملتقى النيلين الأبيض والأزرق في الخرطوم", cap_en: "Al-Mogran — Confluence of the White & Blue Niles in Khartoum" },
-      { src: "images/States/Khartoum.jpg", cap: "إطلالة جوية على العاصمة الخرطوم وضفاف النيل", cap_en: "Aerial View of Capital Khartoum & Nile Banks" },
-      { src: "images/States/Khartoum_state_jabal_awilya.jpg", cap: "خزان جبل أولياء على النيل الأبيض جنوب الخرطوم", cap_en: "Jebel Aulia Dam on the White Nile South of Khartoum" },
-      { src: "images/States/Khartoum_state_south_jabal_awilya.jpg", cap: "ضفاف النيل جنوب جبل أولياء", cap_en: "Nile Riverbanks South of Jebel Aulia" },
-      { src: "images/States/market_Khartoum.jpg", cap: "الأسواق التراثية والحرف اليدوية في الخرطوم وأم درمان", cap_en: "Traditional Markets & Handicrafts in Khartoum & Omdurman" },
-      { src: "images/States/Golden_Sun_Khartoum.jpg", cap: "غروب الشمس الذهبي على نيل الخرطوم", cap_en: "Golden Sunset over the Nile in Khartoum" },
-      { src: "images/States/Khhartoum_University.jpg", cap: "جامعة الخرطوم العريقة — منارة التعليم", cap_en: "Historic University of Khartoum — Beacon of Education" }
+      { src: "Images/States/Khartoum, Sudan.jpg", cap: "المقرن — ملتقى النيلين الأبيض والأزرق في الخرطوم" },
+      { src: "Images/States/Khartoum.jpg", cap: "إطلالة جوية على العاصمة الخرطوم وضفاف النيل" },
+      { src: "Images/States/Khartoum state  jabal awilya.jpg", cap: "خزان جبل أولياء على النيل الأبيض جنوب الخرطوم" },
+      { src: "Images/States/Khartoum state south jabal awilya.jpg", cap: "ضفاف النيل جنوب جبل أولياء" },
+      { src: "Images/States/market Khartoum.jpg", cap: "الأسواق التراثية والحرف اليدوية في الخرطوم وأم درمان" },
+      { src: "Images/States/Golden Sun, Khartoum.jpg", cap: "غروب الشمس الذهبي على نيل الخرطوم" },
+      { src: "Images/States/Khhartoum University.jpg", cap: "جامعة الخرطوم العريقة — منارة التعليم" }
     ]
   },
   "sd-gz": {
-    bg: "images/States/AL_jazira_Scheme.webp",
+    bg: "Images/States/AL jazira Scheme.webp",
     photos: [
-      { src: "images/States/AL_jazira_Scheme.webp", cap: "قنوات الري والحقول الخضراء في مشروع الجزيرة", cap_en: "Irrigation Canals & Green Fields in the Gezira Scheme" },
-      { src: "images/States/Um_sannad_village_aljazira_state.jpg", cap: "قرية أم سناد الريفية في ولاية الجزيرة", cap_en: "Rural Um Sannad Village in Al Jazirah State" }
+      { src: "Images/States/AL jazira Scheme.webp", cap: "قنوات الري والحقول الخضراء في مشروع الجزيرة" },
+      { src: "Images/States/Um sannad village aljazira state.jpg", cap: "قرية أم سناد الريفية في ولاية الجزيرة" }
     ]
   },
   "sd-si": {
-    bg: "images/States/Sennar_Dam.webp",
+    bg: "Images/States/Sennar Dam.webp",
     photos: [
-      { src: "images/States/Sennar_Dam.webp", cap: "خزان سنار التاريخي على مجرى النيل الأزرق", cap_en: "Historic Sennar Dam on the Blue Nile" },
-      { src: "images/States/sennar_dam.jpg", cap: "الطبيعة الخضراء حول خزان سنار", cap_en: "Lush Greenery around Sennar Dam" },
-      { src: "images/States/shabasha_White_Nile_state.jpeg", cap: "منطقة سنار والضفاف النيلية", cap_en: "Sennar Region & Nile Riverbanks" },
-      { src: "images/States/mahmeyat_al_dinder.webp", cap: "طيور البجع واللقالق تحلق وتسبح عند غروب الشمس في محمية حظيرة الدندر", cap_en: "Pelicans & Storks Soaring & Swimming at Sunset in Dinder National Park" },
-      { src: "images/States/mahmiyat_al_dinder.webp", cap: "قطعان الغزلان والحيوانات البرية على ضفاف المياه في محمية حظيرة الدندر", cap_en: "Herds of Gazelles & Wildlife along the Waters of Dinder National Park" }
+      { src: "Images/States/Sennar Dam.webp", cap: "خزان سنار التاريخي على مجرى النيل الأزرق" },
+      { src: "Images/States/sennar dam.jpg", cap: "الطبيعة الخضراء حول خزان سنار" },
+      { src: "Images/States/shabasha White Nile state.jpeg", cap: "منطقة سنار والضفاف النيلية" },
+      { src: "Images/States/mahmeyat al dinder.webp", cap: "طيور البجع واللقالق تحلق وتسبح عند غروب الشمس في محمية حظيرة الدندر" },
+      { src: "Images/States/mahmiyat al dinder.webp", cap: "قطعان الغزلان والحيوانات البرية على ضفاف المياه في محمية حظيرة الدندر" }
     ]
   },
   "sd-bn": {
-    bg: "images/States/sad_al_rosers.webp",
+    bg: "Images/States/sad al rosers.webp",
     photos: [
-      { src: "images/States/sad_al_rosers.webp", cap: "خزان الروصيرص في الدمازين — ولاية النيل الأزرق", cap_en: "Roseires Dam in Ad-Damazin — Blue Nile State" },
-      { src: "images/States/Blue_Nile_state_Baw_River.jpg", cap: "نهر باو والطبيعة الاستوائية في النيل الأزرق", cap_en: "Baw River & Tropical Nature in Blue Nile" },
-      { src: "images/States/Blue_Nile.jpg", cap: "ملامح من الطبيعة الجبلية في ولاية النيل الأزرق", cap_en: "Mountainous Landscapes in Blue Nile State" }
+      { src: "Images/States/sad al rosers.webp", cap: "خزان الروصيرص في الدمازين — ولاية النيل الأزرق" },
+      { src: "Images/States/Blue Nile state Baw River.jpg", cap: "نهر باو والطبيعة الاستوائية في النيل الأزرق" },
+      { src: "Images/States/Blue Nile.jpg", cap: "ملامح من الطبيعة الجبلية في ولاية النيل الأزرق" }
     ]
   },
   "sd-wn": {
-    bg: "images/States/White_Nile_State_Sunset.jpg",
+    bg: "Images/States/White Nile State Sunset.jpg",
     photos: [
-      { src: "images/States/White_Nile_State_Sunset.jpg", cap: "غروب الشمس الساحر على ضفاف النيل الأبيض", cap_en: "Enchanting Sunset over the White Nile Banks" },
-      { src: "images/States/Kosti.webp", cap: "معالم مدينة كوستي بولاية النيل الأبيض", cap_en: "Landmarks of Kosti City in White Nile State" },
-      { src: "images/States/White_Nile_Koste_01.jpg", cap: "إطلالة على مدينة كوستي والنيل الأبيض", cap_en: "View of Kosti City & the White Nile" }
+      { src: "Images/States/White Nile State Sunset.jpg", cap: "غروب الشمس الساحر على ضفاف النيل الأبيض" },
+      { src: "Images/States/Kosti.webp", cap: "معالم مدينة كوستي بولاية النيل الأبيض" },
+      { src: "Images/States/White_Nile,_Koste_01.jpg", cap: "إطلالة على مدينة كوستي والنيل الأبيض" }
     ]
   },
   "sd-kn": {
-    bg: "images/States/North_kordfan.jpg",
+    bg: "Images/States/North kordfan.jpg",
     photos: [
-      { src: "images/States/North_kordfan.jpg", cap: "طبيعة السافانا والرمال في ولاية شمال كردفان", cap_en: "Savanna & Sandy Plains in North Kordofan State" },
-      { src: "images/States/North_Kordofan_Dair_Mountain_1.jpg", cap: "جبل الداير الشامخ في كردفان", cap_en: "Majestic Jebel Al-Dair in Kordofan" }
+      { src: "Images/States/North kordfan.jpg", cap: "طبيعة السافانا والرمال في ولاية شمال كردفان" },
+      { src: "Images/States/North Kordfan Dair_Mountain_1.jpg", cap: "جبل الداير الشامخ في كردفان" }
     ]
   },
   "sd-wk": {
-    bg: "images/States/West_kordfan.webp",
+    bg: "Images/States/West kordfan.webp",
     photos: [
-      { src: "images/States/Al_fola_city.webp", cap: "مدينة الفولة — حاضرة ولاية غرب كردفان", cap_en: "Al-Fulah City — Capital of West Kordofan State" },
-      { src: "images/States/West_kordfan.webp", cap: "سهول ومراعي ولاية غرب كردفان", cap_en: "Plains & Pastures of West Kordofan State" },
-      { src: "images/States/Natural_at_West_Kordfan.webp", cap: "الطبيعة الخضراء في غرب كردفان", cap_en: "Green Landscapes in West Kordofan" },
-      { src: "images/States/West_kordfan_Sheeps_in_al_nakhawi.jpg", cap: "الثروة الحيوانية والمراعي في غرب كردفان", cap_en: "Livestock & Grazing Lands in West Kordofan" },
-      { src: "images/States/West_Kordfan_al_baobao_tree.jpg", cap: "أشجار التبلدي في غرب كردفان", cap_en: "Ancient Baobab (Tebeldi) Trees in West Kordofan" }
+      { src: "Images/States/Al fola city.webp", cap: "مدينة الفولة — حاضرة ولاية غرب كردفان" },
+      { src: "Images/States/West kordfan.webp", cap: "سهول ومراعي ولاية غرب كردفان" },
+      { src: "Images/States/Natural at West Kordfan.webp", cap: "الطبيعة الخضراء في غرب كردفان" },
+      { src: "Images/States/West kordfan Sheeps in al nakhawi.jpg", cap: "الثروة الحيوانية والمراعي في غرب كردفان" },
+      { src: "Images/States/West Kordfan al baobao tree.jpg", cap: "أشجار التبلدي في غرب كردفان" }
     ]
   },
   "sd-ks": {
-    bg: "images/States/Nuba_berge.jpg",
+    bg: "Images/States/Nuba-berge.jpg",
     photos: [
-      { src: "images/States/Nuba_berge.jpg", cap: "سلسلة جبال النوبة الخضراء", cap_en: "Lush Green Nuba Mountains Range" }
+      { src: "Images/States/Nuba-berge.jpg", cap: "سلسلة جبال النوبة الخضراء" }
     ]
   },
   "sd-nd": {
-    bg: "images/States/North_Darfur_state_Alfashir.jpeg",
+    bg: "Images/States/North Darfur state Alfashir.jpeg",
     photos: [
-      { src: "images/States/North_Darfur_state_Alfashir.jpeg", cap: "مدينة الفاشر — حاضرة ولاية شمال دارفور", cap_en: "El Fasher City — Capital of North Darfur State" }
+      { src: "Images/States/North Darfur state Alfashir.jpeg", cap: "مدينة الفاشر — حاضرة ولاية شمال دارفور" }
     ]
   },
   "sd-wd": {
-    bg: "images/States/West_Darfur_state.webp",
+    bg: "Images/States/West Darfur state.webp",
     photos: [
-      { src: "images/States/West_Darfur_state.webp", cap: "الطبيعة والوديان في ولاية غرب دارفور", cap_en: "Nature & Valleys in West Darfur State" },
-      { src: "images/States/West_Darfur.webp", cap: "مناظر من ولاية غرب دارفور", cap_en: "Scenic Views from West Darfur State" }
+      { src: "Images/States/West Darfur state.webp", cap: "الطبيعة والوديان في ولاية غرب دارفور" },
+      { src: "Images/States/West Darfur.webp", cap: "مناظر من ولاية غرب دارفور" }
     ]
   },
   "sd-7281": {
-    bg: "images/States/Jabal_marrah_waterfall.jpeg",
+    bg: "Images/States/Jabal marrah waterfall .jpeg",
     photos: [
-      { src: "images/States/Jabal_marrah_waterfall.jpeg", cap: "شلالات جبل مرة العذبة في ولاية وسط دارفور", cap_en: "Freshwater Waterfalls of Jebel Marra in Central Darfur" },
-      { src: "images/States/Bohyrat_Doryba_ALborkanya.webp", cap: "بحيرة دريبة البركانية فوق قمة جبل مرة", cap_en: "Deriba Volcanic Crater Lake atop Jebel Marra" },
-      { src: "images/States/Galol_Waterfall_Mid_Darfur.webp", cap: "شلالات قلول الساحرة في وسط دارفور", cap_en: "Enchanting Galol Waterfalls in Central Darfur" }
+      { src: "Images/States/Jabal marrah waterfall .jpeg", cap: "شلالات جبل مرة العذبة في ولاية وسط دارفور" },
+      { src: "Images/States/Bohyrat Doryba ALborkanya.webp", cap: "بحيرة دريبة البركانية فوق قمة جبل مرة" },
+      { src: "Images/States/Galol Waterfall Mid Darfur.webp", cap: "شلالات قلول الساحرة في وسط دارفور" }
     ]
   },
   "sd-711": {
-    bg: "images/States/Nyala_city.webp",
+    bg: "Images/States/Nyala city.webp",
     photos: [
-      { src: "images/States/South_Darfour_state_Nyala.jpeg", cap: "الطبيعة والوديان الخضراء في جنوب دارفور", cap_en: "Greenery & Valleys in South Darfur" },
-      { src: "images/States/Mahmyat_al_radoum_south_darfur.webp", cap: "محمية حظيرة الردوم القومية في جنوب دارفور", cap_en: "Radom National Park Reserve in South Darfur" },
-      { src: "images/States/Nyala.jpg", cap: "معالم مدينة نيالا", cap_en: "Landmarks of Nyala City" }
+      { src: "Images/States/South Darfour state Nyala.jpeg", cap: "الطبيعة والوديان الخضراء في جنوب دارفور" },
+      { src: "Images/States/Mahmyat al radoum south darfur.webp", cap: "محمية حظيرة الردوم القومية في جنوب دارفور" },
+      { src: "Images/States/Nyala.jpg", cap: "معالم مدينة نيالا" }
     ]
   },
   "sd-sd": {
-    bg: "images/States/East_Darfur.webp",
+    bg: "Images/States/East Darfur.webp",
     photos: [
-      { src: "images/States/East_Darfur.webp", cap: "مشهد من ولاية شرق دارفور", cap_en: "View from East Darfur State" }
+      { src: "Images/States/East Darfur.webp", cap: "مشهد من ولاية شرق دارفور" }
     ]
   }
 };
-
-const HERITAGE_ITEMS = [
-  {
-    cat: "products",
-    badge_ar: "المنتجات السودانية", badge_en: "Sudanese Products",
-    img: "images/abre.jpg", alt_ar: "الحلو مر السوداني والآبري", alt_en: "Sudanese Hulu-Mur & Abreh",
-    title_ar: "الحلو مُر (الآبْرِي) — أيقونة رمضان في السودان",
-    title_en: "Hulu-Mur (Abreh) — Sudan's Ramadan Icon",
-    sub_ar: "علاقة وطيدة بشهر الصيام وطقوس الاستقبال",
-    sub_en: "Deeply rooted in the Holy Month of Ramadan and hospitality rituals",
-    b1_ar: "علاقته الوطيدة برمضان:", b1_en: "Deep Connection to Ramadan:",
-    t1_ar: "يرتبط «الحلو مر» ارتباطاً روحياً واجتماعياً وثيقاً بشهر رمضان المبارك؛ إذ تبدأ الأسر السودانية في إعداده قبل رمضان بأسابيع في أجواء احتفالية تتعاون فيها نساء الحي («العواسة»)، ويُعد وجوده على مائدة الإفطار ركناً أساسياً لا غنى عنه، كما يُرسل كهدايا للأهل والمغتربين في الخارج ليشعروا بروح الوطن في الشهر الفضيل.",
-    t1_en: "Hulu-Mur holds a profound spiritual and social bond with Ramadan. Sudanese families begin preparing it weeks ahead in joyful neighborhood gatherings ('Awasah'). It is an indispensable staple on every Iftar table and is lovingly shipped abroad to expatriates so they can taste the spirit of home during the holy month.",
-    b2_ar: "طريقة الصنع والفوائد:", b2_en: "Preparation & Health Benefits:",
-    t2_ar: "يُصنع بإنبات الذرة وتجفيفها وطحنها وعجنها بمستخلصات التوابل (القرفة، الزنجبيل، الهيل، الكركدي، والتمر الهندي) وخبزها كرقائق رقيقة تُنقع في الماء البارد. يروي العطش لساعات طويلة، يمد الجسم بطاقة فورية، ويريح المعدة بعد الصيام.",
-    t2_en: "Made by germinating sorghum grains, drying, grinding, and kneading them with aromatic extracts (cinnamon, ginger, cardamom, hibiscus, and tamarind), then baking them into paper-thin sheets soaked in cold water. It quenches thirst for hours, restores instant energy, and soothes the stomach after fasting."
-  },
-  {
-    cat: "customs",
-    badge_ar: "العادات والتقاليد", badge_en: "Customs & Traditions",
-    img: "images/jirtiq.jpg", alt_ar: "طقس الجرتق السوداني", alt_en: "Sudanese Jirtiq Wedding Ritual",
-    title_ar: "طقس الجِرْتِق (The Jirtiq Ritual)",
-    title_en: "The Jirtiq Ritual",
-    sub_ar: "مراسم الزواج الملكية الممتدة من حضارة كوش",
-    sub_en: "Royal wedding ceremonies inherited from the Kingdom of Kush",
-    b1_ar: "تفاصيل الطقس:", b1_en: "Ritual Details:",
-    t1_ar: "جلسة احتفالية مقدسة يجلس فيها العروسان بالزي القرمزي التقليدي على سرير «العنقريب» المفروش بالحرير الأحمر. يُزيّن العروسان بالسوار الأحمر والخرزة الزرقاء و«الفريرة»، وسط عبق بخور الصندل، ويؤديان طقس «بخ اللبن» تيمناً بحياة زوجية نقية وبيضاء يسودها الصفاء.",
-    t1_en: "A sacred ceremonial gathering where the bride and groom, dressed in traditional crimson attire, sit on an 'Angareeb' bed draped in red silk. Adorned with the red bracelet, blue bead, and 'Firaira' amidst sandalwood incense, they perform the 'milk-spraying' ritual wishing for a pure, harmonious married life.",
-    b2_ar: "الدلالة التاريخية:", b2_en: "Historical Significance:",
-    t2_ar: "يُعد الجرتق إرثاً حياً من طقوس تتويج الملوك في مملكة كوش ومروي القديمة، وحافظت عليه الأسر السودانية كرمز للفرح والبركة والحماية.",
-    t2_en: "Jirtiq is a living legacy of ancient royal coronation ceremonies from the Kingdoms of Kush and Meroe, preserved by Sudanese families as a timeless symbol of joy, blessing, and protection.",
-    src_ar: "المصدر: د. يوسف فضل حسن (دراسات في تاريخ وإثنوغرافيا السودان) / د. أحمد المعتصم الشيخ.",
-    src_en: "Source: Prof. Yusuf Fadl Hasan (Studies in Sudanese History & Ethnography) / Dr. Ahmed Al-Mu'tasim Al-Sheikh."
-  },
-  {
-    cat: "customs",
-    badge_ar: "العادات والتقاليد", badge_en: "Customs & Traditions",
-    img: "images/Kham_ramad.jpeg", onerror: "this.src='images/kham_ramad.jpg'", alt_ar: "خم الرماد السوداني", alt_en: "Kham Al-Ramad Tradition",
-    title_ar: "خَمّ الرَّمَاد (Kham Al-Ramad)",
-    title_en: "Kham Al-Ramad (Sweeping the Ashes)",
-    sub_ar: "تصفية القلوب والولائم الجماعية قبيل الصيام",
-    sub_en: "Purifying hearts and communal feasts ahead of fasting",
-    b1_ar: "طبيعة العادة:", b1_en: "Nature of the Tradition:",
-    t1_ar: "تقليد اجتماعي مبهج يُقام في الأيام الأخيرة من شهر شعبان؛ تجتمع فيه الصديقات والعائلات والجيران حول «صينية» الطعام في نزهات ولقاءات دافئة لتناول الأكلات المفضلة وتبادل العفو والتهاني بقدوم الشهر الفضيل.",
-    t1_en: "A joyful social custom celebrated in the final days of Sha'ban, where friends, families, and neighbors gather around shared trays of favorite dishes in warm picnics and get-togethers to forgive past differences and welcome the holy month.",
-    b2_ar: "المعنى الرمزي:", b2_en: "Symbolic Meaning:",
-    t2_ar: "يُسمى «خم الرماد» كناية عن كنس وإزالة رماد المواقد القديمة وتصفية النفوس من أي خلافات، استعداداً لاستقبال رمضان بقلوب صافية وبيوت عامرة.",
-    t2_en: "Literally meaning 'sweeping away the ashes' of old hearths, it symbolizes clearing hearts of grudges and refreshing homes to welcome Ramadan with pure spirits and warm hospitality.",
-    src_ar: "المصدر: د. عون الشريف قاسم (قاموس اللهجة والعاميات السودانية).",
-    src_en: "Source: Dr. Awn Al-Sharif Qasim (Dictionary of Sudanese Dialect & Colloquialisms)."
-  },
-  {
-    cat: "products",
-    badge_ar: "المنتجات السودانية", badge_en: "Sudanese Products",
-    img: "images/Karkady.jpeg", alt_ar: "الكركدي السوداني", alt_en: "Sudanese Hibiscus (Karkadeh)",
-    title_ar: "الكَرْكَدَيْ (Hibiscus)",
-    title_en: "Karkadeh (Sudanese Hibiscus)",
-    sub_ar: "شجيرة الكركديه (Hibiscus sabdariffa) — كردفان ودارفور",
-    sub_en: "Hibiscus sabdariffa — Kordofan & Darfur Regions",
-    b1_ar: "الإنتاج والاستخدام:", b1_en: "Production & Uses:",
-    t1_ar: "تُحصد السبلات الزهرية العنابية وتجفف تحت أشعة الشمس الجافة طبيعياً. يُعد السودان المصدر الأول لأجود أنواعه عالمياً، ويُقدم بارداً كمشروب ضيافة منعش أو ساخناً.",
-    t1_en: "Deep crimson floral calyces are harvested and naturally sun-dried. Sudan is the world's premier producer of top-grade hibiscus, served chilled as a refreshing welcome drink or brewed hot.",
-    b2_ar: "الفوائد الصحية:", b2_en: "Health Benefits:",
-    t2_ar: "يخفض ضغط الدم المرتفع عند شربه بارداً، غني بفيتامين C ومضادات الأكسدة، ويعزز صحة القلب والمناعة.",
-    t2_en: "Helps lower high blood pressure when served cold, rich in Vitamin C and antioxidants, and supports cardiovascular and immune health."
-  },
-  {
-    cat: "products",
-    badge_ar: "المنتجات السودانية", badge_en: "Sudanese Products",
-    img: "images/Tabaldey.jpeg", alt_ar: "القونقليز والتبلدي", alt_en: "Gongolez & Tebeldi Baobab Fruit",
-    title_ar: "القَوْنْقَلِيز (ثمار شجرة التِّبِلْدِي)",
-    title_en: "Gongolez (Tebeldi / Baobab Fruit)",
-    sub_ar: "شجرة الباوباب المعمرة (Adansonia digitata) — حزام السافانا",
-    sub_en: "Ancient Baobab Tree (Adansonia digitata) — Savanna Belt",
-    b1_ar: "الإنتاج والاستخدام والتصنيع:", b1_en: "Production, Uses & Confectionery:",
-    t1_ar: "تُكسر ثمار التبلدي الخشبية لاستخراج لبّها الأبيض الغني؛ حيث يُذاب كعصير فاخر، أو يُسحق ويُخلط بالسكر والعصائر لإنتاج حلويات ومعجنات تقليدية محبوبة جداً للصغار والكبار.",
-    t1_en: "Woody baobab pods are cracked open to extract their tangy white pulp, dissolved into a rich juice or crushed and blended with sugar and fruit extracts to craft beloved traditional sweets and treats for children and adults alike.",
-    b2_ar: "الفوائد الصحية:", b2_en: "Health Benefits:",
-    t2_ar: "غذاء خارق (Superfood) يحتوي أضعاف فيتامين C في البرتقال، غني بالكالسيوم، وفعال لعلاج النزلات المعوية.",
-    t2_en: "A natural superfood packing multiples of an orange's Vitamin C, rich in calcium, and widely used as a natural remedy for digestive relief."
-  },
-  {
-    cat: "products",
-    badge_ar: "المنتجات السودانية", badge_en: "Sudanese Products",
-    img: "images/Doam.jpeg", alt_ar: "ثمار الدوم", alt_en: "Nubian Doum Palm Fruit",
-    title_ar: "الدَّوْم (Doum Fruit)",
-    title_en: "Doum Fruit (Nubian Palm)",
-    sub_ar: "نخيل الدوم النوبي (Hyphaene thebaica) — الشرق والشمال",
-    sub_en: "Hyphaene thebaica — Eastern & Northern Sudan",
-    b1_ar: "الإنتاج والتصنيع:", b1_en: "Production & Traditional Treats:",
-    t1_ar: "تُجمع ثماره الصلبة وتُسحق قشرتها الإسفنجية لعمل المشروب العريق، كما يتم طحنها وخلطها بالعسل أو السكر لتشكيل حلويات شعبية صلبة وطازجة يعشقها الأطفال والكبار.",
-    t1_en: "Its hard, aromatic fruits are harvested and their spongy outer rind is crushed for traditional drinks or ground and mixed with honey or sugar into popular crunchy folk candies loved by both kids and adults.",
-    b2_ar: "الفوائد الصحية:", b2_en: "Health Benefits:",
-    t2_ar: "منظم دقيق لضغط الدم، غني بالألياف ومضادات الأكسدة، ومفيد لصحة القلب والذاكرة.",
-    t2_en: "Naturally regulates blood pressure, packed with dietary fiber and antioxidants, and supports heart health and memory."
-  },
-  {
-    cat: "products",
-    badge_ar: "المنتجات السودانية", badge_en: "Sudanese Products",
-    img: "images/laloap.jpeg", onerror: "if(!this.dataset.t){this.dataset.t='1';this.src='images/laloap.jpeg';}else if(this.dataset.t==='1'){this.dataset.t='2';this.src='images/Laloap.jpeg';}", alt_ar: "ثمار اللالوب", alt_en: "Lalob Desert Date Fruit",
-    title_ar: "اللاَّلُوب (بلح الصحراء)",
-    title_en: "Lalob (Desert Date)",
-    sub_ar: "شجرة الهِجْلِيج الشوكية (Balanites aegyptiaca) — أواسط وغرب السودان",
-    sub_en: "Heglig Tree (Balanites aegyptiaca) — Central & Western Sudan",
-    b1_ar: "الإنتاج والاستخدام:", b1_en: "Production & Uses:",
-    t1_ar: "ثمار برية تشبه التمر تُجنى من أشجار الهجليج وتؤكل بمص قشرتها ذات الطعم الحلو والمر معاً، وتشتهر كمسليات شعبية وصيدلية طبيعية.",
-    t1_en: "Wild date-like fruits harvested from Heglig trees, enjoyed for their distinctive bittersweet pulp as a beloved folk snack and natural apothecary staple.",
-    b2_ar: "الفوائد الصحية:", b2_en: "Health Benefits:",
-    t2_ar: "مطهر معوي طبيعي، يساعد في تنظيم السكر، ويُستخرج من نواته زيت علاجي للمفاصل.",
-    t2_en: "Acts as a natural digestive cleanser, helps regulate blood sugar, and yields a therapeutic kernel oil used for joint care."
-  },
-  {
-    cat: "products",
-    badge_ar: "المنتجات السودانية", badge_en: "Sudanese Products",
-    img: "images/Arabic_gum.jpg", alt_ar: "الصمغ العربي", alt_en: "Sudanese Gum Arabic",
-    title_ar: "الصمغ العربي (Gum Arabic)",
-    title_en: "Gum Arabic (Hashab Acacia)",
-    sub_ar: "شجرة الهَشَاب (Acacia senegal) — حزام الصمغ (كردفان ودارفور)",
-    sub_en: "Acacia senegal — Sudan's Gum Belt (Kordofan & Darfur)",
-    b1_ar: "الإنتاج والاستخدام:", b1_en: "Production & Global Uses:",
-    t1_ar: "يُجمع عبر «طق» لحاء الشجرة لتفرز بلورات راتنجية ذهبية؛ ينتج السودان أكثر من 70% من إنتاج العالم ويدخل في الصناعات الدوائية والغذائية.",
-    t1_en: "Harvested by tapping the acacia bark to yield golden resinous tears; Sudan produces over 70% of the world's supply, essential to global pharmaceuticals and food industries.",
-    b2_ar: "الفوائد الصحية:", b2_en: "Health Benefits:",
-    t2_ar: "أغنى مصدر طبيعي للألياف الذائبة والبريبيوتيك، يدعم وظائف الكلى الحيوية وصحة الجهاز الهضمي.",
-    t2_en: "One of nature's richest sources of soluble prebiotic fiber, supporting vital kidney function and digestive wellness."
-  }
-];
 
 window.imgFallback = function(el) {
   const src = el.getAttribute('src');
@@ -1827,60 +1571,25 @@ function render(){
     P.style.backgroundImage=`linear-gradient(160deg, #FCF9F3, #F5EBDD)`;
   }
   const ph = getAllStatePhotos(sel);
-  const descTxt = EN ? s.d_en : s.d;
-  const resArr = EN ? s.r_en : s.r;
-  const trArr = EN ? s.tr_en : s.tr;
-  const lmArr = EN ? s.l_en : s.l;
-
   $('panel').innerHTML=`
   <h2>${esc(nm(sel))}</h2>
   <div class="cap"><span>${t('cap')}: <b style="color:var(--ink)">${esc(cp(sel))}</b></span><span class="tag" style="background:var(--${s.t})">${THN(s.t)}</span></div>
-  <p class="desc">${esc(descTxt)}</p>
-  <h3>${t('res')}</h3><ul class="res">${resArr.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
-  <h3>${t('tr')}</h3><div class="chips">${trArr.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>
-  <h3>${t('lm')}</h3><div class="chips">${lmArr.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>
+  <p class="desc">${s.d}</p>
+  <h3>${t('res')}</h3><ul class="res">${s.r.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+  <h3>${t('tr')}</h3><div class="chips">${s.tr.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>
+  <h3>${t('lm')}</h3><div class="chips">${s.l.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>
   <h3>${t('pic')} (${ph.length})</h3>
-  ${ph.length?`<div class="gallery">${ph.map((p,i)=>{
-    const capTxt = EN ? (p.cap_en || p.cap) : p.cap;
-    return `<figure class="ph"><button class="open" type="button" data-i="${i}" aria-label="${EN?'View photo':'عرض الصورة'}"><img src="${esc(p.src)}" alt="${esc(capTxt||nm(sel))}" loading="lazy" onerror="imgFallback(this)"></button>${capTxt?`<span class="ph-cap-tag">${esc(capTxt)}</span>`:''}</figure>`;
-  }).join('')}</div>`
+  ${ph.length?`<div class="gallery">${ph.map((p,i)=>`<figure class="ph"><button class="open" type="button" data-i="${i}" aria-label="عرض الصورة"><img src="${esc(p.src)}" alt="${esc(p.cap||s.n)}" loading="lazy" onerror="imgFallback(this)"></button>${p.cap?`<span class="ph-cap-tag">${esc(p.cap)}</span>`:''}</figure>`).join('')}</div>`
   :`<p class="empty">${t('noph')}</p>`}`;
 
   $('panel').querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{
     const p=ph[+b.dataset.i];
-    const capTxt = EN ? (p.cap_en || p.cap) : p.cap;
     const imgEl = b.querySelector('img');
     $('lbImg').src = imgEl ? imgEl.src : p.src;
-    $('lbImg').alt = capTxt||nm(sel);
-    $('lbCap').textContent = capTxt||'';
+    $('lbImg').alt = p.cap||s.n;
+    $('lbCap').textContent = p.cap||'';
     $('lb').showModal();
   });
-}
-
-let activeHeritageCat = 'all';
-function renderHeritage(){
-  const list = $('heritageList');
-  list.innerHTML = HERITAGE_ITEMS.map(item => {
-    const hiddenCls = (activeHeritageCat !== 'all' && item.cat !== activeHeritageCat) ? ' hidden-cat' : '';
-    const onerrAttr = item.onerror ? ` onerror="${item.onerror}"` : '';
-    return `
-      <article class="h-card${hiddenCls}" data-category="${item.cat}">
-        <div class="h-img-box">
-          <span class="h-badge">${esc(EN ? item.badge_en : item.badge_ar)}</span>
-          <img src="${esc(item.img)}" alt="${esc(EN ? item.alt_en : item.alt_ar)}"${onerrAttr}>
-        </div>
-        <div class="h-body">
-          <h3>${esc(EN ? item.title_en : item.title_ar)}</h3>
-          <div class="h-sub">${esc(EN ? item.sub_en : item.sub_ar)}</div>
-          <div class="h-grid-info">
-            <div class="h-item"><b>${esc(EN ? item.b1_en : item.b1_ar)}</b> ${esc(EN ? item.t1_en : item.t1_ar)}</div>
-            <div class="h-item"><b>${esc(EN ? item.b2_en : item.b2_ar)}</b> ${esc(EN ? item.t2_en : item.t2_ar)}</div>
-          </div>
-          ${item.src_ar ? `<span class="h-source">${esc(EN ? item.src_en : item.src_ar)}</span>` : ''}
-        </div>
-      </article>
-    `;
-  }).join('');
 }
 
 const heritageSec = $('heritageSec');
@@ -1894,8 +1603,10 @@ document.querySelectorAll('#catTabs .cat-tab').forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll('#catTabs .cat-tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    activeHeritageCat = btn.dataset.cat;
-    renderHeritage();
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('#heritageList .h-card').forEach(card => {
+      card.classList.toggle('hidden-cat', cat !== 'all' && card.dataset.category !== cat);
+    });
   };
 });
 
@@ -1908,8 +1619,8 @@ if (copyVoteBtn) {
   copyVoteBtn.onclick = async () => {
     try {
       await navigator.clipboard.writeText("https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl");
-      alert(EN ? "Voting link copied successfully!" : "تم نسخ رابط التصويت بنجاح!");
-    } catch(e) { alert(EN ? "Failed to copy" : "تعذر النسخ"); }
+      alert("تم نسخ رابط التصويت بنجاح!");
+    } catch(e) { alert("تعذر النسخ"); }
   };
 }
 
@@ -1923,7 +1634,7 @@ try{myVotes=JSON.parse(localStorage.getItem(VOTES_KEY)||'{}')}catch(e){}
 function renderLens(){
   const grid=$('lensGrid');
   if(!lensList.length){
-    grid.innerHTML=`<p class="empty" style="grid-column:1/-1">${t('lensEmpty')}</p>`;
+    grid.innerHTML=`<p class="empty" style="grid-column:1/-1">كن أول من يشاركنا لقطة من تصويره للبوث أو العروض!</p>`;
     return;
   }
   grid.innerHTML=lensList.map((item,idx)=>{
@@ -1931,25 +1642,24 @@ function renderLens(){
     const likes = item.likes || 0;
     const dislikes = item.dislikes || 0;
     const v = myVotes[id];
-    const defaultAuthor = EN ? 'Participant' : 'مشارك';
     return `
     <figure class="lens-card" style="margin:0">
-      <img src="${esc(item.src)}" alt="${esc(item.author||defaultAuthor)}" loading="lazy" data-lview="${idx}">
+      <img src="${esc(item.src)}" alt="${esc(item.author||'مشارك')}" loading="lazy" data-lview="${idx}">
       <figcaption class="lens-meta">
-        <h4>📸 ${esc(item.author||defaultAuthor)}</h4>
+        <h4>📸 ${esc(item.author||'مشارك')}</h4>
         <div class="react-btns">
           <button type="button" class="react-btn ${v==='like'?'voted-like':''}" data-vote="like" data-id="${esc(id)}" data-idx="${idx}">👍 <span>${likes}</span></button>
           <button type="button" class="react-btn ${v==='dislike'?'voted-dislike':''}" data-vote="dislike" data-id="${esc(id)}" data-idx="${idx}">👎 <span>${dislikes}</span></button>
         </div>
       </figcaption>
-      <button class="del" type="button" data-ldel="${idx}" data-id="${esc(id)}" aria-label="${EN?'Delete':'حذف'}">×</button>
+      <button class="del" type="button" data-ldel="${idx}" data-id="${esc(id)}" aria-label="حذف">×</button>
     </figure>
   `}).join('');
 
   grid.querySelectorAll('[data-lview]').forEach(img=>img.onclick=()=>{
     const it=lensList[+img.dataset.lview];
     $('lbImg').src=it.src;
-    $('lbCap').textContent=EN ? `Captured by: ${it.author||'Participant'}` : `عدسة: ${it.author||'مشارك'}`;
+    $('lbCap').textContent=`عدسة: ${it.author||'مشارك'}`;
     $('lb').showModal();
   });
 
@@ -1977,7 +1687,7 @@ function renderLens(){
   });
 
   grid.querySelectorAll('[data-ldel]').forEach(btn=>btn.onclick=async()=>{
-    if(!confirm(EN ? 'Delete this photo from the gallery?' : 'حذف هذه الصورة من المعرض؟')) return;
+    if(!confirm('حذف هذه الصورة من المعرض؟')) return;
     const idx = +btn.dataset.ldel;
     if (db && lensList[idx]?.id) {
       try { await deleteDoc(doc(db, "capture_culture", lensList[idx].id)); } catch(e) {}
@@ -2003,10 +1713,10 @@ $('lensPickBtn').onclick=()=>$('lensFile').click();
 $('lensFile').onchange=async e=>{
   const file=e.target.files[0];
   if(!file)return;
-  $('lensStatus').textContent=EN ? 'Adding your photo to the gallery…' : 'جارٍ إضافة صورتك للمعرض…';
+  $('lensStatus').textContent='جارٍ إضافة صورتك للمعرض…';
   try{
     const src=await shrink(file, 800, 0.68);
-    const author=($('lensAuthor').value||'').trim()||(EN ? 'Participant' : 'مشارك');
+    const author=($('lensAuthor').value||'').trim()||'مشارك';
     const item = {src, author, likes: 0, dislikes: 0, t: Date.now()};
     if (db) {
       await addDoc(collection(db, "capture_culture"), item);
@@ -2017,30 +1727,18 @@ $('lensFile').onchange=async e=>{
     }
     $('lensAuthor').value='';
     $('lensFile').value='';
-    $('lensStatus').textContent=EN ? 'Thank you for sharing on Land of Two Niles!' : 'شكراً لمشاركتك في موقع أرض النيلين!';
+    $('lensStatus').textContent='شكراً لمشاركتك في موقع أرض النيلين!';
     setTimeout(()=>{$('lensStatus').textContent=''},3500);
   }catch(err){
-    $('lensStatus').textContent=EN ? 'Sorry, could not save the photo.' : 'عذراً، تعذر حفظ الصورة.';
+    $('lensStatus').textContent='عذراً، تعذر حفظ الصورة.';
   }
 };
 
 let EN=false;try{EN=localStorage.getItem('sd-lang')==='en'}catch(e){}
 const I={
   title:['أرض النيلين','Land of Two Niles'],
-  ov1:['أرض النيلين','Land of Two Niles'],
-  ov3:['هنا يلتقي النيلان، وهنا تمتد جذور أعرق الحضارات النوبية والكوشية؛ شعبٌ صاغ من تنوّعه مجداً، ومن تراثه حكايةً خالدة عبر الأزمان.','Here the Two Niles meet, and here stretch the roots of the ancient Nubian and Kushite civilizations; a people who forged glory from diversity and an eternal story from their heritage.'],
-  ov4:['السودان... حضارةٌ تُروى، وثقافةٌ تُعاش، وهويةٌ لا تُنسى.','Sudan... a civilization told, a culture lived, and an unforgettable identity.'],
-  ovGo:['استكشف أرض النيلين','Explore Land of Two Niles'],
   sub:['رحلة تفاعلية عبر ولايات السودان الـ ١٨، من أهرامات مروي والنوبة إلى سهول كردفان ودارفور وملتقى النيلين.','An interactive journey across Sudan’s 18 states, from Meroe and Nubia to the confluence of the Two Niles.'],
   ph:['ابحث عن ولاية، حضارة، أو معلم…','Search a state, civilization, or landmark…'],
-  topVote:['⭐ تصويت للسودان','⭐ Vote for Sudan'],
-  qrBtn:['رمز QR','QR Code'],
-  mapSec:['خريطة ولايات السودان التفاعلية','Interactive Map of Sudan States'],
-  herTitle:['العادات والتقاليد والمنتجات السودانية الأصيلة','Authentic Sudanese Customs, Traditions & Products'],
-  herSub:['اضغط لفتح واستعراض الموروث الاجتماعي والطقوس الملكية والخيرات الطبيعية السودانية.','Click to explore social heritage, royal rituals, and authentic Sudanese natural treasures.'],
-  tabAll:['الكل (٨)','All (8)'],
-  tabCustoms:['العادات والتقاليد','Customs & Traditions'],
-  tabProducts:['المنتجات السودانية','Sudanese Products'],
   res:['غنية بـ','Rich in'],tr:['القبائل','Tribes'],lm:['معالم','Landmarks'],pic:['الصور','Photos'],cap:['العاصمة','Capital'],
   pick:['اختر ولاية من الخريطة أو من القائمة:','Select a state from the map or the list:'],
   cnt:['١٨ ولاية','18 States'],
@@ -2059,25 +1757,8 @@ const I={
   wthx:['شكراً لأنك تركت جزءاً من وطنك هنا.','Thank you for leaving a part of your homeland here.'],
   wt2:['جدار المشاركات','Wall of contributions'],
   wempty:['كن أول من يترك أثراً هنا.','Be the first to leave a trace here.'],
-  voteTitle:['⭐ تصويت الجمهور — أفضل جناح ثقافي (Best Booth)','⭐ Audience Voting — Best Cultural Booth'],
-  voteDesc:['صوتوا لجناح السودان ليحصد لقب الأفضل! اضغطوا على زر التصويت للانتقال الفوري.','Vote for the Sudan Booth to win Best Booth! Click below to cast your vote directly.'],
-  voteDirect:['🔗 اضغط هنا للتصويت المباشر','🔗 Click Here to Vote Directly'],
-  copyVote:['📋 نسخ رابط التصويت','📋 Copy Voting Link'],
   ltitle:['Capture the Culture | وثّق الثقافة بعدستك','Capture the Culture | Document the Heritage'],
-  lquote:['«بعدستكم تصبح الحكاية أبدية؛ التقطوا نبض التراث، وشاركوا معنا لحظات لا تُنسى من قلب المعرض.»','“Through your lens, the story becomes eternal; capture the pulse of heritage and share unforgettable moments from the heart of the exhibition.”'],
-  lsub:['وثّقوا لحظاتكم معنا! شاركونا لقطاتكم من تصويركم للبوث والعروض في اليوم الثقافي.','Document your moments with us! Share your photos of the booth and performances during the cultural day.'],
-  lensAuthor:['اكتب اسمك هنا…','Enter your name here…'],
-  lensPick:['📷 اختر صورة وشاركها','📷 Choose & Share a Photo'],
-  lensEmpty:['كن أول من يشاركنا لقطة من تصويره للبوث أو العروض!','Be the first to share a photo of the booth or cultural performances!'],
-  qrDlgTitle:['شارك موقع أرض النيلين','Share Land of Two Niles'],
-  qrDlgSub:['امسح الرمز بكاميرا الهاتف لفتح الخريطة والمشاركة.','Scan the QR code with your phone camera to open the interactive map.'],
-  copyBtn:['نسخ الرابط','Copy Link'],
-  saveQr:['حفظ صورة الرمز','Save QR Image'],
-  voteDlgTitle:['تصويت الجمهور — أفضل جناح ثقافي','Audience Voting — Best Cultural Booth'],
-  voteDlgSub:['امسح الرمز بكاميرا الهاتف أو استخدم الرابط أدناه للتصويت لجناح السودان.','Scan the QR code with your phone camera or use the link below to vote for Sudan.'],
-  voteDlgLink:['🔗 فتح رابط التصويت المباشر','🔗 Open Direct Voting Link'],
-  footTitle:['<strong>Sudan Eco</strong> — العرض الثقافي «أرض النيلين | Land of Two Niles»','<strong>Sudan Eco</strong> — Cultural Presentation “Land of Two Niles | أرض النيلين”'],
-  footNote:['المعلومات عامة ومبسطة لأغراض التعريف الثقافي، والحدود الإدارية تقريبية.','Information is generalized for cultural awareness purposes; administrative boundaries are approximate.']
+  lsub:['وثّقوا لحظاتكم معنا! شاركونا لقطاتكم من تصويركم للبوث والعروض في اليوم الثقافي.','Document your moments with us! Share your photos of the booth and performances during the cultural day.']
 };
 const t=k=>I[k][EN?1:0];
 const EN_N={"sd-no":["Northern","Dongola"],"sd-rn":["River Nile","Ed Damer"],"sd-rs":["Red Sea","Port Sudan"],"sd-ka":["Kassala","Kassala"],"sd-gd":["Gedaref","Gedaref"],"sd-kh":["Khartoum","Khartoum"],"sd-gz":["Al Jazirah","Wad Madani"],"sd-si":["Sennar","Singa"],"sd-bn":["Blue Nile","Ad-Damazin"],"sd-wn":["White Nile","Rabak"],"sd-kn":["North Kordofan","El Obeid"],"sd-wk":["West Kordofan","Al-Fulah"],"sd-ks":["South Kordofan","Kadugli"],"sd-nd":["North Darfur","El Fasher"],"sd-wd":["West Darfur","El Geneina"],"sd-7281":["Central Darfur","Zalingei"],"sd-711":["South Darfur","Nyala"],"sd-sd":["East Darfur","Ed Daein"]};
@@ -2087,39 +1768,11 @@ const nm=k=>EN?EN_N[k][0]:STATES[k].n, cp=k=>EN?EN_N[k][1]:STATES[k].cap, THN=k=
 function applyLang(){
   document.documentElement.lang=EN?'en':'ar';document.documentElement.dir=EN?'ltr':'rtl';
   document.title=t('title')+' — Sudan Eco';
-  $('ov1').textContent=t('ov1'); $('ov3').textContent=t('ov3'); $('ov4').textContent=t('ov4'); $('ovGo').textContent=t('ovGo');
   document.querySelector('.top-banner h1').innerHTML=EN?'Land of Two Niles <span>| أرض النيلين</span>':'أرض النيلين <span>| Land of Two Niles</span>';
   document.querySelector('.top-banner .sub').textContent=t('sub');
   $('q').placeholder=t('ph');$('langBtn').textContent=EN?'العربية':'EN';
-  $('topVoteBtn').textContent=t('topVote');
-  $('qrBtnText').textContent=t('qrBtn');
-  $('mapSecTitle').textContent=t('mapSec');
-  $('herTitle').textContent=t('herTitle');
-  $('herSub').textContent=t('herSub');
-  $('tabAll').textContent=t('tabAll');
-  $('tabCustoms').textContent=t('tabCustoms');
-  $('tabProducts').textContent=t('tabProducts');
-  $('voteTitle').textContent=t('voteTitle');
-  $('voteDesc').textContent=t('voteDesc');
-  $('voteDirectLink').textContent=t('voteDirect');
-  $('copyVoteLinkBtn').textContent=t('copyVote');
-  $('lensTitle').textContent=t('ltitle');
-  $('lensQuote').textContent=t('lquote');
-  $('lensSub').textContent=t('lsub');
-  $('lensAuthor').placeholder=t('lensAuthor');
-  $('lensPickBtn').textContent=t('lensPick');
-  $('qrDlgTitle').textContent=t('qrDlgTitle');
-  $('qrDlgSub').textContent=t('qrDlgSub');
-  $('copyBtn').textContent=t('copyBtn');
-  $('saveQr').textContent=t('saveQr');
-  $('voteDlgTitle').textContent=t('voteDlgTitle');
-  $('voteDlgSub').textContent=t('voteDlgSub');
-  $('voteDlgLink').textContent=t('voteDlgLink');
-  $('footTitle').innerHTML=t('footTitle');
-  $('footNote').textContent=t('footNote');
+  $('lensTitle').textContent=t('ltitle');$('lensSub').textContent=t('lsub');
   wLang();
-  renderHeritage();
-  renderLens();
   const ks=Object.keys(STATES);[...map.querySelectorAll('.lbl')].forEach((e,i)=>e.textContent=nm(ks[i]));
   lg.querySelectorAll('.lg').forEach(b=>b.lastChild.textContent=THN(b.dataset.t));
   sel?render():intro();wDraw();
@@ -2127,7 +1780,7 @@ function applyLang(){
 $('langBtn').onclick=()=>{EN=!EN;try{localStorage.setItem('sd-lang',EN?'en':'ar')}catch(e){}applyLang()};
 
 let SQ='';const nz=x=>String(x).toLowerCase().replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
-const hit=k=>{const s=STATES[k];return nz([s.n,s.n_en,s.cap,s.cap_en,...s.r,...s.r_en,...s.tr,...s.tr_en,...s.l,...s.l_en,...EN_N[k]].join(' ')).includes(SQ)};
+const hit=k=>{const s=STATES[k];return nz([s.n,s.cap,...s.r,...s.tr,...s.l,...EN_N[k]].join(' ')).includes(SQ)};
 $('q').addEventListener('input',e=>{SQ=nz(e.target.value.trim());paint()});
 $('q').addEventListener('keydown',e=>{if(e.key==='Enter'&&SQ){const k=Object.keys(STATES).find(hit);if(k)select(k)}});
 
@@ -2156,14 +1809,14 @@ function wDraw(){
     <figure class="wc">
       ${i.img?`<img src="${esc(i.img)}" alt="" loading="lazy">`:''}
       ${i.text?(i.type==='1'?`<div class="ww">${esc(i.text)}</div>`:`<blockquote>${esc(i.text)}</blockquote>`):''}
-      <button class="del" type="button" data-wdel="${idx}" aria-label="${EN?'Delete':'حذف'}">×</button>
+      <button class="del" type="button" data-wdel="${idx}" aria-label="حذف">×</button>
     </figure>
   `).join(''):`<p class="empty" style="color:rgba(248,243,233,0.78);">${t('wempty')}</p>`;
 
   $('wall').querySelectorAll('[data-wdel]').forEach(b=>b.onclick=async()=>{
     const idx=+b.dataset.wdel;
     const target = pubItems[idx];
-    if(!confirm(EN ? 'Delete this contribution?' : 'حذف هذه المشاركة؟')) return;
+    if(!confirm('حذف هذه المشاركة؟')) return;
     if (db && target?.id) {
       try { await deleteDoc(doc(db, "watan_feena", target.id)); } catch(e) {}
     } else {
@@ -2185,7 +1838,7 @@ if (db) {
 $('wSend').onclick=async()=>{
   const ty=wType(),text=$('wtext').value.trim(),file=$('wimg').files[0], isPublic=$('wpub').checked;
   if(ty!=='3'&&!text)return;
-  if(ty==='3'&&!file){alert(EN ? 'Please select a photo first' : 'يرجى اختيار صورة أولاً');return}
+  if(ty==='3'&&!file){alert('يرجى اختيار صورة أولاً');return}
   $('wSend').disabled=true;
   try{
     let img='';
@@ -2202,10 +1855,10 @@ $('wSend').onclick=async()=>{
       wDraw();
     }
     $('wtext').value='';$('wimg').value='';
-    $('wThanks').textContent=isPublic ? t('wthx') : (EN ? 'Your private contribution has been saved (will not appear on the public wall).' : 'تم حفظ مشاركتك الخاصة بنجاح (لن تظهر في الجدار العام).');
+    $('wThanks').textContent=isPublic ? t('wthx') : 'تم حفظ مشاركتك الخاصة بنجاح (لن تظهر في الجدار العام).';
     $('wThanks').hidden=false;
     setTimeout(()=>{$('wThanks').hidden=true},4500);
-  }catch(e){alert(EN ? 'Could not save contribution' : 'تعذر حفظ المشاركة')}
+  }catch(e){alert('تعذر حفظ المشاركة')}
   $('wSend').disabled=false;
 };
 
@@ -2219,12 +1872,12 @@ $('qrBtn').onclick=()=>{
   $('qrUrl').value=window.location.href;drawQR();$('qrStatus').textContent='';$('qrDlg').showModal();
 };
 $('copyBtn').onclick=async()=>{
-  try{await navigator.clipboard.writeText(qrUrl());$('qrStatus').textContent=EN ? 'Link copied.' : 'تم نسخ الرابط.'}catch(e){$('qrUrl').select();$('qrStatus').textContent=EN ? 'Select the link and copy it.' : 'حدّد الرابط وانسخه.'}
+  try{await navigator.clipboard.writeText(qrUrl());$('qrStatus').textContent='تم نسخ الرابط.'}catch(e){$('qrUrl').select();$('qrStatus').textContent='حدّد الرابط وانسخه.'}
 };
 $('saveQr').onclick=()=>{
   const c=$('qr').querySelector('canvas');if(!c)return;
   const a=document.createElement('a');a.download='land-of-two-niles-qr.png';a.href=c.toDataURL('image/png');a.click();
-  $('qrStatus').textContent=EN ? 'QR code image saved.' : 'تم حفظ صورة الرمز.';
+  $('qrStatus').textContent='تم حفظ صورة الرمز.';
 };
 document.querySelectorAll('dialog').forEach(d=>{
   d.querySelector('[data-close]').onclick=()=>d.close();
