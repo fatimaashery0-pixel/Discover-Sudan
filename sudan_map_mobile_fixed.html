@@ -135,7 +135,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
   outline: 1.5px solid var(--gold);
   outline-offset: -14px;
 }
-#ov.off { opacity: 0; pointer-events: none; }
+#ov.off { opacity: 0; pointer-events: none; visibility: hidden; }
+#ov.gone { display: none !important; }
 #ov > div { position: relative; z-index: 2; max-width: 760px; }
 #ov svg.bg-art { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 54%; opacity: 0.96; }
 
@@ -910,7 +911,6 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
   .panel { position: static; max-height: none; }
   .lbl { font-size: 15px; } .lbl.small { font-size: 11.5px; }
   svg.map { min-height: 360px; }
-  /* Disable the decorative SVG pattern on small screens to avoid mobile rendering artifacts. */
   .map-topography { display: none !important; }
   .h-card { flex-direction: column; }
   .h-img-box { width: 100%; height: 220px; }
@@ -2143,8 +2143,8 @@ $('q').addEventListener('input',e=>{SQ=nz(e.target.value.trim());paint()});
 $('q').addEventListener('keydown',e=>{if(e.key==='Enter'&&SQ){const k=Object.keys(STATES).find(hit);if(k)select(k)}});
 
 let seen=false;try{seen=sessionStorage.getItem('sd-seen')==='1'}catch(e){}
-$('ov').className=seen?'off':'';
-$('ovGo').onclick=()=>{$('ov').className='off';try{sessionStorage.setItem('sd-seen','1')}catch(e){}};
+$('ov').className=seen?'off gone':'';
+$('ovGo').onclick=()=>{$('ov').className='off';setTimeout(()=>{$('ov').classList.add('gone')},800);try{sessionStorage.setItem('sd-seen','1')}catch(e){}};
 
 const wType=()=>document.querySelector('input[name=wtype]:checked').value;
 function wLang(){
