@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أرض النيلين | Land of Two Niles — Sudan Eco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+@font-face {
+  font-family: 'CustomSudanFont';
+  src: url('Fonts/Lyon_Arabic_Display_Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CustomSudanFont';
+  src: url('Fonts/Lyon_Arabic_Display_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CustomSudanFont';
+  src: url('Fonts/Lyon_Arabic_Display_Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CustomSudanFont';
+  src: url('Fonts/Lyon_Arabic_Display_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CustomSudanFont';
+  src: url('Fonts/Lyon_Arabic_Display_Black.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+:root{
+  --terracotta: #B66B43;
+  --terracotta-dark: #94522F;
+  --gold: #C49A58;
+  --gold-light: #DEC08A;
+  --burgundy: #762D32;
+  --burgundy-dark: #581F23;
+  --sand: #E8D2AE;
+  --nile: #397D9B;
+  --ivory: #F8F3E9;
+  --ivory-card: #FCF9F3;
+  --ink: #2E1F1A;
+  --muted: #6B5347;
+  --border-gold: rgba(196, 154, 88, 0.45);
+  --border-burgundy: rgba(118, 45, 50, 0.25);
+
+  --agri: #6F7B4E;
+  --live: #C49A58;
+  --gum: #D9B67E;
+  --mine: #B66B43;
+  --oil: #5C3D35;
+  --trade: #397D9B;
+
+  --shadow-booth: 0 24px 52px -18px rgba(46, 31, 26, 0.22);
+  --shadow-card: 0 14px 32px -16px rgba(46, 31, 26, 0.16);
+  --radius: 20px;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'CustomSudanFont', "Cairo", Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  overflow-x: hidden;
+  background-color: var(--ivory);
+  background-image:
+    radial-gradient(circle at 14% 8%, rgba(232, 210, 174, 0.55) 0%, transparent 48%),
+    radial-gradient(circle at 88% 72%, rgba(182, 107, 67, 0.12) 0%, transparent 52%),
+    url("data:image/svg+xml,%3Csvg width='84' height='84' viewBox='0 0 84 84' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C49A58' stroke-width='0.75' stroke-opacity='0.18'%3E%3Cpolygon points='42,6 78,42 42,78 6,42'/%3E%3Cpolygon points='42,20 64,42 42,64 20,42'/%3E%3Ccircle cx='42' cy='42' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+button, input, textarea, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 3px; }
+
+.nubian-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 48px auto;
+}
+.nubian-divider::before, .nubian-divider::after {
+  content: "";
+  height: 1.5px;
+  flex: 1;
+  max-width: 280px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--burgundy), var(--gold), transparent);
+}
+.nubian-diamond {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--burgundy);
+  transform: rotate(45deg);
+  background: var(--gold);
+  box-shadow: 0 0 0 3px var(--ivory), 0 0 0 4.5px var(--gold);
+}
+
+/* 1. شاشة الافتتاحية */
+#ov {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 28px;
+  background: radial-gradient(circle at 50% 24%, #8E3A3F 0%, #762D32 52%, #471B1E 100%);
+  color: var(--ivory);
+  transition: opacity .7s cubic-bezier(.16, 1, .3, 1);
+  border: 6px solid var(--burgundy-dark);
+  outline: 1.5px solid var(--gold);
+  outline-offset: -14px;
+}
+#ov.off { opacity: 0; pointer-events: none; }
+#ov > div { position: relative; z-index: 2; max-width: 760px; }
+#ov svg.bg-art { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 54%; opacity: 0.96; }
+
+.brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid var(--gold);
+  background: rgba(71, 27, 30, 0.75);
+  color: var(--sand);
+  padding: 6px 22px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  backdrop-filter: blur(6px);
+}
+
+.sudan-flag-svg {
+  width: 88px;
+  height: 48px;
+  border-radius: 6px;
+  margin: 0 auto 16px;
+  display: block;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .42);
+  border: 1.5px solid var(--gold);
+}
+
+#ov h1 {
+  font-weight: 800;
+  font-size: clamp(2.6rem, 7.5vw, 4.8rem);
+  margin: 0 0 6px;
+  line-height: 1.1;
+  color: var(--ivory);
+  text-shadow: 0 4px 22px rgba(46, 20, 22, 0.55);
+}
+#ov .o-en {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin: 0 0 14px;
+  font-weight: 600;
+}
+#ov .o3 {
+  max-width: 54ch;
+  font-size: clamp(1rem, 2.2vw, 1.18rem);
+  margin: 0 auto 14px;
+  line-height: 1.9;
+  color: rgba(248, 243, 233, 0.92);
+}
+#ov .o4 {
+  font-weight: 700;
+  margin: 0 auto 30px;
+  color: var(--sand);
+}
+
+/* الترويسة العلوية */
+.top-banner {
+  background: linear-gradient(180deg, #762D32 0%, #602327 100%);
+  color: var(--ivory);
+  border-bottom: 3px solid var(--gold);
+  padding: 26px clamp(16px, 4vw, 48px);
+  box-shadow: 0 12px 30px rgba(118, 45, 50, 0.22);
+}
+.top-inner {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.brand-block { display: flex; flex-direction: column; gap: 4px; }
+.eco-tag {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sand);
+  font-weight: 700;
+}
+.title-row { display: flex; align-items: center; gap: 14px; }
+.header-flag {
+  width: 46px;
+  height: 26px;
+  border-radius: 4px;
+  border: 1.5px solid var(--gold);
+  flex-shrink: 0;
+}
+.top-banner h1 {
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ivory);
+}
+.top-banner h1 span {
+  color: var(--sand);
+  font-weight: 400;
+  font-size: 0.65em;
+  margin-inline-start: 8px;
+}
+.top-banner .sub {
+  margin: 6px 0 0;
+  color: rgba(248, 243, 233, 0.88);
+  max-width: 58ch;
+  font-size: 0.96rem;
+}
+
+.tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.tools input {
+  border: 1px solid var(--gold);
+  background: rgba(248, 243, 233, 0.12);
+  color: var(--ivory);
+  border-radius: 999px;
+  padding: 9px 18px;
+  width: min(240px, 54vw);
+  transition: .25s;
+}
+.tools input::placeholder { color: rgba(248, 243, 233, 0.72); }
+.tools input:focus { border-color: var(--sand); background: rgba(248, 243, 233, 0.2); outline: none; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--gold);
+  background: rgba(248, 243, 233, 0.08);
+  color: var(--sand);
+  border-radius: 999px;
+  padding: 9px 20px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all .25s ease;
+}
+.btn:hover {
+  background: rgba(196, 154, 88, 0.24);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.btn.primary {
+  background: var(--terracotta);
+  border-color: var(--gold-light);
+  color: var(--ivory);
+  box-shadow: 0 8px 20px -6px rgba(182, 107, 67, 0.55);
+}
+.btn.primary:hover {
+  background: var(--terracotta-dark);
+  color: #fff;
+}
+.btn.burgundy-outline {
+  border-color: var(--burgundy);
+  color: var(--burgundy);
+  background: var(--ivory);
+}
+.btn.burgundy-outline:hover {
+  background: var(--burgundy);
+  color: var(--ivory);
+}
+.btn svg { width: 17px; height: 17px; }
+
+.wrap { max-width: 1260px; margin: 0 auto; padding: 38px clamp(14px, 3vw, 32px) 74px; }
+
+/* 2. الخريطة الجغرافية */
+.sec-heading { margin-bottom: 22px; }
+.sec-kicker {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  display: block;
+  margin-bottom: 4px;
+}
+.sec-heading h2 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3.5vw, 2.3rem);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.38fr) minmax(330px, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.mapbox {
+  background: radial-gradient(circle at 50% 45%, #F2E2C6 0%, #E8D2AE 100%);
+  border-radius: var(--radius);
+  padding: 22px;
+  position: relative;
+  border: 2px solid var(--gold);
+  outline: 1px solid rgba(118, 45, 50, 0.25);
+  outline-offset: -8px;
+  box-shadow: var(--shadow-booth);
+  overflow: hidden;
+}
+
+svg.map { width: 100%; height: auto; min-height: 490px; display: block; position: relative; z-index: 1; }
+
+.st {
+  stroke: var(--ivory);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  cursor: pointer;
+  transition: filter .25s ease, stroke .2s ease, opacity .25s ease;
+}
+.st:hover {
+  filter: brightness(1.08);
+  stroke: var(--burgundy);
+  stroke-width: 2.5;
+}
+.st:focus { outline: none; }
+.st.on {
+  stroke: var(--burgundy-dark);
+  stroke-width: 3.4;
+  filter: brightness(1.12) drop-shadow(0 6px 14px rgba(118, 45, 50, 0.35));
+}
+.st.dim { opacity: .24; }
+
+.nile-casing {
+  fill: none;
+  stroke: rgba(248, 243, 233, 0.72);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.nile-river {
+  fill: none;
+  stroke: #397D9B;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.nile-confluence {
+  fill: var(--burgundy);
+  stroke: var(--gold-light);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.lbl {
+  font-size: 12.5px;
+  font-weight: 700;
+  fill: #FFFFFF;
+  paint-order: stroke;
+  stroke: rgba(46, 31, 26, 0.85);
+  stroke-width: 3px;
+  text-anchor: middle;
+  pointer-events: none;
+}
+.lbl.small { font-size: 9.5px; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+.lg {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--border-gold);
+  background: var(--ivory-card);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 15px;
+  font-size: .88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+  box-shadow: 0 4px 10px -4px rgba(46,31,26,0.1);
+}
+.lg:hover { border-color: var(--burgundy); background: #fff; }
+.lg i {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  transform: rotate(45deg);
+  display: inline-block;
+  border: 1.5px solid rgba(46, 31, 26, 0.35);
+  flex-shrink: 0;
+}
+.lg[aria-pressed="true"] {
+  border-color: var(--gold);
+  background: var(--burgundy);
+  color: var(--ivory);
+}
+
+/* بطاقة تفاصيل الولاية مع خلفية صورة شفافة وناعمة */
+.panel {
+  background-color: var(--ivory-card);
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: 26px clamp(18px, 2.5vw, 30px);
+  box-shadow: var(--shadow-booth);
+  border: 2px solid var(--gold);
+  outline: 1px solid rgba(196, 154, 88, 0.25);
+  outline-offset: -7px;
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  background-size: cover !important;
+  background-position: center !important;
+  position: relative;
+}
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(252, 249, 243, 0.72) 0%, rgba(248, 243, 233, 0.78) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.panel > * { position: relative; z-index: 2; }
+
+.panel h2 {
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--burgundy);
+}
+.cap {
+  color: var(--muted);
+  margin: 8px 0 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .82rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 3px 14px;
+  color: #FFFFFF;
+}
+.desc { margin: 0 0 18px; max-width: 60ch; color: var(--ink); line-height: 1.85; }
+.panel h3 {
+  font-size: 1.02rem;
+  font-weight: 800;
+  margin: 20px 0 10px;
+  color: var(--terracotta);
+  border-bottom: 1.5px solid rgba(196, 154, 88, 0.35);
+  padding-bottom: 4px;
+}
+ul.res { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+ul.res li { padding-inline-start: 20px; position: relative; color: var(--ink); }
+ul.res li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 2px;
+  top: .72em;
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  border: 1px solid var(--burgundy);
+  transform: rotate(45deg);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  background: rgba(232, 210, 174, 0.52);
+  border: 1px solid rgba(196, 154, 88, 0.45);
+  color: var(--ink);
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 4px 12px;
+  font-size: .88rem;
+}
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 9px; }
+.ph { position: relative; margin: 0; border-radius: 12px; overflow: hidden; border: 1.5px solid var(--gold); aspect-ratio: 1; background: var(--sand); }
+.ph button.open { all: unset; cursor: pointer; display: block; width: 100%; height: 100%; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s ease; }
+.ph:hover img { transform: scale(1.06); }
+.ph .ph-cap-tag {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  background: linear-gradient(transparent, rgba(46,31,26,0.88));
+  color: var(--ivory);
+  font-size: 0.7rem;
+  padding: 12px 6px 4px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+.empty { color: var(--muted); font-size: .92rem; margin: 0; }
+.quick { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.quick button {
+  border: 1px solid var(--border-gold);
+  background: var(--ivory);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: .88rem;
+  font-weight: 700;
+  transition: .2s;
+}
+.quick button:hover { border-color: var(--burgundy); background: var(--burgundy); color: var(--ivory); }
+
+/* 3. التراث السوداني */
+.heritage-sec {
+  margin-top: 52px;
+  background: var(--ivory-card);
+  color: var(--ink);
+  border-radius: 24px;
+  border: 2px solid var(--gold);
+  box-shadow: var(--shadow-booth);
+  overflow: hidden;
+}
+.heritage-toggle-bar {
+  width: 100%;
+  background: linear-gradient(90deg, rgba(232, 210, 174, 0.55), rgba(252, 249, 243, 0.95));
+  border: 0;
+  padding: 26px clamp(18px, 3.5vw, 40px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  text-align: start;
+  transition: background .25s;
+}
+.heritage-toggle-bar:hover {
+  background: linear-gradient(90deg, rgba(196, 154, 88, 0.28), rgba(232, 210, 174, 0.45));
+}
+.heritage-toggle-bar h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.4vw, 2.25rem);
+  font-weight: 800;
+  color: var(--burgundy);
+}
+.heritage-toggle-bar p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.toggle-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  background: var(--ivory);
+  display: grid;
+  place-items: center;
+  color: var(--burgundy);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: transform .35s ease, background .25s, color .25s;
+}
+.heritage-sec.open .toggle-arrow {
+  transform: rotate(180deg);
+  background: var(--burgundy);
+  color: var(--ivory);
+}
+.heritage-body {
+  display: none;
+  padding: 0 clamp(18px, 3.5vw, 40px) 34px;
+  border-top: 1.5px solid var(--border-gold);
+}
+.heritage-sec.open .heritage-body {
+  display: block;
+  animation: fadeSlide .35s ease;
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cat-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+.cat-tab {
+  border: 1.5px solid var(--border-gold);
+  background: var(--ivory);
+  color: var(--ink);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+.cat-tab:hover { border-color: var(--burgundy); }
+.cat-tab.active {
+  background: var(--burgundy);
+  border-color: var(--gold);
+  color: var(--ivory);
+}
+
+.heritage-list { display: flex; flex-direction: column; gap: 20px; }
+.h-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: #FFFFFF;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1.5px solid var(--border-gold);
+  box-shadow: var(--shadow-card);
+  transition: transform .25s, border-color .25s;
+}
+.h-card:hover { transform: translateY(-3px); border-color: var(--burgundy); }
+.h-card.hidden-cat { display: none; }
+.h-img-box { width: 270px; min-width: 270px; background: var(--sand); position: relative; overflow: hidden; }
+.h-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.h-card:hover .h-img-box img { transform: scale(1.04); }
+.h-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--burgundy);
+  border: 1px solid var(--gold);
+  color: var(--ivory);
+  font-size: .76rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.h-body { padding: 22px 26px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.h-body h3 { margin: 0 0 4px; font-size: 1.38rem; font-weight: 800; color: var(--burgundy); }
+.h-sub { font-size: .88rem; color: var(--terracotta); font-weight: 700; margin-bottom: 12px; }
+.h-grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.h-item {
+  font-size: .93rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--ivory);
+  border: 1px solid rgba(196, 154, 88, 0.35);
+  padding: 12px 15px;
+  border-radius: 14px;
+}
+.h-item b { display: block; font-size: .82rem; color: var(--burgundy); margin-bottom: 3px; }
+.h-source { font-size: .78rem; color: var(--muted); margin-top: 10px; font-style: italic; }
+
+/* 4. سكشن الوطن فينا */
+.watan {
+  margin-top: 52px;
+  background: linear-gradient(155deg, #762D32 0%, #581F23 100%);
+  color: var(--ivory);
+  border: 2px solid var(--gold);
+  outline: 1px solid rgba(232, 210, 174, 0.3);
+  outline-offset: -8px;
+  border-radius: 24px;
+  padding: 38px clamp(18px, 3.5vw, 44px);
+  box-shadow: var(--shadow-booth);
+}
+.watan-header h2 {
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4.2vw, 2.6rem);
+  margin: 0 0 12px;
+  color: var(--sand);
+}
+.watan-intro {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--ivory);
+  max-width: 68ch;
+  margin: 0 0 22px;
+}
+.watan-prompt {
+  background: rgba(232, 210, 174, 0.14);
+  color: var(--sand);
+  border: 1px solid var(--gold);
+  border-right: 4px solid var(--gold);
+  padding: 18px 22px;
+  border-radius: 16px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.8;
+  margin: 0 0 22px;
+}
+.wform { max-width: 740px; display: grid; gap: 12px; }
+.wopts { display: grid; gap: 8px; }
+.wopts label, .wpub {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border: 1px solid rgba(196, 154, 88, 0.55);
+  border-radius: 14px;
+  background: rgba(248, 243, 233, 0.08);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ivory);
+  transition: .2s;
+}
+.wopts label:hover, .wpub:hover { border-color: var(--sand); }
+.wopts label:has(input:checked) {
+  border-color: var(--gold-light);
+  background: var(--terracotta);
+  color: #fff;
+}
+.wform textarea {
+  border: 1px solid rgba(196, 154, 88, 0.55);
+  background: rgba(248, 243, 233, 0.1);
+  border-radius: 14px;
+  padding: 12px 15px;
+  resize: vertical;
+  color: var(--ivory);
+}
+.wform textarea::placeholder { color: rgba(248, 243, 233, 0.68); }
+.wthanks {
+  background: var(--nile);
+  color: #fff;
+  border: 1px solid var(--gold-light);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-weight: 700;
+}
+.wall { columns: 260px; column-gap: 16px; margin-top: 22px; }
+.wc {
+  break-inside: avoid;
+  margin: 0 0 16px;
+  background: var(--ivory-card);
+  color: var(--ink);
+  border-radius: 16px;
+  padding: 18px;
+  position: relative;
+  box-shadow: 0 12px 28px -12px rgba(0,0,0,0.35);
+  border: 1.5px solid var(--gold);
+}
+.wc img { width: 100%; border-radius: 12px; display: block; margin-bottom: 10px; border: 1px solid var(--border-gold); }
+.wc .ww { font-weight: 800; font-size: 1.45rem; line-height: 1.5; color: var(--burgundy); }
+.wc blockquote { margin: 0; font-size: 1rem; color: var(--ink); line-height: 1.7; }
+.wc .del { position: absolute; top: 8px; inset-inline-end: 8px; border: 0; border-radius: 999px; width: 24px; height: 24px; background: rgba(118,45,50,.85); color: var(--ivory); cursor: pointer; }
+
+/* بطاقة تصويت الجمهور */
+.vote-banner-card {
+  margin-top: 52px;
+  background: linear-gradient(135deg, var(--ivory-card) 0%, #F5EBDD 100%);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  padding: 32px clamp(18px, 3.5vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-booth);
+}
+.vote-banner-info h3 { margin: 0 0 6px; font-size: 1.6rem; font-weight: 800; color: var(--burgundy); }
+.vote-banner-info p { margin: 0; color: var(--muted); max-width: 52ch; font-size: 0.98rem; }
+.vote-banner-actions { display: flex; gap: 10px; align-items: center; margin-top: 14px; flex-wrap: wrap; }
+.vote-qr-mini {
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1.5px solid var(--gold);
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.vote-qr-mini img { width: 100%; height: 100%; display: block; }
+
+/* 5. معرض Capture the Culture */
+.lens-sec {
+  margin-top: 52px;
+  background: var(--ivory-card);
+  color: var(--ink);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  padding: 36px clamp(18px, 3.5vw, 42px);
+  box-shadow: var(--shadow-booth);
+}
+.lens-head { margin-bottom: 22px; }
+.lens-head h2 { margin: 0; font-size: clamp(1.65rem, 3.5vw, 2.3rem); font-weight: 800; color: var(--burgundy); }
+.lens-head p { margin: 6px 0 0; color: var(--muted); max-width: 60ch; }
+.lens-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  background: var(--ivory);
+  padding: 16px;
+  border-radius: 18px;
+  border: 1.5px solid var(--border-gold);
+  margin-bottom: 24px;
+}
+.lens-form input[type="text"] {
+  flex: 1 1 220px;
+  border: 1px solid var(--border-gold);
+  background: #FFFFFF;
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 10px 16px;
+}
+.lens-form input[type="text"]::placeholder { color: var(--muted); }
+.lens-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+.lens-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-gold);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: transform .25s, border-color .25s;
+}
+.lens-card:hover { transform: translateY(-3px); border-color: var(--burgundy); }
+.lens-card img { width: 100%; height: 230px; object-fit: cover; display: block; cursor: pointer; }
+.lens-meta {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(196, 154, 88, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.lens-meta h4 { margin: 0; font-size: .95rem; font-weight: 700; color: var(--burgundy); }
+.react-btns { display: flex; gap: 6px; }
+.react-btn {
+  border: 1.5px solid var(--border-gold);
+  background: var(--ivory);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: .82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: .2s;
+}
+.react-btn:hover { border-color: var(--burgundy); }
+.react-btn.voted-like { background: var(--burgundy); border-color: var(--gold); color: var(--ivory); }
+.react-btn.voted-dislike { background: var(--terracotta); border-color: var(--terracotta); color: #fff; }
+.lens-card .del { position: absolute; top: 8px; left: 8px; border: 0; border-radius: 999px; width: 26px; height: 26px; background: rgba(118,45,50,.85); color: var(--ivory); cursor: pointer; }
+
+footer.royal-footer {
+  margin-top: 54px;
+  padding-top: 24px;
+  border-top: 1.5px solid var(--border-gold);
+  text-align: center;
+  color: var(--muted);
+  font-size: .88rem;
+}
+footer.royal-footer strong { color: var(--burgundy); }
+
+dialog {
+  border: 2px solid var(--gold);
+  border-radius: 22px;
+  padding: 24px;
+  background: var(--ivory-card);
+  color: var(--ink);
+  max-width: min(92vw, 420px);
+  box-shadow: var(--shadow-booth);
+}
+dialog::backdrop { background: rgba(46, 31, 26, .75); backdrop-filter: blur(4px); }
+dialog.lb { max-width: min(96vw, 960px); padding: 14px; }
+dialog.lb img { max-width: 100%; max-height: 78vh; display: block; margin: 0 auto; border-radius: 12px; border: 1.5px solid var(--gold); }
+dialog.lb p { margin: 10px 4px 0; text-align: center; font-weight: 700; color: var(--burgundy); }
+.qrbox { background: #fff; padding: 14px; border-radius: 14px; width: max-content; margin: 14px auto; border: 2px solid var(--burgundy); }
+.qrbox img, .qrbox canvas { display: block; width: 220px; height: 220px; }
+.qrurl { width: 100%; border: 1px solid var(--border-gold); background: #fff; color: var(--ink); border-radius: 10px; padding: 8px 12px; direction: ltr; font-size: .85rem; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 14px; }
+dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; cursor: pointer; line-height: 1; color: var(--burgundy); }
+[hidden] { display: none !important; }
+
+@media (max-width:860px){
+  .layout { grid-template-columns: 1fr; }
+  .panel { position: static; max-height: none; }
+  .lbl { font-size: 15px; } .lbl.small { font-size: 11.5px; }
+  svg.map { min-height: 360px; }
+  .h-card { flex-direction: column; }
+  .h-img-box { width: 100%; height: 220px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 1. شاشة الافتتاحية -->
+<div id="ov">
+  <svg class="bg-art" viewBox="0 0 1000 380" preserveAspectRatio="xMidYMax slice" aria-hidden="true" style="height:54%;">
+    <defs>
+      <radialGradient id="heritageSun" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#E8D2AE" stop-opacity="0.34"/>
+        <stop offset="70%" stop-color="#C49A58" stop-opacity="0.16"/>
+        <stop offset="100%" stop-color="#762D32" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <circle cx="500" cy="175" r="150" fill="url(#heritageSun)"/>
+    <circle cx="500" cy="175" r="88" fill="#C49A58" opacity="0.22" stroke="#E8D2AE" stroke-width="1.2" stroke-opacity="0.35"/>
+    <path d="M0 282 Q260 245 500 274 T1000 262 V380 H0Z" fill="#B66B43" opacity="0.42"/>
+    <path d="M0 322 Q260 296 500 314 T1000 298 V380 H0Z" fill="#397D9B" opacity="0.55"/>
+    <path d="M0 322 Q260 296 500 314 T1000 298" fill="none" stroke="#E8D2AE" stroke-width="1.5" opacity="0.6"/>
+    <path d="M0 346 Q250 322 500 342 T1000 334 V380 H0Z" fill="#471B1E"/>
+    <rect y="344" width="1000" height="36" fill="#471B1E"/>
+  </svg>
+  <div>
+    <div class="brand-pill">SUDAN ECO </div>
+    <svg class="sudan-flag-svg" viewBox="0 0 600 300" aria-label="علم السودان">
+      <rect width="600" height="100" y="0" fill="#D21034"/>
+      <rect width="600" height="100" y="100" fill="#FFFFFF"/>
+      <rect width="600" height="100" y="200" fill="#000000"/>
+      <polygon points="0,0 200,150 0,300" fill="#007229"/>
+    </svg>
+    <h1 id="ov1">أرض النيلين</h1>
+    <p class="o-en">LAND OF TWO NILES</p>
+    <p class="o3" id="ov3">هنا يلتقي النيلان، وهنا تمتد جذور أعرق الحضارات النوبية والكوشية؛ شعبٌ صاغ من تنوّعه مجداً، ومن تراثه حكايةً خالدة عبر الأزمان.</p>
+    <p class="o4" id="ov4">السودان... حضارةٌ تُروى، وثقافةٌ تُعاش، وهويةٌ لا تُنسى.</p>
+    <button class="btn primary" id="ovGo" type="button" style="font-size:1.15rem; padding:14px 36px;">استكشف أرض النيلين</button>
+  </div>
+</div>
+
+<!-- الترويسة العلوية -->
+<header class="top-banner">
+  <div class="top-inner">
+    <div class="brand-block">
+      <span class="eco-tag">SUDAN ECO • CULTURAL PRESENTATION</span>
+      <div class="title-row">
+        <svg class="header-flag" viewBox="0 0 600 300" aria-label="علم السودان">
+          <rect width="600" height="100" y="0" fill="#D21034"/>
+          <rect width="600" height="100" y="100" fill="#FFFFFF"/>
+          <rect width="600" height="100" y="200" fill="#000000"/>
+          <polygon points="0,0 200,150 0,300" fill="#007229"/>
+        </svg>
+        <h1>أرض النيلين <span>| Land of Two Niles</span></h1>
+      </div>
+      <p class="sub">رحلة تفاعلية عبر ولايات السودان الـ ١٨، من أهرامات مروي والنوبة إلى سهول كردفان ودارفور وملتقى النيلين.</p>
+    </div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="ابحث عن ولاية، حضارة، أو معلم…" autocomplete="off">
+      <button class="btn" id="langBtn" type="button">EN</button>
+      <a class="btn primary" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="background:var(--gold); color:var(--ink); text-decoration:none;">⭐ تصويت للسودان</a>
+      <button class="btn primary" id="qrBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"></path></svg>
+        رمز QR
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- 2. الخريطة الجغرافية -->
+  <div class="sec-heading">
+    <span class="sec-kicker">INTERACTIVE CARTOGRAPHY • الخريطة الجغرافية</span>
+    <h2>خريطة ولايات السودان التفاعلية</h2>
+  </div>
+
+  <div class="layout">
+    <div>
+      <div class="mapbox">
+        <svg class="map" id="map" viewBox="0 0 1000 836" role="group" aria-label="ولايات السودان">
+          <defs>
+            <pattern id="topoLines" width="44" height="44" patternUnits="userSpaceOnUse">
+              <path d="M0 22 Q11 14 22 22 T44 22" fill="none" stroke="rgba(46,31,26,0.09)" stroke-width="0.9"/>
+              <path d="M0 8 Q11 2 22 8 T44 8" fill="none" stroke="rgba(196,154,88,0.14)" stroke-width="0.7"/>
+            </pattern>
+          </defs>
+          <g transform="translate(76, 76)" opacity="0.72">
+            <circle cx="0" cy="0" r="34" fill="none" stroke="#762D32" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="0" cy="0" r="24" fill="none" stroke="#C49A58" stroke-width="1"/>
+            <polygon points="0,-30 5,-6 0,0 -5,-6" fill="#762D32"/>
+            <polygon points="0,30 5,6 0,0 -5,6" fill="#B66B43"/>
+            <polygon points="-30,0 -6,5 0,0 -6,-5" fill="#C49A58"/>
+            <polygon points="30,0 6,5 0,0 6,-5" fill="#C49A58"/>
+            <text x="0" y="-39" text-anchor="middle" fill="#762D32" font-size="11" font-weight="800">N</text>
+          </g>
+        </svg>
+      </div>
+      <div class="legend" id="legend" aria-label="تصفية حسب المورد الرئيسي"></div>
+    </div>
+    <aside class="panel" id="panel" aria-live="polite"></aside>
+  </div>
+
+  <div class="nubian-divider"><span class="nubian-diamond"></span></div>
+
+  <!-- 3. التراث السوداني -->
+  <section class="heritage-sec" id="heritageSec">
+    <button class="heritage-toggle-bar" type="button" id="heritageToggle" aria-expanded="false">
+      <div>
+        <span class="sec-kicker" style="margin-bottom:2px;">SUDANESE HERITAGE • التراث السوداني</span>
+        <h2>العادات والتقاليد والمنتجات السودانية الأصيلة</h2>
+        <p>اضغط لفتح واستعراض الموروث الاجتماعي والطقوس الملكية والخيرات الطبيعية السودانية.</p>
+      </div>
+      <span class="toggle-arrow" aria-hidden="true">▼</span>
+    </button>
+
+    <div class="heritage-body">
+      <div class="cat-tabs" id="catTabs">
+        <button class="cat-tab active" type="button" data-cat="all">الكل (٨)</button>
+        <button class="cat-tab" type="button" data-cat="customs">العادات والتقاليد</button>
+        <button class="cat-tab" type="button" data-cat="products">المنتجات السودانية</button>
+      </div>
+
+      <div class="heritage-list" id="heritageList">
+
+        <!-- 1. الحلو مر -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/abre.jpg" alt="الحلو مر السوداني والآبري">
+          </div>
+          <div class="h-body">
+            <h3>الحلو مُر (الآبْرِي) — أيقونة رمضان في السودان</h3>
+            <div class="h-sub">علاقة وطيدة بشهر الصيام وطقوس الاستقبال</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>علاقته الوطيدة برمضان:</b> يرتبط «الحلو مر» ارتباطاً روحياً واجتماعياً وثيقاً بشهر رمضان المبارك؛ إذ تبدأ الأسر السودانية في إعداده قبل رمضان بأسابيع في أجواء احتفالية تتعاون فيها نساء الحي («العواسة»)، ويُعد وجوده على مائدة الإفطار ركناً أساسياً لا غنى عنه، كما يُرسل كهدايا للأهل والمغتربين في الخارج ليشعروا بروح الوطن في الشهر الفضيل.</div>
+              <div class="h-item"><b>طريقة الصنع والفوائد:</b> يُصنع بإنبات الذرة وتجفيفها وطحنها وعجنها بمستخلصات التوابل (القرفة، الزنجبيل، الهيل، الكركدي، والتمر الهندي) وخبزها كرقائق رقيقة تُنقع في الماء البارد. يروي العطش لساعات طويلة، يمد الجسم بطاقة فورية، ويريح المعدة بعد الصيام.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. طقس الجرتق -->
+        <article class="h-card" data-category="customs">
+          <div class="h-img-box">
+            <span class="h-badge">العادات والتقاليد</span>
+            <img src="Images/jirtiq.jpg" alt="طقس الجرتق السوداني">
+          </div>
+          <div class="h-body">
+            <h3>طقس الجِرْتِق (The Jirtiq Ritual)</h3>
+            <div class="h-sub">مراسم الزواج الملكية الممتدة من حضارة كوش</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>تفاصيل الطقس:</b> جلسة احتفالية مقدسة يجلس فيها العروسان بالزي القرمزي التقليدي على سرير «العنقريب» المفروش بالحرير الأحمر. يُزيّن العروسان بالسوار الأحمر والخرزة الزرقاء و«الفريرة»، وسط عبق بخور الصندل، ويؤديان طقس «بخ اللبن» تيمناً بحياة زوجية نقية وبيضاء يسودها الصفاء.</div>
+              <div class="h-item"><b>الدلالة التاريخية:</b> يُعد الجرتق إرثاً حياً من طقوس تتويج الملوك في مملكة كوش ومروي القديمة، وحافظت عليه الأسر السودانية كرمز للفرح والبركة والحماية.</div>
+            </div>
+            <span class="h-source">المصدر: د. يوسف فضل حسن (دراسات في تاريخ وإثنوغرافيا السودان) / د. أحمد المعتصم الشيخ.</span>
+          </div>
+        </article>
+
+        <!-- 3. خم الرماد -->
+        <article class="h-card" data-category="customs">
+          <div class="h-img-box">
+            <span class="h-badge">العادات والتقاليد</span>
+            <img src="Images/Kham_ramad.jpeg" alt="خم الرماد السوداني" onerror="this.src='Images/Kham_ramad.jpeg'">
+          </div>
+          <div class="h-body">
+            <h3>خَمّ الرَّمَاد (Kham Al-Ramad)</h3>
+            <div class="h-sub">تصفية القلوب والولائم الجماعية قبيل الصيام</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>طبيعة العادة:</b> تقليد اجتماعي مبهج يُقام في الأيام الأخيرة من شهر شعبان؛ تجتمع فيه الصديقات والعائلات والجيران حول «صينية» الطعام في نزهات ولقاءات دافئة لتناول الأكلات المفضلة وتبادل العفو والتهاني بقدوم الشهر الفضيل.</div>
+              <div class="h-item"><b>المعنى الرمزي:</b> يُسمى «خم الرماد» كناية عن كنس وإزالة رماد المواقد القديمة وتصفية النفوس من أي خلافات، استعداداً لاستقبال رمضان بقلوب صافية وبيوت عامرة.</div>
+            </div>
+            <span class="h-source">المصدر: د. عون الشريف قاسم (قاموس اللهجة والعاميات السودانية).</span>
+          </div>
+        </article>
+
+        <!-- 4. الكركدي -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/Karkady.jpeg" alt="الكركدي السوداني">
+          </div>
+          <div class="h-body">
+            <h3>الكَرْكَدَيْ (Hibiscus)</h3>
+            <div class="h-sub">شجيرة الكركديه (Hibiscus sabdariffa) — كردفان ودارفور</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والاستخدام:</b> تُحصد السبلات الزهرية العنابية وتجفف تحت أشعة الشمس الجافة طبيعياً. يُعد السودان المصدر الأول لأجود أنواعه عالمياً، ويُقدم بارداً كمشروب ضيافة منعش أو ساخناً.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> يخفض ضغط الدم المرتفع عند شربه بارداً، غني بفيتامين C ومضادات الأكسدة، ويعزز صحة القلب والمناعة.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. القونقليز (التبلدي) -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/Tabaldey.jpeg" alt="القونقليز والتبلدي">
+          </div>
+          <div class="h-body">
+            <h3>القَوْنْقَلِيز (ثمار شجرة التِّبِلْدِي)</h3>
+            <div class="h-sub">شجرة الباوباب المعمرة (Adansonia digitata) — حزام السافانا</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والاستخدام والتصنيع:</b> تُكسر ثمار التبلدي الخشبية لاستخراج لبّها الأبيض الغني؛ حيث يُذاب كعصير فاخر، أو يُسحق ويُخلط بالسكر والعصائر لإنتاج **حلويات ومعجنات تقليدية محبوبة جداً للصغار والكبار**.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> غذاء خارق (Superfood) يحتوي أضعاف فيتامين C في البرتقال، غني بالكالسيوم، وفعال لعلاج النزلات المعوية.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. الدوم -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/Doam.jpeg" alt="ثمار الدوم">
+          </div>
+          <div class="h-body">
+            <h3>الدَّوْم (Doum Fruit)</h3>
+            <div class="h-sub">نخيل الدوم النوبي (Hyphaene thebaica) — الشرق والشمال</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والتصنيع:</b> تُجمع ثماره الصلبة وتُسحق قشرتها الإسفنجية لعمل المشروب العريق، كما يتم طحنها وخلطها بالعسل أو السكر لتشكيل **حلويات شعبية صلبة وطازجة يعشقها الأطفال والكبار**.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> منظم دقيق لضغط الدم، غني بالألياف ومضادات الأكسدة، ومفيد لصحة القلب والذاكرة.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. اللالوب -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/laloap.jpeg" alt="ثمار اللالوب" onerror="if(!this.dataset.t){this.dataset.t='1';this.src='Images/laloap.jpeg';}else if(this.dataset.t==='1'){this.dataset.t='2';this.src='Images/laloap.jpeg';}else if(this.dataset.t==='2'){this.dataset.t='3';this.src='Images/laloap.jpeg';}">
+          </div>
+          <div class="h-body">
+            <h3>اللاَّلُوب (بلح الصحراء)</h3>
+            <div class="h-sub">شجرة الهِجْلِيج الشوكية (Balanites aegyptiaca) — أواسط وغرب السودان</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والاستخدام:</b> ثمار برية تشبه التمر تُجنى من أشجار الهجليج وتؤكل بمص قشرتها ذات الطعم الحلو والمر معاً، وتشتهر كمسليات شعبية وصيدلية طبيعية.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> مطهر معوي طبيعي، يساعد في تنظيم السكر، ويُستخرج من نواته زيت علاجي للمفاصل.</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. الصمغ العربي -->
+        <article class="h-card" data-category="products">
+          <div class="h-img-box">
+            <span class="h-badge">المنتجات السودانية</span>
+            <img src="Images/Arabic_gum.jpg" alt="الصمغ العربي">
+          </div>
+          <div class="h-body">
+            <h3>الصمغ العربي (Gum Arabic)</h3>
+            <div class="h-sub">شجرة الهَشَاب (Acacia senegal) — حزام الصمغ (كردفان ودارفور)</div>
+            <div class="h-grid-info">
+              <div class="h-item"><b>الإنتاج والاستخدام:</b> يُجمع عبر «طق» لحاء الشجرة لتفرز بلورات راتنجية ذهبية؛ ينتج السودان أكثر من 70% من إنتاج العالم ويدخل في الصناعات الدوائية والغذائية.</div>
+              <div class="h-item"><b>الفوائد الصحية:</b> أغنى مصدر طبيعي للألياف الذائبة والبريبيوتيك، يدعم وظائف الكلى الحيوية وصحة الجهاز الهضمي.</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="nubian-divider"><span class="nubian-diamond"></span></div>
+
+  <!-- 4. سكشن الوطن فينا -->
+  <section class="watan" id="watan">
+    <div class="watan-header">
+      <span class="sec-kicker" style="color:var(--sand);">AL-WATAN FEENA • مساحة الهوية والانتماء</span>
+      <h2 id="wT">الوطن فينا</h2>
+      <p class="watan-intro" id="wD">«ليس الوطنُ بقعةً من الأرض نولد عليها فحسب، بل جذورٌ تمتدّ في أرواحنا، وذاكرةٌ تسافر معنا، وحنينٌ لا تُطفئه المسافات؛ هو ذلك الجزء منّا الذي لا نتركه خلفنا أبدًا، لأننا، مهما ابتعدنا، نظلّ نحمل أوطاننا فينا.»</p>
+      <div class="watan-prompt" id="wPrompt">«نرحل عن الأوطان، ولا ترحل الأوطان عنّا. فما الذي بقي فيكِ منه؟ كلمة، ذكرى، أو صورة.»</div>
+    </div>
+    
+    <div class="wform">
+      <div class="wopts">
+        <label><input type="radio" name="wtype" value="1" checked><span id="wo1">كلمة تعبّر عن الوطن بالنسبة لك</span></label>
+        <label><input type="radio" name="wtype" value="2"><span id="wo2">ذكرى أو حكاية من الوطن</span></label>
+        <label><input type="radio" name="wtype" value="3"><span id="wo3">صورة تحكي معنى الوطن</span></label>
+      </div>
+      <textarea id="wtext" rows="2" placeholder="بالنسبة لي، الوطن هو…"></textarea>
+      <input type="file" id="wimg" accept="image/*" hidden>
+      <label class="wpub"><input type="checkbox" id="wpub" checked><span id="wPubT">انشر مشاركتي في جدار المشاركات</span></label>
+      <button class="btn primary" id="wSend" type="button">أرسل مشاركتي</button>
+      <p class="status" id="wSt" style="color:var(--sand);"></p>
+      <div class="wthanks" id="wThanks" hidden>شكراً لأنك تركت جزءاً من وطنك هنا.</div>
+    </div>
+
+    <h2 id="wT2" style="margin-top:36px; font-size:1.6rem; color:var(--sand);">جدار المشاركات</h2>
+    <div class="wall" id="wall"></div>
+  </section>
+
+  <!-- بطاقة تصويت الجمهور -->
+  <div class="vote-banner-card">
+    <div class="vote-banner-info">
+      <h3>⭐ تصويت الجمهور — أفضل جناح ثقافي (Best Booth)</h3>
+      <p>صوتوا لجناح السودان ليحصد لقب الأفضل! اضغطوا على زر التصويت للانتقال الفوري.</p>
+      <div class="vote-banner-actions">
+        <a class="btn primary" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="text-decoration:none;">🔗 اضغط هنا للتصويت المباشر</a>
+        <button class="btn burgundy-outline" type="button" id="copyVoteLinkBtn">📋 نسخ رابط التصويت</button>
+      </div>
+    </div>
+    <div class="vote-qr-mini" id="openVoteModalBtn2" title="اضغط لعرض الباركود بالحجم الكامل">
+      <img src="Images/vote_for_sudan.jpeg" alt="باركود التصويت" onerror="this.src='Images/vote_for_sudan.jpeg'">
+    </div>
+  </div>
+
+  <div class="nubian-divider"><span class="nubian-diamond"></span></div>
+
+  <!-- 5. سكشن Capture the Culture -->
+  <section class="lens-sec" id="lensSec">
+    <div class="lens-head">
+      <span class="sec-kicker">PHOTOGRAPHY EXHIBITION • المعرض الفوتوغرافي</span>
+      <h2 id="lensTitle">Capture the Culture | وثّق الثقافة بعدستك</h2>
+      <p style="font-size: 1.05rem; font-weight: 700; color: var(--terracotta); margin: 6px 0 10px; font-style: italic;">«بعدستكم تصبح الحكاية أبدية؛ التقطوا نبض التراث، وشاركوا معنا لحظات لا تُنسى من قلب المعرض.»</p>
+      <p id="lensSub">وثّقوا لحظاتكم معنا! شاركونا لقطاتكم من تصويركم للبوث والعروض في اليوم الثقافي.</p>
+    </div>
+
+    <div class="lens-form">
+      <input type="text" id="lensAuthor" placeholder="اكتب اسمك هنا…" maxlength="50">
+      <input type="file" id="lensFile" accept="image/*" hidden>
+      <button class="btn primary" type="button" id="lensPickBtn">📷 اختر صورة وشاركها</button>
+    </div>
+    <p class="status" id="lensStatus"></p>
+    <div class="lens-grid" id="lensGrid"></div>
+  </section>
+
+  <footer class="royal-footer">
+    <p><strong>Sudan Eco</strong> — العرض الثقافي «أرض النيلين | Land of Two Niles»</p>
+    <p style="font-size:0.8rem; margin-top:4px;">المعلومات عامة ومبسطة لأغراض التعريف الثقافي، والحدود الإدارية تقريبية.</p>
+  </footer>
+</div>
+
+<!-- حوار QR عام -->
+<dialog id="qrDlg">
+  <button class="x" type="button" data-close aria-label="إغلاق">×</button>
+  <h2 style="color:var(--burgundy); margin-top:0;">شارك موقع  أرض النيلين</h2>
+  <p class="empty">امسح الرمز بكاميرا الهاتف لفتح الخريطة والمشاركة.</p>
+  <div class="qrbox" id="qr"></div>
+  <input class="qrurl" id="qrUrl" type="url" readonly>
+  <div class="row">
+    <button class="btn burgundy-outline" type="button" id="copyBtn">نسخ الرابط</button>
+    <button class="btn primary" type="button" id="saveQr">حفظ صورة الرمز</button>
+  </div>
+  <p class="status" id="qrStatus"></p>
+</dialog>
+
+<!-- حوار QR التصويت -->
+<dialog id="voteDlg">
+  <button class="x" type="button" data-close aria-label="إغلاق">×</button>
+  <h2 style="color:var(--burgundy); margin-top:0;">تصويت الجمهور — أفضل جناح ثقافي</h2>
+  <p class="empty">امسح الرمز بكاميرا الهاتف أو استخدم الرابط أدناه للتصويت لجناح السودان.</p>
+  <div class="qrbox">
+    <img src="Images/vote_for_sudan.jpeg" alt="باركود التصويت للسودان" style="width:220px; height:220px; display:block;" onerror="this.src='Images/vote_for_sudan.jpeg'">
+  </div>
+  <div style="margin-top:14px; text-align:center;">
+    <a class="btn primary" href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl" target="_blank" style="text-decoration:none; display:inline-block;">🔗 فتح رابط التصويت المباشر</a>
+  </div>
+</dialog>
+
+<!-- حوار عرض الصور Lightbox -->
+<dialog id="lb" class="lb">
+  <button class="x" type="button" data-close aria-label="إغلاق">×</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, doc, updateDoc, increment, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA6yDr-slgM_UVL2BuVFpPwvNDdyOIVENY",
+  authDomain: "lu-sudan.firebaseapp.com",
+  projectId: "lu-sudan",
+  storageBucket: "lu-sudan.firebasestorage.app",
+  messagingSenderId: "280728078249",
+  appId: "1:280728078249:web:a1e3431942fdb56632e6b8",
+  measurementId: "G-DE3Z9T4FWH"
+};
+
+let db = null;
+try {
+  const app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+} catch (e) { console.error("Firebase init error:", e); }
+
+const STATES={
+  "sd-no": {"n": "الشمالية", "cap": "دنقلا", "t": "agri", "d": "موطن الحضارة النوبية ومملكة كوش ونبتة؛ تمتد على ضفتي النيل بين الصحراء الكبرى وصحراء بيوضة، وتحتضن جبل البركل وأهرامات نوري وسد مروي.", "r": ["التمور (البركاوي والقنديلة)", "القمح والفول المصري", "الذهب – التعدين الأهلي", "الكهرباء من سد مروي", "السياحة الأثرية النوبية"], "tr": ["النوبيون: الدناقلة والمحس والسكوت والحلفاويون", "الشايقية", "البديرية الدهمشية", "الكبابيش"], "l": ["جبل البركل ومعبد آمون", "آثار كرمة والدفوفة", "سد مروي", "أهرامات نوري والكرو"], "p": "M630.9,12.8L616.3,203.3L616.8,204.3L641.1,217.0L640.9,243.1L647.5,259.6L648.8,267.5L642.7,279.8L601.4,342.5L599.1,343.0L586.7,351.1L575.1,347.9L554.6,350.2L342.9,345.5L341.6,141.2L197.2,140.6L196.0,140.1L197.7,17.8L557.4,15.2L566.0,0.8L571.1,5.3L568.2,14.8L630.9,12.8Z", "c": [451, 165]},
+  "sd-rn": {"n": "نهر النيل", "cap": "الدامر", "t": "mine", "d": "أرض مملكة مروي الملكية وأهرامات البجراوية، وفيها مدينة عطبرة عاصمة السكة حديد وأكبر مصانع الأسمنت في البلاد.", "r": ["الأسمنت (عطبرة وبربر)", "الذهب", "البصل والموالح والقمح", "الحجر الجيري", "السياحة الأثرية"], "tr": ["الجعليون", "الرباطاب", "الميرفاب", "المناصير", "البشاريون والعبابدة"], "l": ["أهرامات البجراوية (مروي)", "النقعة والمصورات الصفراء", "ملتقى نهر عطبرة بالنيل", "مدينة عطبرة"], "p": "M630.9,12.8L661.6,11.6L667.5,11.4L691.0,28.0L675.2,41.9L678.7,45.6L679.8,56.7L677.1,61.9L676.6,76.0L685.7,85.0L693.1,88.4L700.0,100.8L701.9,113.5L699.2,125.6L699.8,133.8L702.9,143.1L704.4,156.0L701.9,166.5L732.4,232.4L753.8,240.2L767.8,247.7L778.6,258.1L787.0,272.8L796.6,284.9L826.8,303.3L828.7,323.5L826.1,337.2L813.8,347.6L804.6,350.2L763.9,351.8L758.9,353.3L742.4,378.7L733.6,380.4L723.8,384.9L713.4,385.9L700.7,380.7L670.9,373.7L648.8,362.9L617.4,358.7L611.6,355.3L603.5,346.9L601.4,342.5L642.7,279.8L648.8,267.5L647.5,259.6L640.9,243.1L641.1,217.0L616.8,204.3L616.3,203.3L630.9,12.8Z", "c": [693, 238]},
+  "sd-rs": {"n": "البحر الأحمر", "cap": "بورتسودان", "t": "trade", "d": "بوابة السودان البحرية. فيها الميناء الرئيسي للبلاد وسواكن التاريخية، وجبال البحر الأحمر الغنية بالمعادن.", "r": ["الموانئ والتجارة الخارجية", "الذهب (منطقة أرياب)", "الثروة السمكية", "الملح", "السياحة البحرية والغوص"], "tr": ["البجا: الهدندوة والبشاريون والأمرأر والأرتيقة", "البني عامر", "العبابدة", "الرشايدة"], "l": ["ميناء بورتسودان", "جزيرة سواكن التاريخية", "شعاب سنقنيب المرجانية", "جبال أركويت"], "p": "M667.5,11.4L882.7,0.0L884.3,21.5L890.6,32.6L898.9,43.8L911.0,55.8L908.6,57.4L905.6,51.9L899.6,47.1L898.2,57.6L902.2,64.6L904.3,76.7L908.5,87.7L906.2,101.4L910.0,115.5L908.8,124.3L913.2,134.0L912.6,144.3L916.0,155.4L920.1,174.8L921.8,176.8L927.2,193.1L934.7,202.1L941.8,199.7L950.6,207.1L957.4,208.6L964.6,215.9L969.8,218.6L967.3,222.9L972.2,228.7L977.8,228.7L996.0,235.4L1000.0,242.3L991.9,250.0L985.9,265.1L978.4,273.9L975.3,271.9L970.6,277.1L966.6,273.5L958.4,280.4L953.9,278.2L949.6,284.2L937.0,289.0L937.1,296.8L931.8,307.4L926.1,306.1L915.7,309.0L905.9,306.7L851.4,313.9L826.8,303.3L796.6,284.9L787.0,272.8L778.6,258.1L767.8,247.7L753.8,240.2L732.4,232.4L701.9,166.5L704.4,156.0L702.9,143.1L699.8,133.8L699.2,125.6L701.9,113.5L700.0,100.8L693.1,88.4L685.7,85.0L676.6,76.0L677.1,61.9L679.8,56.7L678.7,45.6L675.2,41.9L691.0,28.0L667.5,11.4Z", "c": [823, 152]},
+  "sd-ka": {"n": "كسلا", "cap": "كسلا", "t": "agri", "d": "ولاية الجبال والبساتين على الحدود مع إريتريا. يغذيها نهر القاش الموسمي ونهر عطبرة، ومنها مشروع حلفا الجديدة.", "r": ["الفواكه: الموز والجوافة والبرتقال", "مشروع دلتا القاش", "قصب السكر والقطن (حلفا الجديدة)", "الثروة الحيوانية", "التجارة الحدودية"], "tr": ["الهدندوة", "البني عامر", "الحلنقة", "الرشايدة", "الشكرية", "النوبيون في حلفا الجديدة"], "l": ["جبال التاكا", "توتيل ومنابعها", "ضريح السيد الحسن الميرغني", "سواقي كسلا"], "p": "M905.9,306.7L907.3,311.8L907.6,325.2L902.9,332.3L901.8,340.3L905.5,346.9L906.6,357.2L903.4,361.7L896.8,383.6L891.8,391.0L889.1,403.0L890.0,408.4L887.0,411.8L884.3,420.9L878.6,429.7L881.8,449.4L857.2,450.4L852.4,451.6L824.6,462.9L815.4,461.5L801.1,446.7L792.2,426.9L782.4,416.5L769.2,409.7L753.3,405.6L744.5,387.7L742.4,378.7L758.9,353.3L763.9,351.8L804.6,350.2L813.8,347.6L826.1,337.2L828.7,323.5L826.8,303.3L851.4,313.9L905.9,306.7Z", "c": [835, 383]},
+  "sd-gd": {"n": "القضارف", "cap": "القضارف", "t": "agri", "d": "سلة غذاء السودان. أكبر منطقة للزراعة المطرية الآلية في البلاد، وسوقها من أكبر أسواق المحاصيل.", "r": ["الذرة الرفيعة", "السمسم", "زهرة الشمس والقطن المطري", "الصمغ العربي", "الثروة الحيوانية"], "tr": ["الشكرية", "الضبانية", "اللحويون", "الهوسا والفلاتة", "البني عامر"], "l": ["سوق المحاصيل بالقضارف", "حظيرة الدندر", "مشاريع الزراعة الآلية"], "p": "M881.8,449.4L887.0,482.2L882.3,499.4L884.1,510.0L880.0,525.6L871.4,539.0L865.2,565.9L867.2,572.2L864.8,580.7L860.5,579.5L840.6,583.4L820.0,579.5L811.7,575.9L807.2,571.9L794.0,564.8L782.3,553.6L773.4,550.0L761.5,542.8L751.2,527.7L753.5,520.1L743.5,518.5L733.5,502.5L728.8,494.1L748.3,456.4L747.6,452.7L738.6,440.6L733.7,431.5L723.7,426.6L712.0,423.1L704.5,416.2L712.3,402.8L719.1,398.8L732.6,403.0L753.3,405.6L769.2,409.7L782.4,416.5L792.2,426.9L801.1,446.7L815.4,461.5L824.6,462.9L852.4,451.6L857.2,450.4L881.8,449.4Z", "c": [805, 495]},
+  "sd-kh": {"n": "الخرطوم", "cap": "الخرطوم", "t": "trade", "d": "العاصمة القومية عند المقرن حيث يلتقي النيلان الأبيض والأزرق، وتضم مدنها الثلاث: الخرطوم وأم درمان والخرطوم بحري.", "r": ["الصناعة والتجارة", "مصفاة الجيلي للنفط", "الخدمات والجامعات", "الخضر والألبان"], "tr": ["تسكنها كل قبائل السودان", "الجموعية", "العبدلاب", "المحس", "الجعليون"], "l": ["المقرن – ملتقى النيلين", "جزيرة توتي", "بيت الخليفة وقبة المهدي", "المتحف القومي"], "p": "M704.5,416.2L685.3,419.1L678.6,424.0L664.0,425.3L651.2,429.4L649.2,432.5L636.2,433.8L630.8,432.0L625.3,417.8L611.8,396.0L602.3,384.1L586.7,351.1L599.1,343.0L601.4,342.5L603.5,346.9L611.6,355.3L617.4,358.7L648.8,362.9L670.9,373.7L700.7,380.7L713.4,385.9L723.8,384.9L733.6,380.4L742.4,378.7L744.5,387.7L753.3,405.6L732.6,403.0L719.1,398.8L712.3,402.8L704.5,416.2Z", "c": [659, 392]},
+  "sd-gz": {"n": "الجزيرة", "cap": "ود مدني", "t": "agri", "d": "الأرض بين النيلين الأزرق والأبيض، وفيها مشروع الجزيرة أحد أكبر مشاريع الري في العالم تحت إدارة واحدة.", "r": ["مشروع الجزيرة", "القطن", "القمح والذرة", "الفول السوداني", "سكر الجنيد"], "tr": ["رفاعة", "الكواهلة", "الحلاويون", "المسلمية", "العركيون", "الشكرية"], "l": ["مشروع الجزيرة وقنواته", "مدينة ود مدني", "قنطرة أبو عشر"], "p": "M649.2,432.5L651.2,429.4L664.0,425.3L678.6,424.0L685.3,419.1L704.5,416.2L712.0,423.1L723.7,426.6L733.7,431.5L738.6,440.6L747.6,452.7L748.3,456.4L728.8,494.1L733.5,502.5L720.0,501.3L715.1,498.6L708.9,500.6L697.1,510.2L690.4,503.4L683.0,502.6L679.1,505.8L673.7,519.6L670.6,521.3L664.9,518.9L662.9,528.1L657.5,534.3L653.2,532.5L652.3,517.4L641.1,498.0L639.0,490.1L646.0,473.9L652.5,466.2L653.5,462.0L652.1,448.9L646.7,446.5L645.3,442.3L650.9,441.0L649.2,432.5Z", "c": [690, 467]},
+  "sd-si": {"n": "سنار", "cap": "سنجة", "t": "agri", "d": "أرض السلطنة الزرقاء (مملكة الفونج) التي حكمت من سنار قرونًا. يمر بها النيل الأزرق وفيها خزان سنار.", "r": ["قصب السكر", "الفواكه والخضر", "الذرة والسمسم", "الثروة الحيوانية والسمكية", "الصمغ العربي"], "tr": ["الفونج", "رفاعة", "كنانة", "الهوسا والفلاتة", "الجعليون"], "l": ["خزان سنار", "آثار سنار القديمة", "حظيرة الدندر القومية"], "p": "M840.6,583.4L835.6,589.2L820.4,616.4L818.3,624.1L812.4,632.1L808.4,633.8L805.4,628.3L792.5,617.5L784.8,608.8L770.7,588.1L765.5,583.3L758.9,581.9L751.2,585.6L707.8,614.1L698.0,612.9L689.6,615.9L680.8,588.1L681.3,572.1L670.1,554.9L666.7,532.4L662.9,528.1L664.9,518.9L670.6,521.3L673.7,519.6L679.1,505.8L683.0,502.6L690.4,503.4L697.1,510.2L708.9,500.6L715.1,498.6L720.0,501.3L733.5,502.5L743.5,518.5L753.5,520.1L751.2,527.7L761.5,542.8L773.4,550.0L782.3,553.6L794.0,564.8L807.2,571.9L811.7,575.9L820.0,579.5L840.6,583.4Z", "c": [738, 564]},
+  "sd-bn": {"n": "النيل الأزرق", "cap": "الدمازين", "t": "mine", "d": "ولاية جبلية خضراء على الحدود مع إثيوبيا وجنوب السودان. فيها خزان الروصيرص، أكبر مصدر للكهرباء المائية في البلاد بعد مروي.", "r": ["الكهرباء من خزان الروصيرص", "الذهب والكروم", "الصمغ العربي والغابات", "الذرة والسمسم"], "tr": ["الفونج", "الأنقسنا", "البرتا", "الهمج", "الكدالو", "رفاعة"], "l": ["خزان الروصيرص", "جبال الأنقسنا", "غابات النيل الأزرق"], "p": "M808.4,633.8L802.4,640.2L804.3,653.9L797.1,671.2L799.4,678.5L795.6,690.5L798.0,696.3L791.3,705.2L786.3,708.1L785.9,704.4L775.7,696.2L766.6,701.7L757.3,716.1L760.6,734.5L759.4,744.1L754.6,749.7L747.4,771.2L746.0,785.3L735.6,785.3L734.0,779.9L735.5,769.6L739.3,761.6L738.9,748.7L734.7,739.8L707.7,718.6L701.6,712.1L687.4,706.9L689.8,700.5L682.8,654.7L685.6,648.4L686.1,633.0L689.6,615.9L698.0,612.9L707.8,614.1L751.2,585.6L758.9,581.9L765.5,583.3L770.7,588.1L784.8,608.8L792.5,617.5L805.4,628.3L808.4,633.8Z", "c": [743, 665]},
+  "sd-wn": {"n": "النيل الأبيض", "cap": "ربك", "t": "agri", "d": "ولاية السكر على ضفاف النيل الأبيض. تضم أكبر مصانع السكر في السودان، وتمر بها خطوط التجارة نحو الجنوب.", "r": ["السكر: كنانة وعسلاية والنيل الأبيض", "الثروة السمكية", "الثروة الحيوانية", "الصمغ العربي"], "tr": ["الحسانية", "الأحامدة", "السليم", "كنانة", "الجموعية", "الشلك"], "l": ["مصنع سكر كنانة", "مدينة كوستي وجسرها", "جبل أولياء والخزان"], "p": "M649.2,432.5L650.9,441.0L645.3,442.3L646.7,446.5L652.1,448.9L653.5,462.0L652.5,466.2L646.0,473.9L639.0,490.1L641.1,498.0L652.3,517.4L653.2,532.5L657.5,534.3L662.9,528.1L666.7,532.4L670.1,554.9L681.3,572.1L680.8,588.1L689.6,615.9L660.6,616.2L661.8,629.4L621.4,630.3L611.8,620.1L601.1,617.0L597.0,594.2L593.6,571.3L601.1,563.7L617.9,551.5L617.6,537.6L611.0,535.0L605.5,529.6L596.7,513.5L589.2,508.8L585.8,500.3L584.5,486.5L586.8,474.0L597.2,465.3L603.3,451.2L610.5,445.7L611.8,440.6L630.8,432.0L636.2,433.8L649.2,432.5Z", "c": [632, 541]},
+  "sd-kn": {"n": "شمال كردفان", "cap": "الأبيض", "t": "gum", "d": "عروس الرمال وعاصمة الصمغ العربي. سهول رملية تشتهر بالضأن الحمري وبسوق الأبيض الكبير.", "r": ["الصمغ العربي الهشاب", "الضأن الحمري والإبل", "الفول السوداني", "الكركدي وحب البطيخ"], "tr": ["الكبابيش", "الجوامعة", "البديرية", "الهواوير", "الشنابلة", "دار حامد"], "l": ["بورصة الصمغ العربي بالأبيض", "شيكان – موقع المعركة", "جبل كردفان"], "p": "M342.9,345.5L554.6,350.2L575.1,347.9L586.7,351.1L602.3,384.1L611.8,396.0L625.3,417.8L630.8,432.0L611.8,440.6L610.5,445.7L603.3,451.2L597.2,465.3L586.8,474.0L584.5,486.5L585.8,500.3L589.2,508.8L596.7,513.5L605.5,529.6L611.0,535.0L617.6,537.6L617.9,551.5L601.1,563.7L593.6,571.3L597.0,594.2L585.0,588.0L580.2,588.1L573.4,592.4L562.2,593.5L555.9,602.5L545.9,608.6L539.2,614.7L532.4,613.7L522.9,602.9L515.4,600.6L499.7,601.4L495.7,598.4L493.5,587.9L485.1,587.5L480.7,590.1L464.7,615.2L449.2,614.3L432.9,602.8L427.2,603.4L415.9,615.8L411.8,630.4L412.1,634.3L385.0,610.0L355.0,595.0L322.2,574.6L335.3,556.3L335.7,550.9L344.0,539.6L345.0,534.4L340.1,524.1L342.6,510.1L333.5,484.8L327.1,464.3L321.3,456.4L308.6,347.5L309.8,345.9L342.9,345.5Z", "c": [472, 475]},
+  "sd-wk": {"n": "غرب كردفان", "cap": "الفولة", "t": "oil", "d": "أرض البترول والمراعي الخصبة، تضم حقول النفط الكبرى في هجليج وبليلة، وموطن قبائل المسيرية والحمر.", "r": ["النفط (هجليج وبليلة)", "الأبقار والإبل", "الصمغ العربي", "الفول السوداني والذرة"], "tr": ["المسيرية", "الحمر", "النوبة", "الداجو", "الفلاتة"], "l": ["حقل هجليج النفطي", "مدينة الفولة", "المجلد وبابنوسة", "بحيرة كيلك"], "p": "M322.2,574.6L355.0,595.0L385.0,610.0L412.1,634.3L411.8,630.4L415.9,615.8L427.2,603.4L432.9,602.8L449.2,614.3L464.7,615.2L476.0,665.0L472.9,751.9L472.8,760.7L465.0,770.1L450.9,773.4L436.1,780.1L425.2,791.0L426.1,797.3L377.3,797.1L368.1,780.9L354.7,752.3L353.5,747.3L332.1,694.7L328.2,678.5L327.2,668.7L327.1,653.8L325.2,643.8L316.9,626.8L314.8,607.4L320.1,595.0L320.3,579.2L322.2,574.6Z", "c": [392, 690]},
+  "sd-ks": {"n": "جنوب كردفان", "cap": "كادقلي", "t": "mine", "d": "أرض جبال النوبة الشامخة ذات التنوع الثقافي واللغوي الفريد، والسهول الخصبة الغنية بالذهب والمحاصيل.", "r": ["الذهب والمعادن", "القطن والذرة المطرية", "الصمغ العربي", "الأبقار والثمار"], "tr": ["النوبة بمجموعاتهم المتعددة", "الحوازمة", "كنانة", "الفلاتة"], "l": ["سلسلة جبال النوبة", "مدينة كادقلي", "جبال الدلنج"], "p": "M597.0,594.2L601.1,617.0L611.8,620.1L621.4,630.3L637.7,648.0L638.1,666.4L639.4,676.9L643.9,685.1L642.7,688.5L614.4,713.4L609.8,724.8L597.8,740.8L571.9,767.2L567.6,769.0L542.2,771.1L525.9,756.7L497.0,738.6L472.9,751.9L476.0,665.0L464.7,615.2L480.7,590.1L485.1,587.5L493.5,587.9L495.7,598.4L499.7,601.4L515.4,600.6L522.9,602.9L532.4,613.7L539.2,614.7L545.9,608.6L555.9,602.5L562.2,593.5L573.4,592.4L580.2,588.1L585.0,588.0L597.0,594.2Z", "c": [542, 682]},
+  "sd-nd": {"n": "شمال دارفور", "cap": "الفاشر", "t": "live", "d": "أكبر ولايات دارفور مساحة، تمتد شمالًا حتى الصحراء الكبرى. الفاشر كانت عاصمة سلطنة دارفور التاريخية.", "r": ["الإبل والضأن", "الذهب (جبل عامر)", "الصمغ العربي", "التبغ والذرة", "التجارة الصحراوية"], "tr": ["الفور", "الزغاوة", "البرتي", "الميدوب", "التنجر", "الرزيقات الأبالة"], "l": ["قصر السلطان علي دينار بالفاشر", "وادي هور", "جبل الميدوب"], "p": "M207.7,567.4L188.2,567.7L169.9,564.9L158.8,564.1L154.2,560.8L156.3,555.3L164.7,547.4L168.6,541.6L167.4,537.6L157.2,536.8L147.4,540.5L137.8,545.8L130.7,546.6L119.8,542.4L111.1,536.6L104.3,535.9L102.3,533.5L104.5,524.5L108.8,516.9L128.5,496.0L141.4,474.9L142.9,470.5L141.8,459.9L138.4,452.5L131.9,444.3L130.7,425.0L134.7,404.5L133.8,403.0L138.0,140.0L195.3,140.9L196.0,140.1L197.2,140.6L341.6,141.2L342.9,345.5L309.8,345.9L308.6,347.5L321.3,456.4L327.1,464.3L333.5,484.8L342.6,510.1L340.1,524.1L345.0,534.4L344.0,539.6L335.7,550.9L335.3,556.3L322.2,574.6L320.3,579.2L320.1,595.0L314.8,607.4L316.9,626.8L325.2,643.8L316.6,642.1L292.9,642.5L287.8,640.6L278.8,633.2L266.7,632.0L261.4,628.1L255.4,618.7L244.2,607.0L254.0,601.1L252.2,597.6L239.1,586.8L228.0,580.6L216.7,570.1L207.7,567.4Z", "c": [237, 367]},
+  "sd-wd": {"n": "غرب دارفور", "cap": "الجنينة", "t": "agri", "d": "ولاية حدودية مع تشاد، أرض سلطنة دار مساليت، تتخللها الوديان الخصبة وبساتين الفواكه.", "r": ["المانجو والخضر", "الذرة والدخن", "الثروة الحيوانية", "التجارة الحدودية"], "tr": ["المساليت", "القمر", "التاما", "الأرنقا", "الفور", "الرزيقات"], "l": ["مدينة الجنينة", "وادي كجا", "حدود دار مساليت"], "p": "M104.3,535.9L97.2,543.5L85.5,546.2L66.3,573.5L49.3,592.0L52.3,614.2L47.8,626.5L38.4,629.0L40.0,620.0L33.7,602.3L38.3,593.2L23.9,584.8L14.9,591.2L7.5,590.9L0.0,581.2L7.9,565.0L12.9,560.1L20.5,557.0L28.4,548.4L24.3,533.2L20.6,529.5L17.2,521.3L27.6,508.8L45.2,500.1L45.3,494.1L39.9,492.2L39.2,478.5L35.6,474.0L41.8,468.8L53.9,465.8L53.2,457.5L58.6,447.6L68.8,439.5L72.5,432.7L72.8,421.6L69.3,416.9L70.5,411.8L80.7,403.3L94.2,405.0L110.5,401.1L124.6,402.4L131.5,404.9L133.8,403.0L134.7,404.5L130.7,425.0L131.9,444.3L138.4,452.5L141.8,459.9L142.9,470.5L141.4,474.9L128.5,496.0L108.8,516.9L104.5,524.5L102.3,533.5L104.3,535.9Z", "c": [76, 499]},
+  "sd-7281": {"n": "وسط دارفور", "cap": "زالنجي", "t": "agri", "d": "ولاية جبل مرة، أعلى قمة في السودان. مناخ معتدل نادر يسمح بزراعة فواكه لا تنمو في غيرها.", "r": ["البرتقال والتفاح والفراولة", "الثوم والبطاطس", "الذرة والدخن", "المياه العذبة والينابيع"], "tr": ["الفور", "المساليت", "الزغاوة", "السلامات"], "l": ["جبل مرة وقمة دريبة", "شلالات قلول", "بحيرة دريبة البركانية"], "p": "M169.9,564.9L137.8,596.1L132.9,605.0L130.0,627.6L117.3,668.3L88.6,686.6L70.5,712.4L62.0,699.5L67.9,680.1L65.6,668.6L57.5,668.3L55.2,664.1L48.3,661.3L42.9,650.7L47.8,626.5L52.3,614.2L49.3,592.0L66.3,573.5L85.5,546.2L97.2,543.5L104.3,535.9L111.1,536.6L119.8,542.4L130.7,546.6L137.8,545.8L147.4,540.5L157.2,536.8L167.4,537.6L168.6,541.6L164.7,547.4L156.3,555.3L154.2,560.8L158.8,564.1L169.9,564.9Z", "c": [98, 610]},
+  "sd-711": {"n": "جنوب دارفور", "cap": "نيالا", "t": "live", "d": "ثاني أكبر مدن السودان في عاصمتها نيالا. سهول السافانا الغنية بالمراعي ومركز التجارة الغربي.", "r": ["الأبقار والضأن", "الصمغ العربي", "الفول السوداني والكركدي", "المانجو", "التجارة"], "tr": ["الهبانية", "البني هلبة", "التعايشة", "الفلاتة", "الفور", "الداجو والبرقد"], "l": ["سوق نيالا", "وادي برلي", "حظيرة الردوم"], "p": "M242.9,730.1L221.0,734.7L196.9,737.7L192.7,745.4L193.5,749.3L190.2,757.7L178.9,768.0L178.3,786.5L171.9,794.1L170.7,805.9L164.7,816.1L164.2,824.1L153.4,826.5L137.0,836.4L125.3,834.4L112.9,835.0L106.4,833.1L99.7,834.4L98.3,829.9L102.8,823.8L103.2,816.8L99.9,818.9L95.7,815.3L98.1,806.0L102.7,805.2L107.8,799.5L108.8,790.9L106.4,783.5L110.6,774.1L107.6,760.7L87.7,727.7L76.8,716.9L70.5,712.4L88.6,686.6L117.3,668.3L130.0,627.6L132.9,605.0L137.8,596.1L169.9,564.9L188.2,567.7L207.7,567.4L211.0,591.1L209.8,608.0L203.6,616.4L203.9,658.2L218.8,674.7L228.8,683.3L237.7,706.5L243.2,723.5L242.9,730.1Z", "c": [157, 702]},
+  "sd-sd": {"n": "شرق دارفور", "cap": "الضعين", "t": "live", "d": "ولاية الرعاة الكبار في سهول السافانا، وفيها حقول نفط في الجنوب.", "r": ["الأبقار", "النفط", "الصمغ العربي", "الفول السوداني والذرة"], "tr": ["الرزيقات البقارة", "المعاليا", "البرقد", "الزغاوة"], "l": ["مدينة الضعين", "أسواق الماشية", "بحر العرب جنوبًا"], "p": "M327.2,668.7L328.2,678.5L332.1,694.7L353.5,747.3L354.7,752.3L368.1,780.9L334.2,779.9L318.4,780.3L294.8,788.2L286.5,785.5L263.5,758.5L258.8,756.8L253.6,748.9L246.6,744.2L246.3,734.7L242.9,730.1L243.2,723.5L237.7,706.5L228.8,683.3L218.8,674.7L203.9,658.2L203.6,616.4L209.8,608.0L211.0,591.1L207.7,567.4L216.7,570.1L228.0,580.6L239.1,586.8L252.2,597.6L254.0,601.1L244.2,607.0L255.4,618.7L261.4,628.1L266.7,632.0L278.8,633.2L287.8,640.6L292.9,642.5L316.6,642.1L325.2,643.8L327.1,653.8L327.2,668.7Z", "c": [278, 692]}
+};
+
+const DEFAULT_MEDIA = {
+  "sd-no": {
+    bg: "Images/States/North_state.jpeg",
+    photos: [
+      { src: "Images/States/Northern_state_Jabal_albarkal.jpeg", cap: "جبل البركل التاريخي ومعبد آمون في كريمة" },
+      { src: "Images/States/Northen_state_aldafofa.jpeg", cap: "الدفوفة الغربية — آثار حضارة كرمة العريقة" },
+      { src: "Images/States/Northern_state_al_kasenger_islands.jpeg", cap: "جزر الكاسنجر النيلية والطبيعة الخلابة" },
+      { src: "Images/States/Northern_state_fourth_waterfal.jpeg", cap: "منطقة الشلال الرابع على مجرى نهر النيل" },
+      { src: "Images/States/North_state.jpeg", cap: "بساتين النخيل وضفاف النيل في الولاية الشمالية" },
+      { src: "Images/States/Northern_state.jpeg", cap: "مشهد طبيعي لنهر النيل في الشمالية" }
+    ]
+  },
+  "sd-rn": {
+    bg: "Images/States/Northern_state_al_bajrawya.jpeg",
+    photos: [
+      { src: "Images/States/Northern_state_al_bajrawya.jpeg", cap: "أهرامات البجراوية الملكية — عاصمة مملكة مروي" },
+      { src: "Images/States/Al_bajrawya_desert.jpg", cap: "صحراء البجراوية وأهرامات مروي التاريخية" },
+      { src: "Images/States/Albajrawya_door.jpg", cap: "تفاصيل المعماريات والنقوش في البجراوية" },
+      { src: "Images/States/Atbara_Nile.webp", cap: "ملتقى نهر عطبرة بنهر النيل" },
+      { src: "Images/States/RiverNile_state.jpeg", cap: "ضفاف النيل والطبيعة في ولاية نهر النيل" }
+    ]
+  },
+  "sd-rs": {
+    bg: "Images/States/Sudan_Sanganeb_Coral_Island.jpg",
+    photos: [
+      { src: "Images/States/Sudan_Sanganeb_Coral_Island.jpg", cap: "منارة وشعاب جزيرة سنقنيب المرجانية بالبحر الأحمر" },
+      { src: "Images/States/Sanganeeb_Island.webp", cap: "محمية جزيرة سنقنيب البحرية" },
+      { src: "Images/States/Port_sudan_port.webp", cap: "ميناء بورتسودان — البوابة البحرية الرئيسية للسودان" },
+      { src: "Images/States/Portsudan.webp", cap: "إطلالة ساحلية على مدينة بورتسودان" }
+    ]
+  },
+  "sd-ka": {
+    bg: "Images/States/Totel_Mountains.webp",
+    photos: [
+      { src: "Images/States/Totel_Mountains.webp", cap: "سلسلة جبال التاكا وتوتيل في كسلا" },
+      { src: "Images/States/Totel_Mountain.webp", cap: "جبل توتيل الشامخ وبساتين كسلا" },
+      { src: "Images/States/Kassla_Mosque_and_Taka_Mountains.jpg", cap: "مسجد الختمية التاريخي عند سفح جبال التاكا" }
+    ]
+  },
+  "sd-gd": {
+    bg: "Images/States/Al_gadaref.webp",
+    photos: [
+      { src: "Images/States/Al_gadaref.webp", cap: "غروب الشمس فوق سهول ولاية القضارف" },
+      { src: "Images/States/Al_gadaref_city.webp", cap: "إطلالة على مدينة القضارف" },
+      { src: "Images/States/Al_gadaref_state.webp", cap: "الطبيعة والسهول الزراعية في القضارف" }
+    ]
+  },
+  "sd-kh": {
+    bg: "Images/States/Khartoum_Sudan.jpg",
+    photos: [
+      { src: "Images/States/Khartoum_Sudan.jpg", cap: "المقرن — ملتقى النيلين الأبيض والأزرق في الخرطوم" },
+      { src: "Images/States/Khartoum.jpg", cap: "إطلالة جوية على العاصمة الخرطوم وضفاف النيل" },
+      { src: "Images/States/Khartoum_state_jabal_awilya.jpg", cap: "خزان جبل أولياء على النيل الأبيض جنوب الخرطوم" },
+      { src: "Images/States/Khartoum_state_south_jabal_awilya.jpg", cap: "ضفاف النيل جنوب جبل أولياء" },
+      { src: "Images/States/market_Khartoum.jpg", cap: "الأسواق التراثية والحرف اليدوية في الخرطوم وأم درمان" },
+      { src: "Images/States/Golden_Sun_Khartoum.jpg", cap: "غروب الشمس الذهبي على نيل الخرطوم" },
+      { src: "Images/States/Khhartoum_University.jpg", cap: "جامعة الخرطوم العريقة — منارة التعليم" }
+    ]
+  },
+  "sd-gz": {
+    bg: "Images/States/AL_jazira_Scheme.webp",
+    photos: [
+      { src: "Images/States/AL_jazira_Scheme.webp", cap: "قنوات الري والحقول الخضراء في مشروع الجزيرة" },
+      { src: "Images/States/Um_sannad_village_aljazira_state.jpg", cap: "قرية أم سناد الريفية في ولاية الجزيرة" }
+    ]
+  },
+  "sd-si": {
+    bg: "Images/States/Sennar_Dam.webp",
+    photos: [
+      { src: "Images/States/Sennar_Dam.webp", cap: "خزان سنار التاريخي على مجرى النيل الأزرق" },
+      { src: "Images/States/shabasha_White_Nile_state.jpeg", cap: "منطقة سنار والضفاف النيلية" },
+      { src: "Images/States/mahmeyat_al_dinder.webp", cap: "طيور البجع واللقالق تحلق وتسبح عند غروب الشمس في محمية حظيرة الدندر" },
+      { src: "Images/States/mahmiyat_al_dinder.webp", cap: "قطعان الغزلان والحيوانات البرية على ضفاف المياه في محمية حظيرة الدندر" }
+    ]
+  },
+  "sd-bn": {
+    bg: "Images/States/sad_al_rosers.webp",
+    photos: [
+      { src: "Images/States/sad_al_rosers.webp", cap: "خزان الروصيرص في الدمازين — ولاية النيل الأزرق" },
+      { src: "Images/States/Blue_Nile_state_Baw_River.jpg", cap: "نهر باو والطبيعة الاستوائية في النيل الأزرق" },
+      { src: "Images/States/Blue_Nile.jpg", cap: "ملامح من الطبيعة الجبلية في ولاية النيل الأزرق" }
+    ]
+  },
+  "sd-wn": {
+    bg: "Images/States/White_NileState_Sunset.jpg",
+    photos: [
+      { src: "Images/States/White_NileState_Sunset.jpg", cap: "غروب الشمس الساحر على ضفاف النيل الأبيض" },
+      { src: "Images/States/Kosti.webp", cap: "معالم مدينة كوستي بولاية النيل الأبيض" },
+      { src: "Images/States/White_Nile_Kosti.jpg", cap: "إطلالة على مدينة كوستي والنيل الأبيض" }
+    ]
+  },
+  "sd-kn": {
+    bg: "Images/States/North_kordfan.jpg",
+    photos: [
+      { src: "Images/States/North_kordfan.jpg", cap: "طبيعة السافانا والرمال في ولاية شمال كردفان" },
+      { src: "Images/States/North_Kordfan_Dair_Mountain_1.jpg", cap: "جبل الداير الشامخ في كردفان" }
+    ]
+  },
+  "sd-wk": {
+    bg: "Images/States/West_kordfan.webp",
+    photos: [
+      { src: "Images/States/Al_fola_city.webp", cap: "مدينة الفولة — حاضرة ولاية غرب كردفان" },
+      { src: "Images/States/West_kordfan.webp", cap: "سهول ومراعي ولاية غرب كردفان" },
+      { src: "Images/States/Natural_at_West_Kordfan.webp", cap: "الطبيعة الخضراء في غرب كردفان" },
+      { src: "Images/States/West_kordfan_Sheeps_in_al_nakhawi.jpg", cap: "الثروة الحيوانية والمراعي في غرب كردفان" },
+      { src: "Images/States/West_Kordfan_al_baobao_tree.jpg", cap: "أشجار التبلدي في غرب كردفان" }
+    ]
+  },
+  "sd-ks": {
+    bg: "Images/States/Nuba-berge.jpg",
+    photos: [
+      { src: "Images/States/Nuba-berge.jpg", cap: "سلسلة جبال النوبة الخضراء" }
+    ]
+  },
+  "sd-nd": {
+    bg: "Images/States/North_Darfur_state_Alfashir.jpeg",
+    photos: [
+      { src: "Images/States/North_Darfur_state_Alfashir.jpeg", cap: "مدينة الفاشر — حاضرة ولاية شمال دارفور" }
+    ]
+  },
+  "sd-wd": {
+    bg: "Images/States/West_Darfur_state.webp",
+    photos: [
+      { src: "Images/States/West_Darfur_state.webp", cap: "الطبيعة والوديان في ولاية غرب دارفور" },
+      { src: "Images/States/West_Darfur.webp", cap: "مناظر من ولاية غرب دارفور" }
+    ]
+  },
+  "sd-7281": {
+    bg: "Images/States/Jabal_marrah_waterfall.jpeg",
+    photos: [
+      { src: "Images/States/Jabal_marrah_waterfall.jpeg", cap: "شلالات جبل مرة العذبة في ولاية وسط دارفور" },
+      { src: "Images/States/Bohyrat_Doryba_ALborkanya.webp", cap: "بحيرة دريبة البركانية فوق قمة جبل مرة" },
+      { src: "Images/States/Galol_Waterfall_Mid_Darfur.webp", cap: "شلالات قلول الساحرة في وسط دارفور" }
+    ]
+  },
+  "sd-711": {
+    bg: "Images/States/Nyala_city.webp",
+    photos: [
+      { src: "Images/States/South_Darfour_state_Nyala.jpeg", cap: "الطبيعة والوديان الخضراء في جنوب دارفور" },
+      { src: "Images/States/Mahmyat_al_radoum_south_darfur.webp", cap: "محمية حظيرة الردوم القومية في جنوب دارفور" },
+      { src: "Images/States/Nyala.jpg", cap: "معالم مدينة نيالا" }
+    ]
+  },
+  "sd-sd": {
+    bg: "Images/States/East_Darfur.webp",
+    photos: [
+      { src: "Images/States/East_Darfur.webp", cap: "مشهد من ولاية شرق دارفور" }
+    ]
+  }
+};
+
+window.imgFallback = function(el) {
+  const src = el.getAttribute('src');
+  if (!el.dataset.tried) {
+    el.dataset.tried = '1';
+    if (src.endsWith('.webp')) el.src = src.replace(/\.webp$/, '.jpg');
+    else if (src.endsWith('.jpg')) el.src = src.replace(/\.jpg$/, '.webp');
+  } else if (el.dataset.tried === '1') {
+    el.dataset.tried = '2';
+    el.src = src.replace(/\.(webp|jpg)$/, '.jpeg');
+  }
+};
+
+const THEMES={agri:"زراعة",live:"ثروة حيوانية",gum:"صمغ عربي",mine:"تعدين وطاقة",oil:"نفط",trade:"تجارة وموانئ"};
+const SMALL=new Set(["sd-kh","sd-wd","sd-7281","sd-wk"]);
+
+let PHOTOS={};
+try{PHOTOS=JSON.parse(localStorage.getItem('sd_photos'))||{}}catch(e){}
+
+let sel=null, filter=null, busy=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const NS="http://www.w3.org/2000/svg";
+const map=$('map');
+
+Object.entries(STATES).forEach(([k,s])=>{
+  const p=document.createElementNS(NS,'path');
+  p.setAttribute('d',s.p);p.setAttribute('class','st');p.dataset.k=k;
+  p.style.fill=`var(--${s.t})`;p.setAttribute('tabindex','0');p.setAttribute('role','button');
+  p.setAttribute('aria-label',`ولاية ${s.n}`);
+  p.addEventListener('click',()=>select(k));
+  p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(k)}});
+  map.appendChild(p);
+});
+
+const topoLayer = document.createElementNS(NS, 'g');
+topoLayer.setAttribute('pointer-events', 'none');
+Object.values(STATES).forEach(s => {
+  const tp = document.createElementNS(NS, 'path');
+  tp.setAttribute('d', s.p);
+  tp.setAttribute('fill', 'url(#topoLines)');
+  topoLayer.appendChild(tp);
+});
+map.appendChild(topoLayer);
+
+const nileGroup = document.createElementNS(NS, 'g');
+const whiteNileD = "M660,628 C666,608 656,592 664,574 C670,558 654,544 653,526 C652,510 641,496 645,480 C648,466 654,454 650,442 L649.2,432.5";
+const blueNileD  = "M786,704 C776,684 782,668 768,650 C754,632 760,614 744,596 C730,580 734,562 718,544 C704,528 706,512 692,496 C678,480 676,464 662,448 L649.2,432.5";
+const mainNileD  = "M649.2,432.5 C644,418 652,402 643,386 C636,372 648,356 644,338 C640,320 650,304 644,284 C638,266 649,250 642,230 C636,214 636,198 618,194 C600,190 588,208 574,226 C560,244 544,262 522,258 C500,254 488,236 482,212 C476,188 486,164 480,140 C475,118 488,96 496,74 C504,52 518,32 534,14";
+
+nileGroup.innerHTML = `
+  <path class="nile-casing" stroke-width="3.8" d="${whiteNileD}"/>
+  <path class="nile-river" stroke-width="2.1" d="${whiteNileD}"/>
+
+  <path class="nile-casing" stroke-width="3.8" d="${blueNileD}"/>
+  <path class="nile-river" stroke-width="2.1" d="${blueNileD}"/>
+
+  <path class="nile-casing" stroke-width="4.6" d="${mainNileD}"/>
+  <path class="nile-river" stroke-width="2.5" d="${mainNileD}"/>
+
+  <circle class="nile-confluence" cx="649.2" cy="432.5" r="4"/>
+`;
+map.appendChild(nileGroup);
+
+Object.entries(STATES).forEach(([k,s])=>{
+  const t=document.createElementNS(NS,'text');
+  t.setAttribute('x',s.c[0]);t.setAttribute('y',s.c[1]);
+  t.setAttribute('class','lbl'+(SMALL.has(k)?' small':''));t.textContent=s.n;map.appendChild(t);
+});
+
+const lg=$('legend');
+Object.entries(THEMES).forEach(([t,n])=>{
+  const b=document.createElement('button');b.type='button';b.className='lg';b.setAttribute('aria-pressed','false');
+  b.innerHTML=`<i style="background:var(--${t})"></i>${n}`;
+  b.onclick=()=>{filter=filter===t?null:t;paint()};b.dataset.t=t;lg.appendChild(b);
+});
+
+function paint(){
+  map.querySelectorAll('.st').forEach(p=>{
+    const k=p.dataset.k;p.classList.toggle('on',k===sel);
+    p.classList.toggle('dim',(!!filter&&STATES[k].t!==filter)||(!!SQ&&!hit(k)));
+    if(k===sel)map.insertBefore(p,topoLayer);
+  });
+  lg.querySelectorAll('.lg').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.t===filter)));
+}
+
+function intro(){
+  $('panel').style.backgroundImage='';
+  $('panel').innerHTML=`<div class="intro"><h2>${t('cnt')}</h2><p style="margin-top:10px; color:var(--muted);">${t('pick')}</p>
+  <div class="quick">${Object.entries(STATES).map(([k,s])=>`<button type="button" data-k="${k}">${esc(nm(k))}</button>`).join('')}</div></div>`;
+  $('panel').querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>select(b.dataset.k));
+}
+
+function select(k){
+  sel=k;paint();render();
+  try{sessionStorage.setItem('sd-sel',k)}catch(e){}
+  if(matchMedia('(max-width:860px)').matches)$('panel').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
+}
+
+function getAllStatePhotos(k) {
+  const def = (DEFAULT_MEDIA[k]?.photos || []).map(p => ({ ...p, isDefault: true }));
+  const usr = (PHOTOS[k] || []).map((p, idx) => ({ ...p, isDefault: false, usrIdx: idx }));
+  return [...def, ...usr];
+}
+
+function render(){
+  const s=STATES[sel];if(!s)return intro();
+  const bg = DEFAULT_MEDIA[sel]?.bg;
+  const P=$('panel');
+  if(bg){
+    P.style.backgroundImage=`linear-gradient(rgba(252,249,243,0.72), rgba(248,243,233,0.78)), url("${encodeURI(bg)}")`;
+  } else {
+    P.style.backgroundImage=`linear-gradient(160deg, #FCF9F3, #F5EBDD)`;
+  }
+  const ph = getAllStatePhotos(sel);
+  $('panel').innerHTML=`
+  <h2>${esc(nm(sel))}</h2>
+  <div class="cap"><span>${t('cap')}: <b style="color:var(--ink)">${esc(cp(sel))}</b></span><span class="tag" style="background:var(--${s.t})">${THN(s.t)}</span></div>
+  <p class="desc">${s.d}</p>
+  <h3>${t('res')}</h3><ul class="res">${s.r.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+  <h3>${t('tr')}</h3><div class="chips">${s.tr.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>
+  <h3>${t('lm')}</h3><div class="chips">${s.l.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>
+  <h3>${t('pic')} (${ph.length})</h3>
+  ${ph.length?`<div class="gallery">${ph.map((p,i)=>`<figure class="ph"><button class="open" type="button" data-i="${i}" aria-label="عرض الصورة"><img src="${esc(p.src)}" alt="${esc(p.cap||s.n)}" loading="lazy" onerror="imgFallback(this)"></button>${p.cap?`<span class="ph-cap-tag">${esc(p.cap)}</span>`:''}</figure>`).join('')}</div>`
+  :`<p class="empty">${t('noph')}</p>`}`;
+
+  $('panel').querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{
+    const p=ph[+b.dataset.i];
+    const imgEl = b.querySelector('img');
+    $('lbImg').src = imgEl ? imgEl.src : p.src;
+    $('lbImg').alt = p.cap||s.n;
+    $('lbCap').textContent = p.cap||'';
+    $('lb').showModal();
+  });
+}
+
+const heritageSec = $('heritageSec');
+const heritageToggle = $('heritageToggle');
+heritageToggle.onclick = () => {
+  const isOpen = heritageSec.classList.toggle('open');
+  heritageToggle.setAttribute('aria-expanded', String(isOpen));
+};
+
+document.querySelectorAll('#catTabs .cat-tab').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('#catTabs .cat-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('#heritageList .h-card').forEach(card => {
+      card.classList.toggle('hidden-cat', cat !== 'all' && card.dataset.category !== cat);
+    });
+  };
+});
+
+/* روابط التصويت */
+const voteBtn = $('openVoteModalBtn2');
+if (voteBtn) voteBtn.onclick = () => $('voteDlg').showModal();
+
+const copyVoteBtn = $('copyVoteLinkBtn');
+if (copyVoteBtn) {
+  copyVoteBtn.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText("https://forms.cloud.microsoft/pages/responsepage.aspx?id=O73ILBD6jE-8cJcmVaDSIDqcpO52_qJCgfJkwjzrfYdUQkZETVZMNTBGUFhTNFZKTjY4TkwxNlBJNS4u&origin=QRCode&utm_source=chatgpt.com&route=shorturl");
+      alert("تم نسخ رابط التصويت بنجاح!");
+    } catch(e) { alert("تعذر النسخ"); }
+  };
+}
+
+const LK='sd_lens_gallery';
+const VOTES_KEY='sd_lens_votes';
+let lensList=[];
+let myVotes={};
+try{lensList=JSON.parse(localStorage.getItem(LK)||'[]')}catch(e){}
+try{myVotes=JSON.parse(localStorage.getItem(VOTES_KEY)||'{}')}catch(e){}
+
+function renderLens(){
+  const grid=$('lensGrid');
+  if(!lensList.length){
+    grid.innerHTML=`<p class="empty" style="grid-column:1/-1">كن أول من يشاركنا لقطة من تصويره للبوث أو العروض!</p>`;
+    return;
+  }
+  grid.innerHTML=lensList.map((item,idx)=>{
+    const id = item.id || String(idx);
+    const likes = item.likes || 0;
+    const dislikes = item.dislikes || 0;
+    const v = myVotes[id];
+    return `
+    <figure class="lens-card" style="margin:0">
+      <img src="${esc(item.src)}" alt="${esc(item.author||'مشارك')}" loading="lazy" data-lview="${idx}">
+      <figcaption class="lens-meta">
+        <h4>📸 ${esc(item.author||'مشارك')}</h4>
+        <div class="react-btns">
+          <button type="button" class="react-btn ${v==='like'?'voted-like':''}" data-vote="like" data-id="${esc(id)}" data-idx="${idx}">👍 <span>${likes}</span></button>
+          <button type="button" class="react-btn ${v==='dislike'?'voted-dislike':''}" data-vote="dislike" data-id="${esc(id)}" data-idx="${idx}">👎 <span>${dislikes}</span></button>
+        </div>
+      </figcaption>
+      <button class="del" type="button" data-ldel="${idx}" data-id="${esc(id)}" aria-label="حذف">×</button>
+    </figure>
+  `}).join('');
+
+  grid.querySelectorAll('[data-lview]').forEach(img=>img.onclick=()=>{
+    const it=lensList[+img.dataset.lview];
+    $('lbImg').src=it.src;
+    $('lbCap').textContent=`عدسة: ${it.author||'مشارك'}`;
+    $('lb').showModal();
+  });
+
+  grid.querySelectorAll('[data-vote]').forEach(btn=>btn.onclick=async()=>{
+    const type = btn.dataset.vote;
+    const id = btn.dataset.id;
+    const idx = +btn.dataset.idx;
+    if (myVotes[id] === type) return;
+    const prev = myVotes[id];
+    myVotes[id] = type;
+    try{localStorage.setItem(VOTES_KEY, JSON.stringify(myVotes))}catch(e){}
+
+    if (db && lensList[idx]?.id) {
+      const ref = doc(db, "capture_culture", lensList[idx].id);
+      const upd = {};
+      upd[type === 'like' ? 'likes' : 'dislikes'] = increment(1);
+      if (prev) upd[prev === 'like' ? 'likes' : 'dislikes'] = increment(-1);
+      try { await updateDoc(ref, upd); } catch(e) {}
+    } else {
+      lensList[idx][type === 'like' ? 'likes' : 'dislikes'] = (lensList[idx][type === 'like' ? 'likes' : 'dislikes']||0) + 1;
+      if (prev) lensList[idx][prev === 'like' ? 'likes' : 'dislikes'] = Math.max(0, (lensList[idx][prev === 'like' ? 'likes' : 'dislikes']||1) - 1);
+      try{localStorage.setItem(LK, JSON.stringify(lensList))}catch(e){}
+      renderLens();
+    }
+  });
+
+  grid.querySelectorAll('[data-ldel]').forEach(btn=>btn.onclick=async()=>{
+    if(!confirm('حذف هذه الصورة من المعرض؟')) return;
+    const idx = +btn.dataset.ldel;
+    if (db && lensList[idx]?.id) {
+      try { await deleteDoc(doc(db, "capture_culture", lensList[idx].id)); } catch(e) {}
+    } else {
+      lensList.splice(idx,1);
+      try{localStorage.setItem(LK,JSON.stringify(lensList))}catch(e){}
+      renderLens();
+    }
+  });
+}
+
+if (db) {
+  const qLens = query(collection(db, "capture_culture"), orderBy("t", "desc"));
+  onSnapshot(qLens, (snap) => {
+    lensList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderLens();
+  });
+} else {
+  renderLens();
+}
+
+$('lensPickBtn').onclick=()=>$('lensFile').click();
+$('lensFile').onchange=async e=>{
+  const file=e.target.files[0];
+  if(!file)return;
+  $('lensStatus').textContent='جارٍ إضافة صورتك للمعرض…';
+  try{
+    const src=await shrink(file, 800, 0.68);
+    const author=($('lensAuthor').value||'').trim()||'مشارك';
+    const item = {src, author, likes: 0, dislikes: 0, t: Date.now()};
+    if (db) {
+      await addDoc(collection(db, "capture_culture"), item);
+    } else {
+      lensList.unshift(item);
+      localStorage.setItem(LK,JSON.stringify(lensList));
+      renderLens();
+    }
+    $('lensAuthor').value='';
+    $('lensFile').value='';
+    $('lensStatus').textContent='شكراً لمشاركتك في موقع أرض النيلين!';
+    setTimeout(()=>{$('lensStatus').textContent=''},3500);
+  }catch(err){
+    $('lensStatus').textContent='عذراً، تعذر حفظ الصورة.';
+  }
+};
+
+let EN=false;try{EN=localStorage.getItem('sd-lang')==='en'}catch(e){}
+const I={
+  title:['أرض النيلين','Land of Two Niles'],
+  sub:['رحلة تفاعلية عبر ولايات السودان الـ ١٨، من أهرامات مروي والنوبة إلى سهول كردفان ودارفور وملتقى النيلين.','An interactive journey across Sudan’s 18 states, from Meroe and Nubia to the confluence of the Two Niles.'],
+  ph:['ابحث عن ولاية، حضارة، أو معلم…','Search a state, civilization, or landmark…'],
+  res:['غنية بـ','Rich in'],tr:['القبائل','Tribes'],lm:['معالم','Landmarks'],pic:['الصور','Photos'],cap:['العاصمة','Capital'],
+  pick:['اختر ولاية من الخريطة أو من القائمة:','Select a state from the map or the list:'],
+  cnt:['١٨ ولاية','18 States'],
+  noph:['لا توجد صور لهذه الولاية بعد. أضف صورتك!','No photos for this state yet. Add yours!'],
+  wt:['الوطن فينا','The Homeland Within Us'],
+  wd:['«ليس الوطنُ بقعةً من الأرض نولد عليها فحسب، بل جذورٌ تمتدّ في أرواحنا، وذاكرةٌ تسافر معنا، وحنينٌ لا تُطفئه المسافات؛ هو ذلك الجزء منّا الذي لا نتركه خلفنا أبدًا، لأننا، مهما ابتعدنا، نظلّ نحمل أوطاننا فينا.»','“A homeland is not merely a patch of earth where we are born, but roots extending deep into our souls, a memory that travels with us, and a longing unquenched by distance; it is that part of us we never leave behind, for no matter how far we drift, we always carry our homelands within us.”'],
+  wprompt:['«نرحل عن الأوطان، ولا ترحل الأوطان عنّا. فما الذي بقي فيكِ منه؟ كلمة، ذكرى، أو صورة.»','“We depart from homelands, yet homelands never depart from us. So what remains within you of it? A word, a memory, or a photo.”'],
+  wo1:['كلمة تعبّر عن الوطن بالنسبة لك','A word that expresses homeland to you'],
+  wo2:['ذكرى أو حكاية من الوطن','A memory or a story from home'],
+  wo3:['صورة تحكي معنى الوطن','A photo that tells what homeland means'],
+  wp1:['بالنسبة لي، الوطن هو…','To me, homeland is…'],
+  wp2:['أتذكّر…','I remember…'],
+  wp3:['كلمة عن الصورة (اختياري)','A few words about the photo (optional)'],
+  wpub:['انشر مشاركتي في جدار المشاركات','Publish my contribution on the wall'],
+  wsend:['أرسل مشاركتي','Send my contribution'],
+  wthx:['شكراً لأنك تركت جزءاً من وطنك هنا.','Thank you for leaving a part of your homeland here.'],
+  wt2:['جدار المشاركات','Wall of contributions'],
+  wempty:['كن أول من يترك أثراً هنا.','Be the first to leave a trace here.'],
+  ltitle:['Capture the Culture | وثّق الثقافة بعدستك','Capture the Culture | Document the Heritage'],
+  lsub:['وثّقوا لحظاتكم معنا! شاركونا لقطاتكم من تصويركم للبوث والعروض في اليوم الثقافي.','Document your moments with us! Share your photos of the booth and performances during the cultural day.']
+};
+const t=k=>I[k][EN?1:0];
+const EN_N={"sd-no":["Northern","Dongola"],"sd-rn":["River Nile","Ed Damer"],"sd-rs":["Red Sea","Port Sudan"],"sd-ka":["Kassala","Kassala"],"sd-gd":["Gedaref","Gedaref"],"sd-kh":["Khartoum","Khartoum"],"sd-gz":["Al Jazirah","Wad Madani"],"sd-si":["Sennar","Singa"],"sd-bn":["Blue Nile","Ad-Damazin"],"sd-wn":["White Nile","Rabak"],"sd-kn":["North Kordofan","El Obeid"],"sd-wk":["West Kordofan","Al-Fulah"],"sd-ks":["South Kordofan","Kadugli"],"sd-nd":["North Darfur","El Fasher"],"sd-wd":["West Darfur","El Geneina"],"sd-7281":["Central Darfur","Zalingei"],"sd-711":["South Darfur","Nyala"],"sd-sd":["East Darfur","Ed Daein"]};
+const TH_EN={agri:"Agriculture",live:"Livestock",gum:"Gum arabic",mine:"Mining & energy",oil:"Oil",trade:"Trade & ports"};
+const nm=k=>EN?EN_N[k][0]:STATES[k].n, cp=k=>EN?EN_N[k][1]:STATES[k].cap, THN=k=>EN?TH_EN[k]:THEMES[k];
+
+function applyLang(){
+  document.documentElement.lang=EN?'en':'ar';document.documentElement.dir=EN?'ltr':'rtl';
+  document.title=t('title')+' — Sudan Eco';
+  document.querySelector('.top-banner h1').innerHTML=EN?'Land of Two Niles <span>| أرض النيلين</span>':'أرض النيلين <span>| Land of Two Niles</span>';
+  document.querySelector('.top-banner .sub').textContent=t('sub');
+  $('q').placeholder=t('ph');$('langBtn').textContent=EN?'العربية':'EN';
+  $('lensTitle').textContent=t('ltitle');$('lensSub').textContent=t('lsub');
+  wLang();
+  const ks=Object.keys(STATES);[...map.querySelectorAll('.lbl')].forEach((e,i)=>e.textContent=nm(ks[i]));
+  lg.querySelectorAll('.lg').forEach(b=>b.lastChild.textContent=THN(b.dataset.t));
+  sel?render():intro();wDraw();
+}
+$('langBtn').onclick=()=>{EN=!EN;try{localStorage.setItem('sd-lang',EN?'en':'ar')}catch(e){}applyLang()};
+
+let SQ='';const nz=x=>String(x).toLowerCase().replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
+const hit=k=>{const s=STATES[k];return nz([s.n,s.cap,...s.r,...s.tr,...s.l,...EN_N[k]].join(' ')).includes(SQ)};
+$('q').addEventListener('input',e=>{SQ=nz(e.target.value.trim());paint()});
+$('q').addEventListener('keydown',e=>{if(e.key==='Enter'&&SQ){const k=Object.keys(STATES).find(hit);if(k)select(k)}});
+
+let seen=false;try{seen=sessionStorage.getItem('sd-seen')==='1'}catch(e){}
+$('ov').className=seen?'off':'';
+$('ovGo').onclick=()=>{$('ov').className='off';try{sessionStorage.setItem('sd-seen','1')}catch(e){}};
+
+const wType=()=>document.querySelector('input[name=wtype]:checked').value;
+function wLang(){
+  $('wT').textContent=t('wt');$('wD').textContent=t('wd');$('wPrompt').textContent=t('wprompt');$('wT2').textContent=t('wt2');
+  ['wo1','wo2','wo3'].forEach(k=>$(k).textContent=t(k));$('wPubT').textContent=t('wpub');$('wSend').textContent=t('wsend');wForm();
+}
+function wForm(){
+  const ty=wType();$('wtext').placeholder=t('wp'+ty);
+  $('wtext').maxLength=ty==='1'?70:ty==='2'?600:200;
+  $('wtext').rows=ty==='1'?2:4;
+  $('wimg').hidden=ty!=='3';
+}
+document.querySelectorAll('input[name=wtype]').forEach(r=>r.onchange=wForm);
+
+const WK='sd_watan_wall';
+let wLoc=[];try{wLoc=JSON.parse(localStorage.getItem(WK)||'[]')}catch(e){}
+function wDraw(){
+  const pubItems = wLoc.filter(i => i.isPublic !== false);
+  $('wall').innerHTML=pubItems.length?pubItems.map((i,idx)=>`
+    <figure class="wc">
+      ${i.img?`<img src="${esc(i.img)}" alt="" loading="lazy">`:''}
+      ${i.text?(i.type==='1'?`<div class="ww">${esc(i.text)}</div>`:`<blockquote>${esc(i.text)}</blockquote>`):''}
+      <button class="del" type="button" data-wdel="${idx}" aria-label="حذف">×</button>
+    </figure>
+  `).join(''):`<p class="empty" style="color:rgba(248,243,233,0.78);">${t('wempty')}</p>`;
+
+  $('wall').querySelectorAll('[data-wdel]').forEach(b=>b.onclick=async()=>{
+    const idx=+b.dataset.wdel;
+    const target = pubItems[idx];
+    if(!confirm('حذف هذه المشاركة؟')) return;
+    if (db && target?.id) {
+      try { await deleteDoc(doc(db, "watan_feena", target.id)); } catch(e) {}
+    } else {
+      wLoc = wLoc.filter(x => x !== target);
+      try{localStorage.setItem(WK,JSON.stringify(wLoc))}catch(e){}
+      wDraw();
+    }
+  });
+}
+
+if (db) {
+  const qWatan = query(collection(db, "watan_feena"), orderBy("t", "desc"));
+  onSnapshot(qWatan, (snap) => {
+    wLoc = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    wDraw();
+  });
+}
+
+$('wSend').onclick=async()=>{
+  const ty=wType(),text=$('wtext').value.trim(),file=$('wimg').files[0], isPublic=$('wpub').checked;
+  if(ty!=='3'&&!text)return;
+  if(ty==='3'&&!file){alert('يرجى اختيار صورة أولاً');return}
+  $('wSend').disabled=true;
+  try{
+    let img='';
+    if(ty==='3'){img=await shrink(file, 800, 0.68)}
+    const d={type:ty, text, img, isPublic, t:Date.now()};
+    if (db) {
+      await addDoc(collection(db, "watan_feena"), d);
+    } else {
+      wLoc.unshift(d);
+      try{localStorage.setItem(WK,JSON.stringify(wLoc))}catch(e){
+        wLoc[0].img='';
+        try{localStorage.setItem(WK,JSON.stringify(wLoc))}catch(e2){}
+      }
+      wDraw();
+    }
+    $('wtext').value='';$('wimg').value='';
+    $('wThanks').textContent=isPublic ? t('wthx') : 'تم حفظ مشاركتك الخاصة بنجاح (لن تظهر في الجدار العام).';
+    $('wThanks').hidden=false;
+    setTimeout(()=>{$('wThanks').hidden=true},4500);
+  }catch(e){alert('تعذر حفظ المشاركة')}
+  $('wSend').disabled=false;
+};
+
+function qrUrl(){return $('qrUrl').value.trim()||window.location.href}
+function drawQR(){
+  const box=$('qr');box.innerHTML='';const u=qrUrl();
+  if(!u||typeof QRCode==='undefined') return;
+  new QRCode(box,{text:u,width:220,height:220,colorDark:'#762D32',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});
+}
+$('qrBtn').onclick=()=>{
+  $('qrUrl').value=window.location.href;drawQR();$('qrStatus').textContent='';$('qrDlg').showModal();
+};
+$('copyBtn').onclick=async()=>{
+  try{await navigator.clipboard.writeText(qrUrl());$('qrStatus').textContent='تم نسخ الرابط.'}catch(e){$('qrUrl').select();$('qrStatus').textContent='حدّد الرابط وانسخه.'}
+};
+$('saveQr').onclick=()=>{
+  const c=$('qr').querySelector('canvas');if(!c)return;
+  const a=document.createElement('a');a.download='land-of-two-niles-qr.png';a.href=c.toDataURL('image/png');a.click();
+  $('qrStatus').textContent='تم حفظ صورة الرمز.';
+};
+document.querySelectorAll('dialog').forEach(d=>{
+  d.querySelector('[data-close]').onclick=()=>d.close();
+  d.addEventListener('click',e=>{if(e.target===d)d.close()});
+});
+
+let start=null;try{start=sessionStorage.getItem('sd-sel')}catch(e){}
+if(start&&STATES[start]){sel=start;paint();render()}else intro();
+applyLang();
+</script>
+</body>
+</html>
