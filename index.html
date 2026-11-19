@@ -911,6 +911,7 @@ dialog .x { float: left; border: 0; background: transparent; font-size: 1.6rem; 
   .panel { position: static; max-height: none; }
   .lbl { font-size: 15px; } .lbl.small { font-size: 11.5px; }
   svg.map { min-height: 360px; }
+  /* Disable the decorative SVG pattern on small screens to avoid mobile rendering artifacts. */
   .map-topography { display: none !important; }
   .h-card { flex-direction: column; }
   .h-img-box { width: 100%; height: 220px; }
@@ -2142,9 +2143,27 @@ const hit=k=>{const s=STATES[k];return nz([s.n,s.n_en,s.cap,s.cap_en,...s.r,...s
 $('q').addEventListener('input',e=>{SQ=nz(e.target.value.trim());paint()});
 $('q').addEventListener('keydown',e=>{if(e.key==='Enter'&&SQ){const k=Object.keys(STATES).find(hit);if(k)select(k)}});
 
-let seen=false;try{seen=sessionStorage.getItem('sd-seen')==='1'}catch(e){}
-$('ov').className=seen?'off gone':'';
-$('ovGo').onclick=()=>{$('ov').className='off';setTimeout(()=>{$('ov').classList.add('gone')},800);try{sessionStorage.setItem('sd-seen','1')}catch(e){}};
+const ov = $('ov');
+let seen = false;
+try { seen = sessionStorage.getItem('sd-seen') === '1'; } catch (e) {}
+if (seen) {
+  ov.className = 'off gone';
+} else {
+  ov.className = '';
+}
+function hideOverlayPermanently() {
+  ov.classList.add('gone');
+}
+ov.addEventListener('transitionend', (ev) => {
+  if (ev.target === ov && ev.propertyName === 'opacity' && ov.classList.contains('off')) {
+    hideOverlayPermanently();
+  }
+});
+$('ovGo').onclick = () => {
+  ov.classList.add('off');
+  setTimeout(hideOverlayPermanently, 750);
+  try { sessionStorage.setItem('sd-seen', '1'); } catch (e) {}
+};
 
 const wType=()=>document.querySelector('input[name=wtype]:checked').value;
 function wLang(){
